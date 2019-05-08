@@ -25,5 +25,5 @@ const connectorSchema = new Schema({
   }
 });
 
-const Connector = mongoose.model('Connector', userSchema);
+const Connector = mongoose.model('Connector', connectorSchema);
 module.exports = Connector;

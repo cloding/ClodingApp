@@ -12,6 +12,10 @@ const userSchema = new Schema({
   photouser: {
     type: String,
     default: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+  },
+  Balance: {
+    type:Number,
+    default: 0
   }
 }, {
   timestamps: {
