@@ -3,7 +3,16 @@ const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
   username: String,
-  password: String
+  password: String,
+  mail: String,
+  country: String,
+  region: String,
+  city: String,
+  direction: String,
+  photouser: {
+    type: String,
+    default: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',
