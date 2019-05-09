@@ -41,7 +41,7 @@ const app = express();
 // app.use(cors(corsOptions));
 
 // configuración CORS
-const whiteList = ["http://localhost:3000", 'https://prueba-dep.herokuapp.com/']
+const whiteList = ["http://localhost:3000", 'https://cloding-app.herokuapp.com/']
 const corsOptions = {
   origin: (origin, cb) => {
     const originIsWhitelisted = whiteList.includes(origin);

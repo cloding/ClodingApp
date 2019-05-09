@@ -80,6 +80,7 @@ router.post('/signup', (req, res, next) => {
 // });
 
 router.post('/login', (req, res, next) => {
+
   passport.authenticate('local', (err, theUser, failureDetails) => {
       if (err) { res.status(500).json({ message: 'Something went wrong authenticating user' }); return; }
       // "failureDetails" contains the error messages from our logic in "LocalStrategy" { message: '...' }.

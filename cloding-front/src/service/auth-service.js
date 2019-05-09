@@ -5,7 +5,7 @@ export default class authService {
     constructor() {
 
         this.service = axios.create({
-            baseURL: process.env.REACT_APP_URL,
+            baseURL: `${process.env.REACT_APP_URL}/auth`,
             withCredentials: true
         })
     }
@@ -22,8 +22,12 @@ export default class authService {
     }
 
     login = (username, password) => {
+       console.log(username, password)
         return this.service.post('/login', { username, password })
-            .then(response => response.data)
+            .then(response => {
+                console.log("hola")
+                // response.data
+            })
     }
 
     logout = () => {
