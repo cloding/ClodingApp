@@ -1,8 +1,3 @@
-// Seeds file that remove all users and create 2 new users
-
-// To execute this seed, run from the root of the project
-// $ node bin/seeds.js
-
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
@@ -20,12 +15,49 @@ mongoose
 
 let users = [
   {
-    username: "alice",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Luca",
+    password: bcrypt.hashSync("1234", bcrypt.genSaltSync(bcryptSalt)),
+    mail: "luca@gmail.com",
+    country: "Italy",
+    region: "North",
+    city: "Belevile",
+    direction: "False Street 123"
   },
   {
-    username: "bob",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Charly",
+    password: bcrypt.hashSync("1234", bcrypt.genSaltSync(bcryptSalt)),
+    mail: "charly@gmail.com",
+    country: "Spain",
+    region: "Madrid",
+    city: "Madrid",
+    direction: "False Street 123"
+  },
+  {
+    username: "Alice",
+    password: bcrypt.hashSync("1234", bcrypt.genSaltSync(bcryptSalt)),
+    mail: "alice@gmail.com",
+    country: "England",
+    region: "Nowhere",
+    city: "Sprinfield",
+    direction: "False Street 123"
+  },
+  {
+    username: "Berto",
+    password: bcrypt.hashSync("1234", bcrypt.genSaltSync(bcryptSalt)),
+    mail: "berto@gmail.com",
+    country: "Spain",
+    region: "Catalunya",
+    city: "Barcelona",
+    direction: "False Street 123"
+  },
+  {
+    username: "Polo",
+    password: bcrypt.hashSync("1234", bcrypt.genSaltSync(bcryptSalt)),
+    mail: "bdsmlover@gmail.com",
+    country: "Spain",
+    region: "Aragón",
+    city: "Zaragoza",
+    direction: "False Street 123"
   }
 ]
 
