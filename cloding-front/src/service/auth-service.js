@@ -5,7 +5,7 @@ export default class authService {
     constructor() {
 
         this.service = axios.create({
-            baseURL: `${process.env.REACT_APP_URL}/auth`,
+            baseURL: process.env.REACT_APP_URL,
             withCredentials: true
         })
     }

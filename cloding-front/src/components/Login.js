@@ -31,6 +31,7 @@ class Login extends Component {
     }
 
     render(){
+      console.log(this.state.logged)
       if(this.state.logged) return <Redirect to={"/profile"}/>
       return(
         
