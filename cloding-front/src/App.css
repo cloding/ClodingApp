@@ -3,6 +3,9 @@
 /* 
 orange: #E05915 
 purple: #431C5D
+white: #E6E9F0
+light-blue: #BCCBDE
+red: #E01515
 */
 
 html,
@@ -10,8 +13,9 @@ body {
     font-size: 10px;
 }
 
-a{
+a {
     text-decoration: none;
+    color: inherit;
 }
 
 .cursor {
@@ -40,6 +44,14 @@ a{
 
 .white {
     background-color: #E6E9F0; 
+}
+
+.light-blue {
+    background-color: #BCCBDE;
+}
+
+.red {
+    background-color: #E01515;
 }
 
 .pageStructure {

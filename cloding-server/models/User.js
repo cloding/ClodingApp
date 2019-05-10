@@ -13,6 +13,7 @@ const userSchema = new Schema({
     type: String,
     default: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
   },
+  role: {type: String, default: "user"},
   balance: {
     type:Number,
     default: 0

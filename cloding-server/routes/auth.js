@@ -34,7 +34,7 @@ router.post('/signup', (req, res, next) => {
     next(new Error('You must provide valid mail'));
   }
   if (!country || !region || !city || !direction) {
-    next(new Error('You must provide all adress data'));
+    next(new Error('You must provide all address data'));
   }
 
   // Check if user exists in DB
@@ -77,6 +77,25 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+router.post('/profile/:id/edit', (req, res, next) => {
+  // const { username, password, mail, country, region, city, direction, _id  } = req.body;
+
+  // // Check for non empty user or password
+  // if (!username || !password) {
+  //   next(new Error('You must provide valid credentials'));
+  // }
+  // if (!mail) {
+  //   next(new Error('You must provide valid mail'));
+  // }
+  // if (!country || !region || !city || !direction) {
+  //   next(new Error('You must provide all address data'));
+  // }
+
+  User
+    .findByIdAndUpdate({_id:req.params.id}, req.body, {new:true}) 
+    .then(allTheMovies => res.json(allTheMovies))
+
+})
 
 router.get('/loggedin', (req, res, next) => {
   if (req.user) {

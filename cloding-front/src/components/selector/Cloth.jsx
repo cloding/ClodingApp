@@ -9,7 +9,7 @@ export default class Cloth extends Component {
                     <div className="container white">
                         <div className="half-container">
                             <h1>Selecor</h1>
-                            <Link className="btn orange" to={"/designer"}>Start</Link>
+                            <Link className="btn orange" to={"/canvas"}>Start</Link>
                         </div>
                         <div className="half-container">
                             <h1>Selecor</h1>

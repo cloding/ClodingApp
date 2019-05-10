@@ -36,3 +36,14 @@ nav {
     height: 10vh;
     width: 960px;
 }
+
+.link-photo-profile {
+    display: flex;
+    align-items: center;
+}
+
+.link-photo-profile  img{
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 8px; 
+}

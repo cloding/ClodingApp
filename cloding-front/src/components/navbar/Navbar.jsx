@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Navbar.css'
+import './Navbar.css';
 import { Link, withRouter } from 'react-router-dom';
 import AuthService from "../../service/auth-service";
 
@@ -31,7 +31,12 @@ class Navbar extends Component {
                         <div className="navbar">
                             <h2><Link to={"/"}>Cloding</Link></h2>
                             <ul>
-                                <li><Link to={"/login"}>{this.props.user.username}</Link></li>
+                                <li>
+                                    <Link to={`/profile/${this.props.user._id}`} className="link-photo-profile">
+                                        {this.props.user.username}
+                                        <img src={this.props.user.photouser} alt="profile" />
+                                    </Link>
+                                </li>
                                 <li className="cursor" onClick={(e) => this.logout(e)}>Logout</li>
                                 <li><Link to={"/signup"}>Storage</Link></li>
                                 <li><Link to={"/signup"}><i className="fas fa-shopping-cart"></i></Link></li>

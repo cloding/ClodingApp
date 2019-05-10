@@ -1,0 +1,9 @@
+.profile-page-image img {
+    height: 302px;
+    width: 302px;
+    border-radius: 50%;
+}
+
+.profile-page-btn {
+    display: flex;
+}
