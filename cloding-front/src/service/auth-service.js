@@ -22,12 +22,8 @@ export default class authService {
     }
 
     login = (username, password) => {
-       console.log(username, password)
         return this.service.post('/login', { username, password })
-            .then(response => {
-                console.log("hola")
-                // response.data
-            })
+            .then(response => response.data)
     }
 
     logout = () => {

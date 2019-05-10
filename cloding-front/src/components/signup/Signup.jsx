@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../../service/auth-service";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ export default class Signup extends Component {
         city: "",
         direction: ""
       },
+      logged: false, error: ''
     };
 
     this.service = new AuthService();
@@ -33,7 +34,6 @@ export default class Signup extends Component {
 
     this.service.signup(username, password, mail, country, region, city, direction)
       .then(response => {
-        console.log(response)
         this.setState({
           username: "",
           password: "",
@@ -41,8 +41,9 @@ export default class Signup extends Component {
           country: "",
           region: "",
           city: "",
-          direction: ""
-        });
+          direction: "",
+          logged: true 
+        },()=> this.props.setUser(response));
         // this.props.getUser(response)
       })
       .catch(error => console.log(error))
@@ -57,6 +58,8 @@ export default class Signup extends Component {
   };
 
   render() {
+    console.log(this.state.logged)
+    if(this.state.logged) return <Redirect to={"/profile"}/>
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
