@@ -28,18 +28,6 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-// var whitelist = [
-//   'http://localhost:3000'
-// ];
-// var corsOptions = {
-//   origin: function(origin, callback){
-//       var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-//       callback(null, originIsWhitelisted);
-//   },
-//   credentials: true
-// };
-// app.use(cors(corsOptions));
-
 // configuración CORS
 const whiteList = ['http://localhost:3000', 'https://cloding-app.herokuapp.com/']
 const corsOptions = {
@@ -68,30 +56,10 @@ app.use(session({
   },
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 }));
+
+
+// middlewares sesión
 require('./passport')(app);
-
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hbs');
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-  
-
-
-// // default value for title local
-// app.locals.title = 'Express - Generated with IronGenerator';
-    
-
-
-// const authRoutes = require('./routes/auth');
-// app.use('/auth', authRoutes);
-      
-
-// module.exports = app;
-
-
-// // middlewares sesión
-// app.use(passport.initialize());
-// app.use(passport.session());
       
 app.use(express.static(path.join(__dirname, "public")));
 
