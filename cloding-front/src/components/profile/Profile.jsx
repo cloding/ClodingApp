@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Profile.css';
+import AuthService from '../../service/auth-service';
 
-export default class Profile extends Component {
+class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.service = new AuthService();
+  }
+
+  delete(e) {
+    e.preventDefault();
+    this.service.delete(this.props.user._id)
+      .then(() => {
+        this.props.logout()
+        this.props.history.push("/")
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 
   render() {
     console.log(this.props.user)
@@ -37,7 +54,7 @@ export default class Profile extends Component {
                 </ul>
                 <div className="profile-page-btn">
                   <Link className="btn light-blue" to={`/profile/edit`}>Edit profile</Link>
-                  <Link className="btn red" to={"/designer"}>Delete</Link>
+                  <button className="btn red" onClick={(e) => this.delete(e)}>Delete</button>
                 </div>
               </div>
               <div className="half-container">
@@ -52,3 +69,5 @@ export default class Profile extends Component {
     }
   }
 }
+
+export default withRouter(Profile)

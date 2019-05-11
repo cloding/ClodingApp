@@ -78,13 +78,19 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/edit', (req, res, next) => {
-
   User
     .findByIdAndUpdate({_id:req.body.id}, req.body, { new: true })
     .then(user => res.json(user))
     .catch(e => next(e));
 
 })
+
+router.post('/delete', (req, res, next) => {
+  User
+    .findByIdAndDelete({_id:req.body.id})
+    .then(user => res.json(user))
+    .catch(e => next(e));
+});
 
 router.get('/loggedin', (req, res, next) => {
   if (req.user) {
