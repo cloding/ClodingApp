@@ -13,9 +13,9 @@ const MongoStore   = require('connect-mongo')(session);
 const cors         = require('cors');
 const passport     = require('passport');
     
-
+// {useNewUrlParser: true},
 mongoose
-  .connect(process.env.DB_LOCAL, {useNewUrlParser: true})
+  .connect(process.env.DB_LOCAL, { useNewUrlParser: true, useFindAndModify: false })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

@@ -32,7 +32,7 @@ class Navbar extends Component {
                             <h2><Link to={"/"}>Cloding</Link></h2>
                             <ul>
                                 <li>
-                                    <Link to={`/profile/${this.props.user._id}`} className="link-photo-profile">
+                                    <Link to={`/profile`} className="link-photo-profile">
                                         {this.props.user.username}
                                         <img src={this.props.user.photouser} alt="profile" />
                                     </Link>

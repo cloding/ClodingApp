@@ -52,8 +52,8 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/designer' component={Selector} />
             <Route exact path='/canvas' render={(props) => <Canvas {...props} user={this.state.loggedInUser} />} />
-            <Route exact path='/profile/:id' render={(props) => <Profile {...props} user={this.state.loggedInUser} />} />
-            <Route exact path='/profile/:id/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser} />} />
+            <Route exact path='/profile/' render={(props) => <Profile {...props} user={this.state.loggedInUser} />} />
+            <Route exact path='/profile/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser} />} />
             {/* <ProtectedRoutes user={this.state.loggedInUser} exact path='/profile' component={Profile} checkIfLogged={this.fetchUser}/> */}
           </Switch>
         </React.Fragment>

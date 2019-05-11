@@ -36,7 +36,7 @@ export default class Profile extends Component {
                   <li>city: {this.props.user.city}</li>
                 </ul>
                 <div className="profile-page-btn">
-                  <Link className="btn light-blue" to={`/profile/${this.props.user._id}/edit`}>Edit profile</Link>
+                  <Link className="btn light-blue" to={`/profile/edit`}>Edit profile</Link>
                   <Link className="btn red" to={"/designer"}>Delete</Link>
                 </div>
               </div>

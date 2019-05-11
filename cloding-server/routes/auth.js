@@ -77,23 +77,12 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
-router.post('/profile/:id/edit', (req, res, next) => {
-  // const { username, password, mail, country, region, city, direction, _id  } = req.body;
-
-  // // Check for non empty user or password
-  // if (!username || !password) {
-  //   next(new Error('You must provide valid credentials'));
-  // }
-  // if (!mail) {
-  //   next(new Error('You must provide valid mail'));
-  // }
-  // if (!country || !region || !city || !direction) {
-  //   next(new Error('You must provide all address data'));
-  // }
+router.post('/edit', (req, res, next) => {
 
   User
-    .findByIdAndUpdate({_id:req.params.id}, req.body, {new:true}) 
-    .then(allTheMovies => res.json(allTheMovies))
+    .findByIdAndUpdate({_id:req.body.id}, req.body, { new: true })
+    .then(user => res.json(user))
+    .catch(e => next(e));
 
 })
 

@@ -31,14 +31,10 @@ export default class authService {
             .then(response => response.data)
     }
 
-    findOne(id) {
-        return this.service
-            .get(`one/${id}`)
-    }
-
     editProfile = (username, mail, country, region, city, direction, photouser, id) => {
-        return this.service.post(`/profile/${id}/edit`, { username, mail, country, region, city, direction, photouser })
+        return this.service.post('/edit', { username, mail, country, region, city, direction, photouser, id })
             .then(response => response.data)
+            .catch(err => console.log(err, "merda"))
     }
 
 }

@@ -38,7 +38,7 @@ export default class Login extends Component {
         <div className="pageStructure">
           <div className="container">
             <div className="half-container">
-              <form onSubmit={this.handleFormSubmit}>
+              <form onSubmit={(e) => this.handleFormSubmit(e)}>
                 <Form label="Username" type="text" name="username" value={this.state.username} onchange={e => this.handleChange(e)} />
                 <Form label="Password" type="password" name="password" value={this.state.password} onchange={e => this.handleChange(e)} />
                 <input type="submit" className="btn orange cursor" value="Login" />
