@@ -36,27 +36,6 @@ export default class TshirtStructure extends Component {
     //     console.log("y:" + e.evt.layerY)
     // }
 
-    // componentWillUpdate() {
-    //     const id = this.props.idImage;
-    //     const img = this.props.imageUrl;
-    //     const newArray = [... this.state.images]
-    //     newArray[id].img = img
-    //     this.setState({
-    //         ...this.state,
-    //         immagini : newArray
-    //     })
-    // }
-
-    // static getDerivedStateFromProps(nextProps) {
-    //     console.log(nextProps)
-    //     if (nextProps.imageUrl === "") {
-    //         this.setState({
-    //             ...this.state,
-    //             immagini: newArray
-    //         })
-    //     }
-
-    // }
 
     componentDidMount() {
 
@@ -153,11 +132,8 @@ export default class TshirtStructure extends Component {
                     </Layer>
                     <Layer>
                         <Group ref={node => this.myGroup = node} >
-                            {/* {this.state.images.map((img, i) => (
-                                <Images key={i} {...img} imgName={this.state.images[i].imgName} img={this.state.images[i].img} width={this.state.images[i].width} height={this.state.images[i].height} />
-                            ))} */}
-                            <Images imgName={this.state.images[0].imgName} img={this.props.imageUrl} width={this.props.width} height={this.props.height} />
-                            <Images imgName={this.state.images[1].imgName} img={this.props.imageUrl2} width={this.props.width2} height={this.props.height2} />
+                            <Images active={this.props.active1} imgName={this.state.images[0].imgName} img={this.props.imageUrl} width={this.props.width} height={this.props.height} />
+                            <Images active={this.props.active2} imgName={this.state.images[1].imgName} img={this.props.imageUrl2} width={this.props.width2} height={this.props.height2} />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>

@@ -18,17 +18,6 @@ export default class Images extends Component {
     }
 
 
-    // static getDerivedStateFromProps(nextProps) {
-    //     console.log(nextProps)
-    //     // if (nextProps.imageUrl === "") {
-    //     //     this.setState({
-    //     //         ...this.state,
-    //     //         image: nextProps.imageUrl
-    //     //     })
-    //     // }
-
-    // }
-
     componentWillUpdate() {
         console.log(this.props.img)
         const image = new window.Image();
@@ -45,7 +34,7 @@ export default class Images extends Component {
                 this.myImage.getLayer().batchDraw();
             })
         }
-        
+
     }
 
     handleDragEnd = e => {
@@ -60,6 +49,9 @@ export default class Images extends Component {
         console.log(this.state.width)
         return (
             <React.Fragment>
+                {
+                    this.props.active ? 
+
                 <Image
                     name={this.props.imgName}
                     image={this.state.image}
@@ -78,6 +70,8 @@ export default class Images extends Component {
                     // onTransform={(e) => this.handleTransform(e)}
                     draggable
                 />
+                : null
+            } 
             </React.Fragment>
         )
     }

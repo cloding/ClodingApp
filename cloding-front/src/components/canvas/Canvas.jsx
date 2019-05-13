@@ -14,7 +14,10 @@ export default class Canvas extends Component {
             height:0,
             imageUrl2:'',
             width2: 0, 
-            height2:0
+            height2:0,
+            active1: false,
+            active2: false
+
         }
     }
 
@@ -31,16 +34,24 @@ export default class Canvas extends Component {
             ...this.state,
             imageUrl : result.info.secure_url,
             width:100,
-            height:100
+            height:100,
+            active1:true
         })
     }
 
-    // deleteImage() {
-    //     this.setState({
-    //         ...this.state,
-    //         done: true
-    //     })
-    // }
+    deleteImage() {
+        this.setState({
+            ...this.state,
+            active1:false
+        })
+    }
+
+    deleteImage2() {
+        this.setState({
+            ...this.state,
+            active2:false
+        })
+    }
 
     showWidget() {
         let widget = window.cloudinary.createUploadWidget({
@@ -55,7 +66,8 @@ export default class Canvas extends Component {
             ...this.state,
             imageUrl2 : result.info.secure_url,
             width2:100,
-            height2:100
+            height2:100,
+            active2:true
 
         })
     }
@@ -104,7 +116,7 @@ export default class Canvas extends Component {
                                 <div>
                                     <label id="secondImage">First image</label>
                                     <button type="button" name="secondImage" onClick={() => this.showWidget2()} className="btn orange cursor">Upload</button>
-                                    <button type="button" onClick={() => this.deleteImage()} className="btn orange cursor">delete</button>
+                                    <button type="button" onClick={() => this.deleteImage2()} className="btn orange cursor">delete</button>
                                 </div>
                             </div>
                             <div className="half-container" >
@@ -118,6 +130,8 @@ export default class Canvas extends Component {
                                     imageUrl2={this.state.imageUrl2}
                                     width2={this.state.width2}
                                     height2={this.state.height2}
+                                    active1={this.state.active1}
+                                    active2={this.state.active2}
                                     // chargeImage={(result) => this.checkUploadResult(result)}
                                 />
                             </div>
