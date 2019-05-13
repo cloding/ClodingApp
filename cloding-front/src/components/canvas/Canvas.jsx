@@ -20,21 +20,27 @@ export default class Canvas extends Component {
             active2: false,
             opacity1: 1,
             opacity2: 1,
-            text1:'',
-            textFill1:'black',
-            textFamily1:'Oxygen',
-            textSize1:'20',
-            textStyle1:'normal',
-            text2:'',
-            textFill2:'black',
-            textFamily2:'Oxygen',
-            textSize2:'20',
-            textStyle2:'normal',
-            text3:'',
-            textFill3:'black',
-            textFamily3:'Oxygen',
-            textSize3:'20',
-            textStyle3:'normal'
+            hue1: 0,
+            saturation1: 0,
+            value1: 0,
+            hue2: 0,
+            saturation2: 0,
+            value2: 0,
+            text1: '',
+            textFill1: 'black',
+            textFamily1: 'Oxygen',
+            textSize1: '20',
+            textStyle1: 'normal',
+            text2: '',
+            textFill2: 'black',
+            textFamily2: 'Oxygen',
+            textSize2: '20',
+            textStyle2: 'normal',
+            text3: '',
+            textFill3: 'black',
+            textFamily3: 'Oxygen',
+            textSize3: '20',
+            textStyle3: 'normal'
 
         }
     }
@@ -121,7 +127,7 @@ export default class Canvas extends Component {
 
 
     render() {
-        console.log(this.state.textFill1)
+        // console.log(this.state.value1)
         if (this.props.user) {
             return (
                 <React.Fragment>
@@ -179,6 +185,12 @@ export default class Canvas extends Component {
                                     active2={this.state.active2}
                                     opacity1={this.state.opacity1}
                                     opacity2={this.state.opacity2}
+                                    hue1={this.state.hue1}
+                                    saturation1={this.state.saturation1}
+                                    value1={this.state.value1}
+                                    hue2={this.state.hue2}
+                                    saturation2={this.state.saturation2}
+                                    value2={this.state.value2}
 
                                 />
                             </div>

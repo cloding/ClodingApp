@@ -1,24 +1,7 @@
 import React, { Component } from 'react'
 
 export default class Controles extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            // red: '255',
-            // blue: '255',
-            // green: '255',
-            // imageUrl: '',
-            // width: 0,
-            // height: 0,
-            // imageUrl2: '',
-            // width2: 0,
-            // height2: 0,
-            // active1: false,
-            // active2: false
-
-        }
-    }
 
     render() {
         return (
@@ -38,19 +21,24 @@ export default class Controles extends Component {
                     <label htmlFor="opacity1">Opacity:</label>
                     <input id="opacity1" type="range" min="0" max="1" step="0.1" defaultValue="1" onChange={(e) => this.props.effects(e)} />
                     <label htmlFor="Hue1">Hue:</label>
-                    <input id="hue1" type="range" min="0" max="259" step="1" value="1" />
+                    <input id="hue1" type="range" min="0" max="259" step="1" defaultValue="0" onChange={(e) => this.props.effects(e)} />
                     <label htmlFor="saturation1">Saturation:</label>
-                    <input id="saturation1" type="range" min="-2" max="10" step="0.5" value="0" />
-                    <label htmlFor="saturation1">Saturation:</label>
-
-      <input id="value" type="range" min="-2" max="2" step="0.1" value="0" />
+                    <input id="saturation1" type="range" min="-2" max="10" step="0.5" defaultValue="0" onChange={(e) => this.props.effects(e)} />
+                    <label htmlFor="value1">Value:</label>
+                    <input id="value1" type="range" min="-2" max="2" step="0.1" defaultValue="0" onChange={(e) => this.props.effects(e)} />
                 </div>
                 <div>
-                    <label id="secondImage">First image</label>
+                    <label id="secondImage">Second image</label>
                     <button type="button" name="secondImage" onClick={() => this.props.showWidget2()} className="btn orange cursor">Upload</button>
                     <button type="button" onClick={() => this.props.deleteImage2()} className="btn orange cursor">delete</button>
                     <label htmlFor="opacity2">Opacity:</label>
                     <input id="opacity2" type="range" min="0" max="1" step="0.1" defaultValue="1" onChange={(e) => this.props.effects(e)} />
+                    <label htmlFor="Hue2">Hue:</label>
+                    <input id="hue2" type="range" min="0" max="259" step="1" defaultValue="0" onChange={(e) => this.props.effects(e)} />
+                    <label htmlFor="saturation2">Saturation:</label>
+                    <input id="saturation2" type="range" min="-2" max="10" step="0.5" defaultValue="0" onChange={(e) => this.props.effects(e)} />
+                    <label htmlFor="value2">Value:</label>
+                    <input id="value2" type="range" min="-2" max="2" step="0.1" defaultValue="0" onChange={(e) => this.props.effects(e)} />
                 </div>
                 <div>
                     <label htmlFor="text1">First Text:</label>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Image } from 'react-konva';
-// import Konva from 'konva';
+import Konva from 'konva';
 
 export default class Images extends Component {
     constructor(props) {
@@ -61,13 +61,14 @@ export default class Images extends Component {
                     scaleX={this.state.scaleX}
                     scaleY={this.state.scaleY}
                     onDragEnd={this.handleDragEnd}
-                    opacity={this.props.opacity}
-                    // filters={[Konva.Filters.Blur]}
-                    // blurRadius={+(this.props.blur)}
+                    opacity={parseFloat(this.props.opacity)}
+                    hue={+(this.props.hue)}
+                    saturation={parseFloat(this.props.saturation)}
+                    value={parseFloat(this.props.value)}
+                    filters={[Konva.Filters.HSV]}
                     ref={node => {
                         this.myImage = node;
                     }}
-                    // onTransform={(e) => this.handleTransform(e)}
                     draggable
                 />
                 : null
