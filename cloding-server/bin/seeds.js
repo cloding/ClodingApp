@@ -22,7 +22,8 @@ let users = [
     country: "Italy",
     region: "North",
     city: "Belevile",
-    direction: "False Street 123"
+    direction: "False Street 123",
+    role: "admin"
   },
   {
     username: "Charly",
@@ -31,7 +32,8 @@ let users = [
     country: "Spain",
     region: "Madrid",
     city: "Madrid",
-    direction: "False Street 123"
+    direction: "False Street 123",
+    role: "admin"
   },
   {
     username: "Alice",
