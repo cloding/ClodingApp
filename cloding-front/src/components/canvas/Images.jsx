@@ -19,7 +19,6 @@ export default class Images extends Component {
 
 
     componentWillUpdate() {
-        console.log(this.props.img)
         const image = new window.Image();
         image.crossOrigin = "Anonymous";
         image.src = this.props.img;
@@ -45,8 +44,8 @@ export default class Images extends Component {
     }
 
     render() {
-        console.log(this.state.image)
-        console.log(this.state.width)
+        // console.log(this.state.image)
+        // console.log(this.state.width)
         return (
             <React.Fragment>
                 {
@@ -62,6 +61,7 @@ export default class Images extends Component {
                     scaleX={this.state.scaleX}
                     scaleY={this.state.scaleY}
                     onDragEnd={this.handleDragEnd}
+                    opacity={this.props.opacity}
                     // filters={[Konva.Filters.Blur]}
                     // blurRadius={+(this.props.blur)}
                     ref={node => {

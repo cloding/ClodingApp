@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Konva from 'konva';
-import { Stage, Layer, Group, Transformer } from 'react-konva';
+import { Stage, Layer, Group, Transformer , Text} from 'react-konva';
 import Tshirt from './Tshirt';
 import Images from './Images';
 import './Canvas.css';
@@ -123,7 +123,6 @@ export default class TshirtStructure extends Component {
     };
 
     render() {
-        console.log(this.props.done)
         return (
             <React.Fragment>
                 <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} >
@@ -132,8 +131,11 @@ export default class TshirtStructure extends Component {
                     </Layer>
                     <Layer>
                         <Group ref={node => this.myGroup = node} >
-                            <Images active={this.props.active1} imgName={this.state.images[0].imgName} img={this.props.imageUrl} width={this.props.width} height={this.props.height} />
-                            <Images active={this.props.active2} imgName={this.state.images[1].imgName} img={this.props.imageUrl2} width={this.props.width2} height={this.props.height2} />
+                            <Images active={this.props.active1} imgName={this.state.images[0].imgName} img={this.props.imageUrl} width={this.props.width} height={this.props.height} opacity={this.props.opacity1} />
+                            <Images active={this.props.active2} imgName={this.state.images[1].imgName} img={this.props.imageUrl2} width={this.props.width2} height={this.props.height2} opacity={this.props.opacity2} />
+                            <Text x={190} y={150} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable />
+                            <Text x={190} y={250} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable />
+                            <Text x={190} y={350} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>
