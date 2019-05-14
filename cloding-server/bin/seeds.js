@@ -6,7 +6,7 @@ const User = require("../models/User");
 const bcryptSalt = 10;
 
 mongoose
-  .connect(process.env.DB_LOCAL, {useNewUrlParser: true})
+  .connect(process.env.DB_LOCAL, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -23,7 +23,8 @@ let users = [
     region: "North",
     city: "Belevile",
     direction: "False Street 123",
-    role: "admin"
+    role: "admin",
+    tShirt: []
   },
   {
     username: "Charly",
@@ -33,7 +34,8 @@ let users = [
     region: "Madrid",
     city: "Madrid",
     direction: "False Street 123",
-    role: "admin"
+    role: "admin",
+    tShirt: []
   },
   {
     username: "Alice",
@@ -42,7 +44,8 @@ let users = [
     country: "England",
     region: "Nowhere",
     city: "Sprinfield",
-    direction: "False Street 123"
+    direction: "False Street 123",
+    tShirt: []
   },
   {
     username: "Berto",
@@ -51,7 +54,8 @@ let users = [
     country: "Spain",
     region: "Catalunya",
     city: "Barcelona",
-    direction: "False Street 123"
+    direction: "False Street 123",
+    tShirt: []
   },
   {
     username: "Polo",
@@ -60,23 +64,24 @@ let users = [
     country: "Spain",
     region: "Aragón",
     city: "Zaragoza",
-    direction: "False Street 123"
+    direction: "False Street 123",
+    tShirt: []
   }
 ]
 
 User.deleteMany()
-.then(() => {
-  return User.create(users)
-})
-.then(usersCreated => {
-  console.log(`${usersCreated.length} users created with the following id:`);
-  console.log(usersCreated.map(u => u._id));
-})
-.then(() => {
-  // Close properly the connection to Mongoose
-  mongoose.disconnect()
-})
-.catch(err => {
-  mongoose.disconnect()
-  throw err
-})
+  .then(() => {
+    return User.create(users)
+  })
+  .then(usersCreated => {
+    console.log(`${usersCreated.length} users created with the following id:`);
+    console.log(usersCreated.map(u => u._id));
+  })
+  .then(() => {
+    // Close properly the connection to Mongoose
+    mongoose.disconnect()
+  })
+  .catch(err => {
+    mongoose.disconnect()
+    throw err
+  })

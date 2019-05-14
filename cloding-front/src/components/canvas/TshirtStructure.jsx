@@ -90,6 +90,7 @@ export default class TshirtStructure extends Component {
 
         if (e.target === e.target.getStage()) {
             this.setState({
+                ...this.state,
                 selectedShapeName: ''
             });
             return;
@@ -105,10 +106,12 @@ export default class TshirtStructure extends Component {
 
         if (rect) {
             this.setState({
+                ...this.state,
                 selectedShapeName: name
             });
         } else {
             this.setState({
+                ...this.state,
                 selectedShapeName: ''
             });
         }

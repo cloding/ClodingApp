@@ -70,6 +70,9 @@ app.use('/api', index);
 const authRoutes = require('./routes/auth');
 app.use('/api', authRoutes);
 
+const designRoutes = require('./routes/design');
+app.use('/api', designRoutes);
+
 app.use((req, res) => { res.sendFile(`${__dirname}/public/index.html`); })
 
 module.exports = app;
