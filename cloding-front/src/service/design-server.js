@@ -15,4 +15,23 @@ export default class designService {
             .then(response => response.data)
             .catch(err => console.log(err.res.data))
     }
+
+    allTShirt = (userId) => {
+        return this.service.post('/all-tShirt', { userId })
+            .then(response => response.data)
+            .catch(err => console.log(err.res.data))
+    }
+
+    addQuanity = (quantity, userId) => {
+        return this.service.post('/add-quantity', { quantity, userId })
+            .then(response => response.data)
+            .catch(err => console.log(err.res.data))
+    }
+
+    delete = (id, userId) => {
+        return this.service.post('/delete-design', { id, userId })
+            .then(response => response.data)
+            .catch(err => console.log(err))
+    }
+
 }

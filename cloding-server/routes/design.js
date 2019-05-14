@@ -81,13 +81,55 @@ router.post('/save-design', (req, res, next) => {
             User.update(
                 { _id: user },
                 { $push: { tShirt: design } }
-                )
-                .then(response => console.log(response))
-                .catch(err =>  next(err))
+            )
+                .then(user => res.json(user))
+                .catch(err => next(err))
         })
         .catch((err) => {
             next(err);
         });
+});
+
+router.post('/all-tShirt', (req, res, next) => {
+    let userId = req.body.userId
+    User
+        .findById(userId)
+        .populate('tShirt')
+        .then(user => {
+            res.json(user)
+            console.log(user)
+        })
+        .catch(err => next(err))
+})
+
+router.post('/add-quantity', (req, res, next) => {
+    let userId = req.body.userId
+    let quantity = req.body.quantity
+    Design
+        .findByIdAndUpdate(userId, { quantity: quantity })
+        .then(design => {
+            res.json(design)
+        })
+        .catch(err => next(err))
+})
+
+router.post('/delete-design', (req, res, next) => {
+
+    let user = req.body.userId;
+
+    Design
+        .findByIdAndDelete({ _id: req.body.id })
+        .then(design => {
+            console.log(design)
+            User.update(
+                { _id: user },
+                { $pull: { tShirt: req.body.id } }
+            )
+                .then(user => res.json(user))
+                .catch(err => next(err))
+        })
+
+        .catch(e => next(e));
 });
 
 module.exports = router;

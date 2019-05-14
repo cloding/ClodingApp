@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const designSchema = new Schema({
   type: String,
   designName: { type: String, default: '' },
+  quantity: {type: Number, default:1},
   red: { type: Number, default: 255 },
   green: { type: Number, default: 255 },
   blue: { type: Number, default: 255 },

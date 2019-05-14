@@ -34,32 +34,32 @@ export default class Images extends Component {
         return (
             <React.Fragment>
                 {
-                    this.props.active ? 
+                    this.props.active ?
 
-                <Image
-                    name={this.props.imgName}
-                    image={this.state.image}
-                    x={this.props.x}
-                    y={this.props.y}
-                    width={this.state.width}
-                    height={this.state.height}
-                    scaleX={this.props.scaleX}
-                    scaleY={this.props.scaleY}
-                    rotation={this.props.rotation}
-                    onDragEnd={(e) => this.props.dragPosition(e)}
-                    opacity={parseFloat(this.props.opacity)}
-                    hue={+(this.props.hue)}
-                    saturation={parseFloat(this.props.saturation)}
-                    value={parseFloat(this.props.value)}
-                    filters={[Konva.Filters.HSV]}
-                    ref={node => {
-                        this.myImage = node;
-                    }}
-                    onTransform={(e) => this.props.transform(e)}
-                    draggable
-                />
-                : null
-            } 
+                        <Image
+                            name={this.props.imgName}
+                            image={this.state.image}
+                            x={this.props.x}
+                            y={this.props.y}
+                            width={this.state.width}
+                            height={this.state.height}
+                            scaleX={this.props.scaleX}
+                            scaleY={this.props.scaleY}
+                            rotation={this.props.rotation}
+                            onDragEnd={(e) => this.props.dragPosition(e)}
+                            opacity={parseFloat(this.props.opacity)}
+                            hue={+(this.props.hue)}
+                            saturation={parseFloat(this.props.saturation)}
+                            value={parseFloat(this.props.value)}
+                            filters={[Konva.Filters.HSV]}
+                            ref={node => {
+                                this.myImage = node;
+                            }}
+                            onTransform={(e) => this.props.transform(e)}
+                            draggable
+                        />
+                        : null
+                }
             </React.Fragment>
         )
     }
