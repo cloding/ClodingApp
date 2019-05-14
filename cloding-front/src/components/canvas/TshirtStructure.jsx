@@ -114,13 +114,6 @@ export default class TshirtStructure extends Component {
         }
     };
 
-    handleDragEnd = e => {
-        this.setState({
-            x: e.target.x(),
-            y: e.target.y()
-        })
-    }
-
     render() {
         return (
             <React.Fragment>
@@ -133,30 +126,40 @@ export default class TshirtStructure extends Component {
                             <Images
                                 active={this.props.active1}
                                 imgName={this.state.images[0].imgName}
-                                img={this.props.imageUrl}
-                                width={this.props.width}
-                                height={this.props.height}
+                                img={this.props.imageUrl1}
+                                x={this.props.x1}
+                                y={this.props.y1}
+                                scaleX={this.state.scaleX1}
+                                scaleY={this.state.scaleY1}
+                                rotation={this.state.rotation1}
                                 opacity={this.props.opacity1}
                                 filters={[Konva.Filters.HSV]}
                                 hue={this.props.hue1}
                                 saturation={this.props.saturation1}
                                 value={this.props.value1}
+                                dragPosition={(e) => this.props.dragPosition1(e)}
+                                transform={(e) => this.props.transform1(e)}
                             />
                             <Images
                                 active={this.props.active2}
                                 imgName={this.state.images[1].imgName}
                                 img={this.props.imageUrl2}
-                                width={this.props.width2}
-                                height={this.props.height2}
+                                x={this.props.x2}
+                                y={this.props.y2}
+                                scaleX={this.state.scaleX2}
+                                scaleY={this.state.scaleY2}
+                                rotation={this.state.rotation2}
                                 opacity={this.props.opacity2}
                                 filters={[Konva.Filters.HSV]}
                                 hue={this.props.hue2}
                                 saturation={this.props.saturation2}
                                 value={this.props.value2}
+                                dragPosition={(e) => this.props.dragPosition2(e)}
+                                transform={(e) => this.props.transform2(e)}
                             />
-                            <Text x={190} y={150} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable onDragEnd={this.handleDragEnd} />
-                            <Text x={190} y={250} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable onDragEnd={this.handleDragEnd} />
-                            <Text x={190} y={350} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable onDragEnd={this.handleDragEnd} />
+                            <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable onDragEnd={(e) => this.props.dragText1(e)} />
+                            <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable onDragEnd={(e) => this.props.dragText2(e)} />
+                            <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable onDragEnd={(e) => this.props.dragText3(e)} />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>

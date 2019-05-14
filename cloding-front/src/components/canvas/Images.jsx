@@ -8,12 +8,8 @@ export default class Images extends Component {
 
         this.state = {
             image: null,
-            x: 190,
-            y: 150,
-            scaleX: 1,
-            scaleY: 1,
-            width: 0,
-            height: 0
+            width: 100,
+            height: 100
         };
     }
 
@@ -25,9 +21,7 @@ export default class Images extends Component {
         image.onload = () => {
             this.setState({
                 ...this.state,
-                image: image,
-                width: this.props.width,
-                height: this.props.height
+                image: image
             }, () => {
                 this.myImage.cache();
                 this.myImage.getLayer().batchDraw();
@@ -36,16 +30,7 @@ export default class Images extends Component {
 
     }
 
-    handleDragEnd = e => {
-        this.setState({
-            x: e.target.x(),
-            y: e.target.y()
-        })
-    }
-
     render() {
-        // console.log(this.state.image)
-        // console.log(this.state.width)
         return (
             <React.Fragment>
                 {
@@ -54,13 +39,14 @@ export default class Images extends Component {
                 <Image
                     name={this.props.imgName}
                     image={this.state.image}
-                    x={this.state.x}
-                    y={this.state.y}
+                    x={this.props.x}
+                    y={this.props.y}
                     width={this.state.width}
                     height={this.state.height}
-                    scaleX={this.state.scaleX}
-                    scaleY={this.state.scaleY}
-                    onDragEnd={this.handleDragEnd}
+                    scaleX={this.props.scaleX}
+                    scaleY={this.props.scaleY}
+                    rotation={this.props.rotation}
+                    onDragEnd={(e) => this.props.dragPosition(e)}
                     opacity={parseFloat(this.props.opacity)}
                     hue={+(this.props.hue)}
                     saturation={parseFloat(this.props.saturation)}
@@ -69,6 +55,7 @@ export default class Images extends Component {
                     ref={node => {
                         this.myImage = node;
                     }}
+                    onTransform={(e) => this.props.transform(e)}
                     draggable
                 />
                 : null
