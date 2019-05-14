@@ -23,7 +23,7 @@ class Navbar extends Component {
 
 
     render() {
-        console.log(this.props.user)
+        // console.log(this.props.user)
         if (this.props.user != null) {
             return (
                 <React.Fragment>
