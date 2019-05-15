@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from '../form/Form';
 import DesignService from '../../service/design-server';
+import { Link } from 'react-router-dom';
 
 export default class ProductOnCart extends Component {
     constructor(props) {
@@ -24,9 +25,9 @@ export default class ProductOnCart extends Component {
     quantity(e) {
         e.preventDefault();
         const quantity = this.state.quantity;
-        const userId = this.props.tShirt._id;
+        const designId = this.props.tShirt._id;
 
-        this.service.addQuanity(quantity, userId)
+        this.service.addQuanity(quantity, designId)
             .then()
             .catch(err => console.log(err))
     }
@@ -66,6 +67,7 @@ export default class ProductOnCart extends Component {
                                 <Form label="Quantity" type="number" name="quantity" value={this.props.tShirt.quantity} onchange={(e) => this.changeQuantiy(e)} ></Form>
                                 <input type="submit" className="btn orange cursor" value="Add" />
                             </form>
+                            <Link className="btn purple" to={`/canvas/edit/${this.props.tShirt._id}`} >Edit</Link>
                             <button className="btn red" onClick={(e) => this.delete(e)}>Delete</button>
                         </div>
 

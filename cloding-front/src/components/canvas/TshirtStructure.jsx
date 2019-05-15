@@ -132,9 +132,9 @@ export default class TshirtStructure extends Component {
                                 img={this.props.imageUrl1}
                                 x={this.props.x1}
                                 y={this.props.y1}
-                                scaleX={this.state.scaleX1}
-                                scaleY={this.state.scaleY1}
-                                rotation={this.state.rotation1}
+                                scaleX={this.props.scaleX1}
+                                scaleY={this.props.scaleY1}
+                                rotation={this.props.rotation1}
                                 opacity={this.props.opacity1}
                                 filters={[Konva.Filters.HSV]}
                                 hue={this.props.hue1}
@@ -149,9 +149,9 @@ export default class TshirtStructure extends Component {
                                 img={this.props.imageUrl2}
                                 x={this.props.x2}
                                 y={this.props.y2}
-                                scaleX={this.state.scaleX2}
-                                scaleY={this.state.scaleY2}
-                                rotation={this.state.rotation2}
+                                scaleX={this.props.scaleX2}
+                                scaleY={this.props.scaleY2}
+                                rotation={this.props.rotation2}
                                 opacity={this.props.opacity2}
                                 filters={[Konva.Filters.HSV]}
                                 hue={this.props.hue2}

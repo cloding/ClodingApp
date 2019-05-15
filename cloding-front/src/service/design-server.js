@@ -22,14 +22,26 @@ export default class designService {
             .catch(err => console.log(err.res.data))
     }
 
-    addQuanity = (quantity, userId) => {
-        return this.service.post('/add-quantity', { quantity, userId })
+    addQuanity = (quantity, designId) => {
+        return this.service.post('/add-quantity', { quantity, designId })
             .then(response => response.data)
             .catch(err => console.log(err.res.data))
     }
 
     delete = (id, userId) => {
         return this.service.post('/delete-design', { id, userId })
+            .then(response => response.data)
+            .catch(err => console.log(err))
+    }
+
+    uploadDesign = (id) => {
+        return this.service.get(`/design/${id}`)
+            .then(response => response.data)
+            .catch(err => console.log(err))
+    }
+
+    updateDesign = (designId, designName, red, green, blue, image1, image2, text1, text2, text3) => {
+        return this.service.post('/edit-design', { designId, designName, red, green, blue, image1, image2, text1, text2, text3 })
             .then(response => response.data)
             .catch(err => console.log(err))
     }

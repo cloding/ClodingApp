@@ -9,8 +9,10 @@ import Signup from './components/auth/Signup';
 import Navbar from './components/navbar/Navbar';
 import Selector from './components/selector/Selector';
 import Canvas from './components/canvas/Canvas';
+import CanvasEdit from './components/canvas/CanvasEdit';
 import Edit from './components/profile/Edit';
 import Cart from './components/cart/Cart';
+
 
 
 class App extends Component {
@@ -56,6 +58,7 @@ class App extends Component {
             <Route exact path='/profile/' render={(props) => <Profile {...props} logout={() => this.logoutUser()} user={this.state.loggedInUser} />} />
             <Route exact path='/profile/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser}  />} />
             <Route exact path='/cart' render={(props) => <Cart {...props} user={this.state.loggedInUser}  />} />
+            <Route exact path='/canvas/edit/:id' render={(props) => <CanvasEdit {...props} user={this.state.loggedInUser} />} />
             {/* <ProtectedRoutes user={this.state.loggedInUser} exact path='/profile' component={Profile} checkIfLogged={this.fetchUser}/> */}
           </Switch>
         </React.Fragment>
