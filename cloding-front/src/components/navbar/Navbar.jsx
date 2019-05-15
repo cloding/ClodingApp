@@ -38,8 +38,7 @@ class Navbar extends Component {
                                     </Link>
                                 </li>
                                 <li className="cursor" onClick={(e) => this.logout(e)}>Logout</li>
-                                <li><Link to={"/signup"}>Storage</Link></li>
-                                <li><Link to={"/signup"}><i className="fas fa-shopping-cart"></i></Link></li>
+                                <li><Link to={"/cart"}><i className="fas fa-shopping-cart"></i></Link></li>
                                 <li><Link className="btn purple" to={"/designer"}>Designer</Link></li>
                             </ul>
                         </div>
