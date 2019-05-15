@@ -10,8 +10,8 @@ export default class authService {
         })
     }
 
-    signup = (username, password, mail, country, region, city, direction) => {
-        return this.service.post('/signup', { username, password, mail, country, region, city, direction })
+    signup = (username, password, mail, country, region, city, direction, tShirt, buy, photouser, role) => {
+        return this.service.post('/signup', { username, password, mail, country, region, city, direction, tShirt, buy, photouser, role })
             .then(response => response.data)
         // .catch(err => console.log(err.res.data))
     }

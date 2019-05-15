@@ -43,6 +43,15 @@ class App extends Component {
       loggedInUser: null
     })
   }
+  
+
+  editUser(user) {
+    debugger
+    this.setState({
+      ...this.state,
+      loggedInUser: user
+    })
+  }
 
   render() {
 
@@ -57,7 +66,7 @@ class App extends Component {
             <Route exact path='/designer' component={Selector} />
             <Route exact path='/canvas' render={(props) => <Canvas {...props} user={this.state.loggedInUser} />} />
             <Route exact path='/profile/' render={(props) => <Profile {...props} logout={() => this.logoutUser()} user={this.state.loggedInUser} />} />
-            <Route exact path='/profile/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser}  />} />
+            <Route exact path='/profile/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser} editDates={(user) => this.editUser(user)} />} />
             <Route exact path='/cart' render={(props) => <Cart {...props} user={this.state.loggedInUser}  />} />
             <Route exact path='/old-orders' render={(props) => <Buy {...props} user={this.state.loggedInUser}  />} />
             <Route exact path='/canvas/edit/:id' render={(props) => <CanvasEdit {...props} user={this.state.loggedInUser} />} />

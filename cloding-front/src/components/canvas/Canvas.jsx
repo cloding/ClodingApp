@@ -128,10 +128,6 @@ class Canvas extends Component {
         this.service.saveDesign(userId, type, designName, red, green, blue, image1, image2, text1, text2, text3)
             .then(() => {
                 this.props.history.push("/cart")
-                // let toPayOne = (+this.props.user.toPay + 30)
-                // this.service.addMoneyToPay(userId, toPayOne)
-                //     .then(this.props.history.push("/cart"))
-                //     .catch(error => console.log(error))
             })
             .catch(error => console.log(error))
     }

@@ -24,7 +24,7 @@ const login = (req, user) => {
 
 router.post('/signup', (req, res, next) => {
 
-  const { username, password, mail, country, region, city, direction } = req.body;
+  const { username, password, mail, country, region, city, direction, tShirt, buy, photouser, role } = req.body;
 
   // Check for non empty user or password
   if (!username || !password) {
@@ -54,11 +54,17 @@ router.post('/signup', (req, res, next) => {
         region,
         city,
         direction,
-        balance
+        tShirt, 
+        buy, 
+        photouser, 
+        role
       }).save();
     })
     .then(savedUser => login(req, savedUser)) // Login the user using passport
-    .then(user => res.json({ status: 'signup & login successfully', user })) // Answer JSON
+    .then(user => {
+      res.json(user)
+    }
+      ) // Answer JSON
     .catch(e => next(e));
 });
 
