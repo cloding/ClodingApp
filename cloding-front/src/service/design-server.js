@@ -52,4 +52,10 @@ export default class designService {
             .catch(err => console.log(err))
     }
 
+    buy = (userId, arrDesign) => {
+        return this.service.post('/buy', { userId, arrDesign })
+            .then(response => response.data)
+            .catch(err => console.log(err))
+    }
+
 }

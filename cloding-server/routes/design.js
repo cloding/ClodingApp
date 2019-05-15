@@ -224,4 +224,23 @@ router.post('/add-toPay', (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.post('/buy', (req, res, next) => {
+    let userId = req.body.userId
+    let arrDesign = req.body.arrDesign
+
+    User.updateOne(
+        { _id: userId },
+        { $push: { buy: arrDesign } }
+    )
+        .then(() => {
+            User.updateOne(
+                { _id: userId },
+                { $pullAll: { tShirt: arrDesign } }
+            )
+                .then(user => res.json(user))
+                .catch(err => next(err))
+        })
+        .catch(err => next(err))
+})
+
 module.exports = router;

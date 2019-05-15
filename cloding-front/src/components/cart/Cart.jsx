@@ -37,6 +37,19 @@ export default class Cart extends Component {
         })
     }
 
+    buy(e) {
+        e.preventDefault();
+        this.service.buy(this.props.user._id, this.state.tShirts)
+            .then(() => {
+                this.setState({
+                    ...this.service,
+                    tShirts: [],
+                    toPay: 0
+                })
+            })
+            .catch(error => console.log(error))
+    }
+
     render() {
         let tShirtCart = this.state.tShirts.map((tShirt, i) => {
             return (
@@ -45,10 +58,6 @@ export default class Cart extends Component {
                 </li>
             )
         })
-
-
-
-
         return (
             <React.Fragment>
                 <div className="pageStructure">
@@ -59,6 +68,7 @@ export default class Cart extends Component {
                             </ul>
                         </div>
                         <p>To pay: {this.state.toPay}</p>
+                        <button className="btn orange" onClick={(e) => this.buy(e)}>Buy</button>
                     </div>
                 </div>
             </React.Fragment>
