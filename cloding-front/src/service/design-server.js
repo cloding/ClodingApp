@@ -22,6 +22,12 @@ export default class designService {
             .catch(err => console.log(err.res.data))
     }
 
+    allOldOrders = (userId) => {
+        return this.service.post('/all-old-orders', { userId })
+            .then(response => response.data)
+            .catch(err => console.log(err.res.data))
+    }
+
     addQuanity = (quantity, designId) => {
         return this.service.post('/add-quantity', { quantity, designId })
             .then(response => response.data)
@@ -54,6 +60,12 @@ export default class designService {
 
     buy = (userId, arrDesign) => {
         return this.service.post('/buy', { userId, arrDesign })
+            .then(response => response.data)
+            .catch(err => console.log(err))
+    }
+
+    moveToCart = (userId, oldOrderId) => {
+        return this.service.post('/move-to-cart', { userId, oldOrderId })
             .then(response => response.data)
             .catch(err => console.log(err))
     }

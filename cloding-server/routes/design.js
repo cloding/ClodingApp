@@ -77,7 +77,7 @@ router.post('/save-design', (req, res, next) => {
     design
         .save()
         .then((design) => {
-            User.update(
+            User.updateOne(
                 { _id: user },
                 { $push: { tShirt: design } }
             )
@@ -94,6 +94,18 @@ router.post('/all-tShirt', (req, res, next) => {
     User
         .findById(userId)
         .populate('tShirt')
+        .then(user => {
+            res.json(user)
+            console.log(user)
+        })
+        .catch(err => next(err))
+})
+
+router.post('/all-old-orders', (req, res, next) => {
+    let userId = req.body.userId
+    User
+        .findById(userId)
+        .populate('buy')
         .then(user => {
             res.json(user)
             console.log(user)
@@ -118,8 +130,8 @@ router.post('/delete-design', (req, res, next) => {
 
     Design
         .findByIdAndDelete({ _id: req.body.id })
-        .then(design => {
-            User.update(
+        .then(() => {
+            User.updateOne(
                 { _id: user },
                 { $pull: { tShirt: req.body.id } }
             )
@@ -241,6 +253,18 @@ router.post('/buy', (req, res, next) => {
                 .catch(err => next(err))
         })
         .catch(err => next(err))
+})
+
+router.post('/move-to-cart', (req, res, next) => {
+    let userId = req.body.userId
+    let oldOrderId = req.body.oldOrderId
+
+    User.updateOne(
+        { _id: userId },
+        { $push: { tShirt: oldOrderId } }
+    )
+    .then(user => res.json(user))
+    .catch(err => next(err))
 })
 
 module.exports = router;
