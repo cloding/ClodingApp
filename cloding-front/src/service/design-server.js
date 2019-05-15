@@ -46,4 +46,10 @@ export default class designService {
             .catch(err => console.log(err))
     }
 
+    addMoneyToPay = (designId, toPayOne) => {
+        return this.service.post('/add-toPay', { designId, toPayOne })
+            .then(response => response.data)
+            .catch(err => console.log(err))
+    }
+
 }

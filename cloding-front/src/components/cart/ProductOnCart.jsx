@@ -8,8 +8,8 @@ export default class ProductOnCart extends Component {
         super(props)
 
         this.state = {
-            quantity: 1,
-            active: true
+            active: true,
+            toPay: 0
         }
 
         this.service = new DesignService();
@@ -29,7 +29,23 @@ export default class ProductOnCart extends Component {
 
         this.service.addQuanity(quantity, designId)
             .then()
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
+
+        const toPayOne = (quantity * 30);
+        this.service.addMoneyToPay(designId, toPayOne)
+            .then(() => {
+                this.service.allTShirt(this.props.user._id)
+                    .then(allTheTShirts => {
+                        const tShirts = allTheTShirts.tShirt
+                        let total = tShirts.reduce((a, b) => {
+                            return a + b.price
+                        }, 0)
+
+                        this.props.totalAmounts(total)
+                    })
+            })
+            .catch(error => console.log(error))
+
     }
 
     changeQuantiy(e) {
@@ -42,8 +58,17 @@ export default class ProductOnCart extends Component {
 
     delete(e) {
         e.preventDefault();
-        this.service.delete(this.props.tShirt._id, this.props.userId)
+        this.service.delete(this.props.tShirt._id, this.props.user._id)
             .then(() => {
+                this.service.allTShirt(this.props.user._id)
+                    .then(allTheTShirts => {
+                        const tShirts = allTheTShirts.tShirt
+                        let total = tShirts.reduce((a, b) => {
+                            return a + b.price
+                        }, 0)
+
+                        this.props.totalAmounts(total)
+                    })
                 this.setState({
                     ...this.state,
                     active: false
@@ -63,8 +88,8 @@ export default class ProductOnCart extends Component {
                         <div>
                             <h2>{this.props.tShirt.designName}</h2>
                             <p>{this.props.tShirt.type}</p>
-                            <form onSubmit={(e) => this.quantity(e)}>
-                                <Form label="Quantity" type="number" name="quantity" value={this.props.tShirt.quantity} onchange={(e) => this.changeQuantiy(e)} ></Form>
+                            <form onSubmit={(e) => this.quantity(e)} >
+                                <Form label="Quantity" type="number" name="quantity" value={this.state.quantity} onchange={(e) => this.changeQuantiy(e)} ></Form>
                                 <input type="submit" className="btn orange cursor" value="Add" />
                             </form>
                             <Link className="btn purple" to={`/canvas/edit/${this.props.tShirt._id}`} >Edit</Link>

@@ -7,7 +7,8 @@ export default class Cart extends Component {
         super(props);
 
         this.state = {
-            tShirts: []
+            tShirts: [],
+            toPay: 0
         }
 
         this.service = new DesignService();
@@ -17,23 +18,37 @@ export default class Cart extends Component {
         this.service.allTShirt(this.props.user._id)
             .then(allTheTShirts => {
                 const tShirts = allTheTShirts.tShirt
+                let total = tShirts.reduce((a, b) => {
+                    return a + b.price
+                }, 0)
+
                 this.setState({
                     ...this.state,
-                    tShirts: tShirts
+                    tShirts: tShirts,
+                    toPay: total
                 })
             })
-
     }
 
+    totalAmounts(total) {
+        this.setState({
+            ...this.state,
+            toPay: total
+        })
+    }
 
     render() {
         let tShirtCart = this.state.tShirts.map((tShirt, i) => {
             return (
                 <li key={i}>
-                    <ProductOnCart tShirt={tShirt} userId={this.props.user._id} />
+                    <ProductOnCart tShirt={tShirt} user={this.props.user} totalAmounts={(total) => this.totalAmounts(total)} />
                 </li>
             )
         })
+
+
+
+
         return (
             <React.Fragment>
                 <div className="pageStructure">
@@ -43,6 +58,7 @@ export default class Cart extends Component {
                                 {tShirtCart}
                             </ul>
                         </div>
+                        <p>To pay: {this.state.toPay}</p>
                     </div>
                 </div>
             </React.Fragment>

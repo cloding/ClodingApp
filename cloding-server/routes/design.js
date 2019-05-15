@@ -77,7 +77,6 @@ router.post('/save-design', (req, res, next) => {
     design
         .save()
         .then((design) => {
-
             User.update(
                 { _id: user },
                 { $push: { tShirt: design } }
@@ -197,7 +196,7 @@ router.post('/edit-design', (req, res, next) => {
     }
 
     Design
-        .findByIdAndUpdate(designId, { 
+        .findByIdAndUpdate(designId, {
             designName,
             red,
             green,
@@ -207,12 +206,22 @@ router.post('/edit-design', (req, res, next) => {
             text1,
             text2,
             text3
-         })
+        })
         .then(design => {
             res.json(design)
         })
         .catch(err => next(err))
 });
 
+router.post('/add-toPay', (req, res, next) => {
+    let designId = req.body.designId
+    let toPayOne = req.body.toPayOne
+    Design
+        .findByIdAndUpdate(designId, { price: toPayOne })
+        .then(user => {
+            res.json(user)
+        })
+        .catch(err => next(err))
+})
 
 module.exports = router;
