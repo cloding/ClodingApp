@@ -1,0 +1,13 @@
+.selector-right{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.selector-right-container img {
+    height: 400px;
+}
+
+.price-selector {
+    margin-top: 20px;
+}

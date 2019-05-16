@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DesignService from "../../service/design-server";
 import ProductOnCart from './ProductOnCart';
+import './Cart.css';
 
 export default class Cart extends Component {
     constructor(props) {
@@ -61,14 +62,16 @@ export default class Cart extends Component {
         return (
             <React.Fragment>
                 <div className="pageStructure">
-                    <div className="container white">
+                    <div className="container white cart-box padding-canvas">
                         <div className="cartContainer">
                             <ul>
                                 {tShirtCart}
                             </ul>
                         </div>
-                        <p>To pay: {this.state.toPay}</p>
-                        <button className="btn orange" onClick={(e) => this.buy(e)}>Buy</button>
+                        <div className="cart-toPay">
+                            <h4>Total amount: <span className="f700">{this.state.toPay}</span>€</h4>
+                            <button className="btn orange cursor" onClick={(e) => this.buy(e)}>Buy</button>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

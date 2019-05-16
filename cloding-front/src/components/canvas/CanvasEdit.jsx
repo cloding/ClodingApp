@@ -154,6 +154,7 @@ export default class Canvas extends Component {
             opacity: this.state.opacity1,
             hue: this.state.hue1,
             value: this.state.value1,
+            saturation: this.state.saturation1,
             x: this.state.x1,
             y: this.state.y1,
             scaleX: this.state.scaleX1,
@@ -165,7 +166,7 @@ export default class Canvas extends Component {
             active: this.state.active2,
             opacity: this.state.opacity2,
             hue: this.state.hue2,
-            value: this.state.value2,
+            saturation: this.state.saturation2,
             x: this.state.x2,
             y: this.state.y2,
             scaleX: this.state.scaleX2,
@@ -272,16 +273,18 @@ export default class Canvas extends Component {
 
     showWidget() {
         let widget = window.cloudinary.createUploadWidget({
-            cloudName: "dgp1wgz95",
-            uploadPreset: "cloding-preset"
+            cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
+            cropping: true
         }, (error, result) => { this.checkUploadResult(result) })
         widget.open();
     }
 
     showWidget2() {
         let widget = window.cloudinary.createUploadWidget({
-            cloudName: "dgp1wgz95",
-            uploadPreset: "cloding-preset"
+            cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
+            cropping: true
         }, (error, result) => { this.checkUploadResult2(result) })
         widget.open();
     }
@@ -405,7 +408,8 @@ export default class Canvas extends Component {
             <React.Fragment>
                 <div className="pageStructure">
                     <div className="container white">
-                        <div className="half-container">
+                        <div className="half-container padding-canvas">
+                            <h2>{this.state.designName}</h2>
                             <Controles
                                 rgbValue={(e) => this.rgbValue(e)}
                                 showWidget={() => this.showWidget()}
@@ -415,8 +419,10 @@ export default class Canvas extends Component {
                                 text={(e) => this.text(e)}
                                 effects={(e) => this.effects(e)}
                             />
-                            <form onSubmit={this.updateDesign}>
-                                <Form label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
+                            <form className="form-save-design" onSubmit={this.updateDesign}>
+                                <div className="form-inside-design">
+                                    <Form labelCss="label-design-name" inputCss="input-design-name-canvas" label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
+                                </div>
                                 <input type="submit" className="btn orange cursor" value="Save" />
                             </form>
                         </div>
