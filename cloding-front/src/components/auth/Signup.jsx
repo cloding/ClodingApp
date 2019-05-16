@@ -15,7 +15,11 @@ export default class Signup extends Component {
         country: "",
         region: "",
         city: "",
-        direction: ""
+        direction: "",
+        tShirt: [],
+        buy: [],
+        photouser: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png",
+        role: "user"
       },
       logged: false, error: ''
     };
@@ -27,13 +31,17 @@ export default class Signup extends Component {
     event.preventDefault();
     const username = this.state.user.username;
     const password = this.state.user.password;
+    const tShirt = this.state.user.tShirt;
+    const buy = this.state.user.buy;
+    const photouser = this.state.user.photouser;
+    const role = this.state.user.role;
     const mail = this.state.user.mail;
     const country = this.state.user.country;
     const region = this.state.user.region;
     const city = this.state.user.city;
     const direction = this.state.user.direction;
 
-    this.service.signup(username, password, mail, country, region, city, direction)
+    this.service.signup(username, password, mail, country, region, city, direction, tShirt, buy, photouser, role)
       .then(response => {
         this.setState({
           username: "",
@@ -58,7 +66,7 @@ export default class Signup extends Component {
 
   render() {
     console.log(this.state.logged)
-    if (this.state.logged) return <Redirect to={"/profile"} />
+    if (this.state.logged) return <Redirect to={"/"} />
     return (
       <React.Fragment>
         <div className="pageStructure">

@@ -17,7 +17,8 @@ export default class Edit extends Component {
                 direction: "",
                 photouser: ""
             },
-            redirect: false
+            redirect: false,
+            photouserTemp: ""
         };
         this.service = new AuthService();
     }
@@ -44,13 +45,33 @@ export default class Edit extends Component {
         const id = this.state.user._id;
 
         this.service.editProfile(username, mail, country, region, city, direction, photouser, id)
-            .then()
+            .then(user => {
+                this.props.editDates(user)
+            })
             .catch(err => console.log(err))
     }
 
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ user: { ...this.state.user, [name]: value } });
+    }
+
+    checkUploadResult(result) {
+        this.setState({
+            ...this.state,
+            photouserTemp: result.info.secure_url
+        })
+        if (result.event === 'success') {
+            this.setState({ user: { ...this.state.user, photouser: result.info.secure_url } })
+        }
+    }
+
+    showWidget() {
+        let widget = window.cloudinary.createUploadWidget({
+            cloudName: "dgp1wgz95",
+            uploadPreset: "cloding-preset"
+        }, (error, result) => { this.checkUploadResult(result) })
+        widget.open();
     }
 
     render() {
@@ -71,7 +92,10 @@ export default class Edit extends Component {
                             </form>
                         </div>
                         <div className="half-container">
-                            <h1>Home</h1>
+                            <div className="profile-page-image">
+                                <img src={this.state.user.photouser} alt="profile" />
+                                <button type="button" name="firstImage" onClick={() => this.showWidget()} className="btn orange cursor">Upload</button>
+                            </div>
                         </div>
                     </div>
                 </div>

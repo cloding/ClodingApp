@@ -10,15 +10,12 @@ const userSchema = new Schema({
   city: String,
   direction: String,
   tShirt: [{ type: Schema.Types.ObjectId, ref: "Design" }],
+  buy: [{ type: Schema.Types.ObjectId, ref: "Design" }],
   photouser: {
     type: String,
     default: "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
   },
-  role: { type: String, default: "user" },
-  balance: {
-    type: Number,
-    default: 0
-  }
+  role: { type: String, default: "user" }
 }, {
     timestamps: {
       createdAt: 'created_at',

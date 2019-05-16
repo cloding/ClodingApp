@@ -4,6 +4,7 @@ export default class Controles extends Component {
 
 
     render() {
+        console.log(this.props.blue)
         return (
             <React.Fragment>
                 <div className="controlRGB">

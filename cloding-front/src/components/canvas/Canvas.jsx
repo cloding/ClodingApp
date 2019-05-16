@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import TshirtStructure from './TshirtStructure';
 import Controles from './Controles';
 import DesignService from "../../service/design-server";
+import { withRouter } from 'react-router-dom';
 import Form from '../form/Form';
 
-export default class Canvas extends Component {
+class Canvas extends Component {
     constructor(props) {
         super(props);
 
@@ -125,8 +126,8 @@ export default class Canvas extends Component {
         }
 
         this.service.saveDesign(userId, type, designName, red, green, blue, image1, image2, text1, text2, text3)
-            .then(response => {
-                console.log(response)
+            .then(() => {
+                this.props.history.push("/cart")
             })
             .catch(error => console.log(error))
     }
@@ -540,3 +541,5 @@ export default class Canvas extends Component {
         }
     }
 }
+
+export default withRouter(Canvas)

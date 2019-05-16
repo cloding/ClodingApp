@@ -77,8 +77,7 @@ router.post('/save-design', (req, res, next) => {
     design
         .save()
         .then((design) => {
-
-            User.update(
+            User.updateOne(
                 { _id: user },
                 { $push: { tShirt: design } }
             )
@@ -95,6 +94,18 @@ router.post('/all-tShirt', (req, res, next) => {
     User
         .findById(userId)
         .populate('tShirt')
+        .then(user => {
+            res.json(user)
+            console.log(user)
+        })
+        .catch(err => next(err))
+})
+
+router.post('/all-old-orders', (req, res, next) => {
+    let userId = req.body.userId
+    User
+        .findById(userId)
+        .populate('buy')
         .then(user => {
             res.json(user)
             console.log(user)
@@ -119,8 +130,8 @@ router.post('/delete-design', (req, res, next) => {
 
     Design
         .findByIdAndDelete({ _id: req.body.id })
-        .then(design => {
-            User.update(
+        .then(() => {
+            User.updateOne(
                 { _id: user },
                 { $pull: { tShirt: req.body.id } }
             )
@@ -197,7 +208,7 @@ router.post('/edit-design', (req, res, next) => {
     }
 
     Design
-        .findByIdAndUpdate(designId, { 
+        .findByIdAndUpdate(designId, {
             designName,
             red,
             green,
@@ -207,12 +218,53 @@ router.post('/edit-design', (req, res, next) => {
             text1,
             text2,
             text3
-         })
+        })
         .then(design => {
             res.json(design)
         })
         .catch(err => next(err))
 });
 
+router.post('/add-toPay', (req, res, next) => {
+    let designId = req.body.designId
+    let toPayOne = req.body.toPayOne
+    Design
+        .findByIdAndUpdate(designId, { price: toPayOne })
+        .then(user => {
+            res.json(user)
+        })
+        .catch(err => next(err))
+})
+
+router.post('/buy', (req, res, next) => {
+    let userId = req.body.userId
+    let arrDesign = req.body.arrDesign
+
+    User.updateOne(
+        { _id: userId },
+        { $push: { buy: arrDesign } }
+    )
+        .then(() => {
+            User.updateOne(
+                { _id: userId },
+                { $pullAll: { tShirt: arrDesign } }
+            )
+                .then(user => res.json(user))
+                .catch(err => next(err))
+        })
+        .catch(err => next(err))
+})
+
+router.post('/move-to-cart', (req, res, next) => {
+    let userId = req.body.userId
+    let oldOrderId = req.body.oldOrderId
+
+    User.updateOne(
+        { _id: userId },
+        { $push: { tShirt: oldOrderId } }
+    )
+    .then(user => res.json(user))
+    .catch(err => next(err))
+})
 
 module.exports = router;

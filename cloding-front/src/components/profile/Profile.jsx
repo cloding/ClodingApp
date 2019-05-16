@@ -51,6 +51,7 @@ class Profile extends Component {
                   <li>nation: {this.props.user.country}</li>
                   <li>region: {this.props.user.region}</li>
                   <li>city: {this.props.user.city}</li>
+                  <Link className="btn light-blue" to={`/old-orders`}>Old orders</Link>
                 </ul>
                 <div className="profile-page-btn">
                   <Link className="btn light-blue" to={`/profile/edit`}>Edit profile</Link>
