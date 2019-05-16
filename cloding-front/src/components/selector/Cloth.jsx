@@ -12,7 +12,7 @@ export default class Cloth extends Component {
                             <h2>Create a new {this.props.cloth} </h2>
                             <div className="text-home-center">
                                 <p>{this.props.clothText}</p>
-                                <h4>Price: <span className="f700">{this.props.price}</span>€ </h4>
+                                <h4 className="price-selector">Price: <span className="f700">{this.props.price}</span>€ </h4>
                             </div>
                             <Link className="btn orange" to={"/canvas"}>Start</Link>
                         </div>
