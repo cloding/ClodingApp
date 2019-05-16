@@ -46,7 +46,6 @@ class App extends Component {
   
 
   editUser(user) {
-    debugger
     this.setState({
       ...this.state,
       loggedInUser: user

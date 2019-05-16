@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import TshirtStructure from './TshirtStructure';
-import Controles from './Controles';
 import DesignService from "../../service/design-server";
 import Form from '../form/Form';
+import Controles from './Controles';
 
 export default class Canvas extends Component {
     constructor(props) {
@@ -11,9 +11,9 @@ export default class Canvas extends Component {
         this.state = {
             design: {},
             designName: '',
-            red: '255',
-            blue: '255',
-            green: '255',
+            red: 255,
+            blue: 255,
+            green: 255,
             imageUrl1: '',
             imageUrl2: '',
             imageUrlFix1: '',
