@@ -12,7 +12,7 @@ export default class Home extends Component {
                         <div className="half-container home">
                             <h1>Create your clothes with coding!</h1>
                             <div className="text-home-center">
-                                <p>Cloding is the first page that allows you to create and edit T-shirts, sweatshirts and pants directly with the programming. Give space to your imagination!</p>
+                                <p>Cloding is the first page that allows you to create and edit T-shirts, sweatshirts and pants directly with programming. Give space to your imagination!</p>
                             </div>
                             <Link className="btn purple" to={"/designer"}>Designer</Link>
                         </div>

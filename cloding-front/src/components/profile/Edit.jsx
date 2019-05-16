@@ -81,7 +81,7 @@ export default class Edit extends Component {
             <React.Fragment>
                 <div className="pageStructure">
                     <div className="container white">
-                        <div className="half-container padding">
+                        <div className="half-container overflow padding">
                             <h2>Edit profile</h2>
                             <form className="form-auth" onSubmit={e => this.handleFormSubmit(e)}>
                                 <div className="input-edit-profile">

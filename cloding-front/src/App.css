@@ -95,6 +95,10 @@ p {
   font-weight: 400;  
 }
 
+.overflow {
+  overflow: hidden;
+}
+
 .pageStructure {
   display: flex;
   justify-content: center;

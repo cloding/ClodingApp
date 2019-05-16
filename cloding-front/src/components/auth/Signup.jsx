@@ -71,7 +71,7 @@ export default class Signup extends Component {
       <React.Fragment>
         <div className="pageStructure">
           <div className="container white">
-            <div className="half-container  padding">
+            <div className="half-container overflow padding">
               <h2>Sign up</h2>
               <form className="form-auth" onSubmit={this.handleFormSubmit}>
                 <div className="input-sign-up">
