@@ -22,14 +22,16 @@ export default class BuyProduct extends Component {
     render() {
         return (
             <React.Fragment>
-                <div>
-                    <h2>{this.props.oldOrder.designName}</h2>
-                    <p>{this.props.oldOrder.type}</p>
-                    <p>{this.props.oldOrder.quantity}</p>
-                    <p>{this.props.oldOrder.price}</p>
-                    <button className="btn red" onClick={(e) => this.moveToCart(e)}>Cart</button>
+                <div className="cart-product">
+                    <div className="nameDesignList">
+                        <h4>Name: <span className="f700">{this.props.oldOrder.designName}</span></h4>
+                    </div>
+                    <h5>type: <span className="f700">{this.props.oldOrder.type}</span></h5>
+                    <p className="label-design-name">Quantity: <span className="f700">{this.props.oldOrder.quantity}</span></p>
+                    <p className="label-design-name">Price: <span className="f700">{this.props.oldOrder.price}</span>€</p>
+                    <button className="btn-cart orange cursor" onClick={(e) => this.moveToCart(e)}>Cart</button>
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         )
     }
 }

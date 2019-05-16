@@ -36,20 +36,22 @@ export default class Buy extends Component {
         let oldOrders = this.state.oldOrders.map((oldOrder, i) => {
             return (
                 <li key={i}>
-                    <BuyProduct oldOrder={oldOrder} user={this.props.user}  />
+                    <BuyProduct oldOrder={oldOrder} user={this.props.user} />
                 </li>
             )
         })
         return (
             <React.Fragment>
                 <div className="pageStructure">
-                    <div className="container white">
+                    <div className="container white cart-box padding-canvas">
                         <div className="cartContainer">
                             <ul>
                                 {oldOrders}
                             </ul>
                         </div>
-                        <p>Total of the payments: {this.state.payments} </p>
+                        <div className="cart-toPay">
+                            <h4>Total orders: <span className="f700">{this.state.payments}€</span></h4>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

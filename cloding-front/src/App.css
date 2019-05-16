@@ -87,6 +87,14 @@ p {
   display: none;
 }
 
+.f700 {
+  font-weight: 700;
+}
+
+.f400 {
+  font-weight: 400;  
+}
+
 .pageStructure {
   display: flex;
   justify-content: center;

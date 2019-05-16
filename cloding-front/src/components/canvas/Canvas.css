@@ -4,6 +4,12 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.control-structure {
+  height: 280px;
+  overflow-y: scroll;
 }
 
 .controles-box {
@@ -16,6 +22,7 @@
 .controlRGB {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .range-control {
@@ -31,6 +38,7 @@
 .btn-control-box {
   display: flex;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .btn-control-box > *{
@@ -53,17 +61,27 @@
     background:  #E6E9F0;
     border: 1px solid#431C5D;
     color: #431C5D;
-    width: 200px;
     padding: 3px 5px;
+    flex-grow: 2;
 }
 
-.text-controles > div {
+.bottom{
     margin-bottom: 5px;
 }
 
-/* .text-controles:last-child{
-    margin-bottom: 20px;
-} */
+.text-control-inside {
+    display: flex;
+    align-items: center;
+}
+
+.text-control-inside label {
+    margin-right: 5px;
+}
+
+.text-control-inside input {
+    text-align: right;
+    width: 100px;
+}
 
 .text-control {
     display: flex;
@@ -87,4 +105,37 @@
     color: #431C5D;
     width: 100px;
     padding: 3px 5px;
+}
+
+.demo-advisor {
+  background-color:rgba(244,89,21, 0.7);
+  height: 60px;  
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 10px; 
+}
+
+.label-design-name {
+  font-size:2rem;
+}
+
+.input-design-name-canvas {
+  margin-left: 20px; 
+  background: #E6E9F0;
+  border: 1px solid #431C5D;
+  font-size: 1.4rem;
+  padding: 5px 10px;
+  flex-grow: 2; 
+}
+
+.form-save-design {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inside-design {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px 
 }

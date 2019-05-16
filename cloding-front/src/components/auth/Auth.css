@@ -21,6 +21,12 @@
     height: 50%;
 }
 
+.input-login {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+}
+
 .form-auth input[type=submit]{
     margin-top: 10px;
 }
@@ -33,10 +39,15 @@
 .link-auth-text {
     display: flex;
     justify-content: center;
+    align-self: flex-end;
 }
 
 .link-auth {
     font-weight: 700;
+}
+
+.logoAuth {
+    align-self: flex-end;
 }
 
 .logoAuth img{

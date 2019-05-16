@@ -31,13 +31,13 @@ class Navbar extends Component {
                         <div className="navbar">
                             <h2><Link to={"/"}>Cloding</Link></h2>
                             <ul>
+                                <li className="cursor" onClick={(e) => this.logout(e)}>Logout</li>
                                 <li>
                                     <Link to={`/profile`} className="link-photo-profile">
                                         {this.props.user.username}
                                         <img src={this.props.user.photouser} alt="profile" />
                                     </Link>
                                 </li>
-                                <li className="cursor" onClick={(e) => this.logout(e)}>Logout</li>
                                 <li><Link to={"/cart"}><i className="fas fa-shopping-cart"></i></Link></li>
                                 <li><Link className="btn purple" to={"/designer"}>Designer</Link></li>
                             </ul>

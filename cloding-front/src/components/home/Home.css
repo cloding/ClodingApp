@@ -8,10 +8,11 @@
 
 .home-right {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
 .home-right img {
+    align-self: flex-end;
     height: 500px;
 }
+

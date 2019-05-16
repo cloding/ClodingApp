@@ -397,8 +397,10 @@ class Canvas extends Component {
                                     text={(e) => this.text(e)}
                                     effects={(e) => this.effects(e)}
                                 />
-                                <form onSubmit={this.saveDesign}>
-                                    <Form label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
+                                <form className="form-save-design" onSubmit={this.saveDesign}>
+                                    <div className="form-inside-design">
+                                        <Form labelCss="label-design-name" inputCss="input-design-name-canvas" label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
+                                    </div>
                                     <input type="submit" className="btn orange cursor" value="Save" />
                                 </form>
                             </div>
@@ -470,7 +472,7 @@ class Canvas extends Component {
                     <div className="pageStructure" >
                         <div className="container white">
                             <div className="half-container padding-canvas">
-                            <h2>T-shirt designer</h2>
+                                <h2>T-shirt designer</h2>
                                 <Controles
                                     rgbValue={(e) => this.rgbValue(e)}
                                     showWidget={() => this.showWidget()}
@@ -480,6 +482,9 @@ class Canvas extends Component {
                                     text={(e) => this.text(e)}
                                     effects={(e) => this.effects(e)}
                                 />
+                                <div className="demo-advisor">
+                                    <h5>This is a demo version, for buy your creation you must be logged in.</h5>
+                                </div>
                             </div>
                             <div className="half-container" >
                                 <TshirtStructure

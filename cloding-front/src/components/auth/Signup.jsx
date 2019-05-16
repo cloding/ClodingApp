@@ -81,7 +81,7 @@ export default class Signup extends Component {
                   <Form labelCss="dispay-none" placeholder="country" inputCss="input-auth" type="text" name="country" value={this.state.country} onchange={e => this.handleChange(e)} />
                   <Form labelCss="dispay-none" placeholder="region" inputCss="input-auth" type="text" name="region" value={this.state.region} onchange={e => this.handleChange(e)} />
                   <Form labelCss="dispay-none" placeholder="city" inputCss="input-auth" type="text" name="city" value={this.state.city} onchange={e => this.handleChange(e)} />
-                  <Form labelCss="dispay-none" placeholder="direction" inputCss="input-auth" type="text" name="direction" value={this.state.direction} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="address" inputCss="input-auth" type="text" name="direction" value={this.state.direction} onchange={e => this.handleChange(e)} />
                 </div>
                 <input type="submit" className="btn orange cursor" value="Signup" />
               </form>

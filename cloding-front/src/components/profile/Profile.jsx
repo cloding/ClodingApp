@@ -45,21 +45,26 @@ class Profile extends Component {
         <React.Fragment>
           <div className="pageStructure">
             <div className="container white">
-              <div className="half-container">
+              <div className="half-container padding">
                 <h2>{this.props.user.username}</h2>
-                <ul>
-                  <li>email: {this.props.user.mail}</li>
-                  <li>nation: {this.props.user.country}</li>
-                  <li>region: {this.props.user.region}</li>
-                  <li>city: {this.props.user.city}</li>
-                  <Link className="btn light-blue" to={`/old-orders`}>Old orders</Link>
+                <ul className="profile-list">
+                  <li>email: <span className="f700">{this.props.user.mail}</span></li>
+                  <li>nation: <span className="f700">{this.props.user.country}</span></li>
+                  <li>region: <span className="f700">{this.props.user.region}</span></li>
+                  <li>city: <span className="f700">{this.props.user.city}</span></li>
+                  <li>address: <span className="f700">{this.props.user.city}</span></li>
                 </ul>
                 <div className="profile-page-btn">
-                  <Link className="btn light-blue" to={`/profile/edit`}>Edit profile</Link>
-                  <button className="btn red" onClick={(e) => this.delete(e)}>Delete</button>
+                  <div className="profile-btn-line">
+                    <Link className="btn orange" to={`/old-orders`}>Old orders</Link>
+                  </div>
+                  <div className="profile-btn-line">
+                    <Link className="btn purple cursor" to={`/profile/edit`}>Edit profile</Link>
+                    <button className="btn red" onClick={(e) => this.delete(e)}>Delete</button>
+                  </div>
                 </div>
               </div>
-              <div className="half-container">
+              <div className="half-container photo-profile-container">
                 <div className="profile-page-image">
                   <img src={this.props.user.photouser} alt="profile" />
                 </div>

@@ -418,8 +418,10 @@ export default class Canvas extends Component {
                                 text={(e) => this.text(e)}
                                 effects={(e) => this.effects(e)}
                             />
-                            <form onSubmit={this.updateDesign}>
-                                <Form label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
+                            <form className="form-save-design" onSubmit={this.updateDesign}>
+                                <div className="form-inside-design">
+                                    <Form labelCss="label-design-name" inputCss="input-design-name-canvas" label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
+                                </div>
                                 <input type="submit" className="btn orange cursor" value="Save" />
                             </form>
                         </div>

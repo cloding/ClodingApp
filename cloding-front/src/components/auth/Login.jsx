@@ -41,8 +41,10 @@ export default class Login extends Component {
             <div className="half-container padding">
               <h2>Login</h2>
               <form className="form-auth" onSubmit={(e) => this.handleFormSubmit(e)}>
-                <Form labelCss="dispay-none" placeholder="username" inputCss="input-auth" type="text" name="username" value={this.state.username} onchange={e => this.handleChange(e)} />
-                <Form labelCss="dispay-none" placeholder="password" inputCss="input-auth" type="password" name="password" value={this.state.password} onchange={e => this.handleChange(e)} />
+                <div className="input-login">
+                  <Form labelCss="dispay-none" placeholder="username" inputCss="input-auth" type="text" name="username" value={this.state.username} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="password" inputCss="input-auth" type="password" name="password" value={this.state.password} onchange={e => this.handleChange(e)} />
+                </div>
                 <input type="submit" className="btn orange cursor" value="Login" />
               </form>
             </div>
