@@ -68,14 +68,15 @@ export default class Edit extends Component {
 
     showWidget() {
         let widget = window.cloudinary.createUploadWidget({
-            cloudName: "dgp1wgz95",
-            uploadPreset: "cloding-preset"
+            cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
+            cropping: true,
+            croppingAspectRatio: 1
         }, (error, result) => { this.checkUploadResult(result) })
         widget.open();
     }
 
     render() {
-        console.log(this.state.user)
         return (
             <React.Fragment>
                 <div className="pageStructure">

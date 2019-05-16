@@ -1,1 +1,90 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto|Rubik');
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto|Rubik");
+
+.padding-canvas {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.controles-box {
+  border-radius: 10px;
+  font-size: 1.4rem;
+  display: flex;
+  padding: 10px 20px;
+}
+
+.controlRGB {
+  display: flex;
+  flex-direction: column;
+}
+
+.range-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.range-control input {
+  display: flex;
+  width: 300px;
+}
+
+.btn-control-box {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.btn-control-box > *{
+  margin-right: 10px; 
+}
+
+.btn-control {
+  width: 70px;
+  height: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  border: 0;
+}
+
+.input-control {
+    background:  #E6E9F0;
+    border: 1px solid#431C5D;
+    color: #431C5D;
+    width: 200px;
+    padding: 3px 5px;
+}
+
+.text-controles > div {
+    margin-bottom: 5px;
+}
+
+/* .text-controles:last-child{
+    margin-bottom: 20px;
+} */
+
+.text-control {
+    display: flex;
+    justify-content: space-between;  
+}
+
+.text-control > * {
+    margin-right: 10px; 
+}
+
+.text-control select {
+    background: #E6E9F0;
+    color: #431C5D;
+    width: 100px;
+
+}
+
+.text-size-control {
+    background:  #E6E9F0;
+    border: 1px solid#431C5D;
+    color: #431C5D;
+    width: 100px;
+    padding: 3px 5px;
+}

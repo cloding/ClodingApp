@@ -1,0 +1,17 @@
+.half-container {
+    color: #431C5D;
+}
+
+.text-home-center {
+    margin: 40px 0; 
+}
+
+.home-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.home-right img {
+    height: 500px;
+}

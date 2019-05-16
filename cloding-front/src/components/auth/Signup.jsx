@@ -70,23 +70,29 @@ export default class Signup extends Component {
     return (
       <React.Fragment>
         <div className="pageStructure">
-          <div className="container">
-            <div className="half-container">
-              <form onSubmit={this.handleFormSubmit}>
-                <Form label="Username" type="text" name="username" value={this.state.username} onchange={e => this.handleChange(e)} />
-                <Form label="Password" type="password" name="password" value={this.state.password} onchange={e => this.handleChange(e)} />
-                <Form label="Email" type="email" name="mail" value={this.state.mail} onchange={e => this.handleChange(e)} />
-                <Form label="Country" type="text" name="country" value={this.state.country} onchange={e => this.handleChange(e)} />
-                <Form label="Region" type="text" name="region" value={this.state.region} onchange={e => this.handleChange(e)} />
-                <Form label="City" type="text" name="city" value={this.state.city} onchange={e => this.handleChange(e)} />
-                <Form label="Address" type="text" name="direction" value={this.state.direction} onchange={e => this.handleChange(e)} />
+          <div className="container white">
+            <div className="half-container  padding">
+              <h2>Sign up</h2>
+              <form className="form-auth" onSubmit={this.handleFormSubmit}>
+                <div className="input-sign-up">
+                  <Form labelCss="dispay-none" placeholder="username" inputCss="input-auth" type="text" name="username" value={this.state.username} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="password" inputCss="input-auth" type="password" name="password" value={this.state.password} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="e-mail" inputCss="input-auth" type="email" name="mail" value={this.state.mail} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="country" inputCss="input-auth" type="text" name="country" value={this.state.country} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="region" inputCss="input-auth" type="text" name="region" value={this.state.region} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="city" inputCss="input-auth" type="text" name="city" value={this.state.city} onchange={e => this.handleChange(e)} />
+                  <Form labelCss="dispay-none" placeholder="direction" inputCss="input-auth" type="text" name="direction" value={this.state.direction} onchange={e => this.handleChange(e)} />
+                </div>
                 <input type="submit" className="btn orange cursor" value="Signup" />
               </form>
             </div>
-            <div className="half-container">
-              <p>Already have account?
-            <Link to={"/login"}> Login</Link>
-              </p>
+            <div className="half-container padding auth-right">
+              <div className="link-auth-text">
+                <h4>You already have an account? <span className="link-auth" ><Link to={"/login"}> Login here.</Link></span></h4>
+              </div>
+              <div className="logoAuth">
+                <img src="https://res.cloudinary.com/dgp1wgz95/image/upload/v1557993914/Cloding/wear/logoOpacity_unnxum.png" alt="logo Cloding"></img>
+              </div>
             </div>
           </div>
         </div>

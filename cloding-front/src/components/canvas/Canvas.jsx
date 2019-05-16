@@ -197,16 +197,18 @@ class Canvas extends Component {
 
     showWidget() {
         let widget = window.cloudinary.createUploadWidget({
-            cloudName: "dgp1wgz95",
-            uploadPreset: "cloding-preset"
+            cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
+            cropping: true
         }, (error, result) => { this.checkUploadResult(result) })
         widget.open();
     }
 
     showWidget2() {
         let widget = window.cloudinary.createUploadWidget({
-            cloudName: "dgp1wgz95",
-            uploadPreset: "cloding-preset"
+            cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
+            cropping: true
         }, (error, result) => { this.checkUploadResult2(result) })
         widget.open();
     }
@@ -384,7 +386,8 @@ class Canvas extends Component {
                 <React.Fragment>
                     <div className="pageStructure">
                         <div className="container white">
-                            <div className="half-container">
+                            <div className="half-container padding-canvas">
+                                <h2>T-shirt designer</h2>
                                 <Controles
                                     rgbValue={(e) => this.rgbValue(e)}
                                     showWidget={() => this.showWidget()}
@@ -466,7 +469,8 @@ class Canvas extends Component {
                 <React.Fragment>
                     <div className="pageStructure" >
                         <div className="container white">
-                            <div className="half-container">
+                            <div className="half-container padding-canvas">
+                            <h2>T-shirt designer</h2>
                                 <Controles
                                     rgbValue={(e) => this.rgbValue(e)}
                                     showWidget={() => this.showWidget()}
