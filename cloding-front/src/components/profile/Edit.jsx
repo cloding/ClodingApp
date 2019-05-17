@@ -71,7 +71,8 @@ export default class Edit extends Component {
             cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
             uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
             cropping: true,
-            croppingAspectRatio: 1
+            croppingAspectRatio: 1,
+            gravity: "faces"
         }, (error, result) => { this.checkUploadResult(result) })
         widget.open();
     }
