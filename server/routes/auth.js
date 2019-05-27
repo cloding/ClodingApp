@@ -10,7 +10,7 @@ const login = (req, user) => {
   return new Promise((resolve, reject) => {
     req.login(user, err => {
       // console.log('req.login ')
-      console.log(err)
+      // console.log(err)
 
 
       if (err) {

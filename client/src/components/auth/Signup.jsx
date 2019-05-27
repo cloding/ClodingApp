@@ -65,7 +65,6 @@ export default class Signup extends Component {
   };
 
   render() {
-    console.log(this.state.logged)
     if (this.state.logged) return <Redirect to={"/"} />
     return (
       <React.Fragment>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TshirtStructure from './TshirtStructure';
 import DesignService from "../../service/design-server";
 import Form from '../form/Form';
-import Controles from './Controles';
+import ControlesEdit from './ControlesEdit';
 
 export default class Canvas extends Component {
     constructor(props) {
@@ -203,9 +203,7 @@ export default class Canvas extends Component {
         }
 
         this.service.updateDesign(designId, designName, red, green, blue, image1, image2, text1, text2, text3)
-            .then(response => {
-                console.log(response)
-            })
+            .then()
             .catch(error => console.log(error))
     }
 
@@ -351,7 +349,24 @@ export default class Canvas extends Component {
                     <div className="container white">
                         <div className="half-container padding-canvas">
                             <h2>{this.state.designName}</h2>
-                            <Controles
+                            <ControlesEdit
+                                red={this.state.red}
+                                green={this.state.green}
+                                blue={this.state.blue}
+                                text1={this.state.text1}
+                                text2={this.state.text2}
+                                text3={this.state.text3}
+                                textSize1={this.state.textSize1}
+                                textSize2={this.state.textSize2}
+                                textSize3={this.state.textSize3}
+                                opacity1={this.state.opacity1}
+                                opacity2={this.state.opacity2}
+                                hue1={this.state.hue1}
+                                saturation1={this.state.saturation1}
+                                value1={this.state.value1}
+                                hue2={this.state.hue2}
+                                saturation2={this.state.saturation2}
+                                value2={this.state.value2}
                                 rgbValue={(e) => this.rgbValue(e)}
                                 showWidget={(e) => this.showWidget(e)}
                                 deleteImage={(e) => this.deleteImage(e)}
