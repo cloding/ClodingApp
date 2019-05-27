@@ -90,7 +90,7 @@ export default class ProductOnCart extends Component {
                                 <h4>Name: <span className="f700">{this.props.tShirt.designName}</span></h4>
                             </div>
                             <h5>type: <span className="f700">{this.props.tShirt.type}</span></h5>
-                            <form class="form-cart" onSubmit={(e) => this.quantity(e)} >
+                            <form className="form-cart" onSubmit={(e) => this.quantity(e)} >
                                 <Form labelCss="label-design-name" inputCss="input-design-name" label="Quantity" type="number" name="quantity" value={this.state.quantity} onchange={(e) => this.changeQuantiy(e)} ></Form>
                                 <input type="submit" className="btn-quatity orange cursor" value="Add" />
                             </form>

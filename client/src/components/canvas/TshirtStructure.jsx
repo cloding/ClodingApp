@@ -140,8 +140,8 @@ export default class TshirtStructure extends Component {
                                 hue={this.props.hue1}
                                 saturation={this.props.saturation1}
                                 value={this.props.value1}
-                                dragPosition={(e) => this.props.dragPosition1(e)}
-                                transform={(e) => this.props.transform1(e)}
+                                dragPosition={(e) => this.props.dragPosition(e)}
+                                transform={(e) => this.props.transform(e)}
                             />
                             <Images
                                 active={this.props.active2}
@@ -157,12 +157,12 @@ export default class TshirtStructure extends Component {
                                 hue={this.props.hue2}
                                 saturation={this.props.saturation2}
                                 value={this.props.value2}
-                                dragPosition={(e) => this.props.dragPosition2(e)}
-                                transform={(e) => this.props.transform2(e)}
+                                dragPosition={(e) => this.props.dragPosition(e)}
+                                transform={(e) => this.props.transform(e)}
                             />
-                            <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable onDragEnd={(e) => this.props.dragText1(e)} />
-                            <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable onDragEnd={(e) => this.props.dragText2(e)} />
-                            <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable onDragEnd={(e) => this.props.dragText3(e)} />
+                            <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable onDragEnd={(e) => this.props.dragText(e)} />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>

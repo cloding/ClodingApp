@@ -4,7 +4,6 @@ export default class Controles extends Component {
 
 
     render() {
-        console.log(this.props.blue)
         return (
             <React.Fragment>
                 <div className="control-structure">
@@ -26,8 +25,8 @@ export default class Controles extends Component {
                     <div className="controlRGB light-blue controles-box" >
                         <div className="btn-control-box">
                             <h5 id="firstImage">First image</h5>
-                            <button type="button" name="firstImage" onClick={() => this.props.showWidget()} className="btn-control purple cursor">Upload</button>
-                            <button type="button" onClick={() => this.props.deleteImage()} className="btn-control red cursor">Delete</button>
+                            <button id="1" type="button" name="firstImage" onClick={(e) => this.props.showWidget(e)} className="btn-control purple cursor">Upload</button>
+                            <button id="1" type="button" onClick={(e) => this.props.deleteImage(e)} className="btn-control red cursor">Delete</button>
                         </div>
                         <div className="range-control">
                             <label htmlFor="opacity1">Opacity:</label>
@@ -50,8 +49,8 @@ export default class Controles extends Component {
                     <div className="controlRGB light-blue controles-box">
                         <div className="btn-control-box">
                             <h5 id="secondImage">Second image</h5>
-                            <button type="button" name="secondImage" onClick={() => this.props.showWidget2()} className="btn-control purple cursor">Upload</button>
-                            <button type="button" onClick={() => this.props.deleteImage2()} className="btn-control red cursor">delete</button>
+                            <button id="2" type="button" name="secondImage" onClick={(e) => this.props.showWidget(e)} className="btn-control purple cursor">Upload</button>
+                            <button id="2" type="button" onClick={(e) => this.props.deleteImage(e)} className="btn-control red cursor">delete</button>
                         </div>
                         <div className="range-control">
                             <label htmlFor="opacity2">Opacity:</label>
