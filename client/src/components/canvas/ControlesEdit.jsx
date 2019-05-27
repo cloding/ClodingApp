@@ -77,8 +77,8 @@ export default class Controles extends Component {
                         <div className="text-control bottom">
                             <div className="text-control-inside">
                                 <label htmlFor="textFill1">Color:</label>
-                                <select id="textFill1" onChange={(e) => this.props.text(e)}>
-                                    <option value="black" defaultValue >Black</option>
+                                <select id="textFill1" value={this.props.textFill1} onChange={(e) => this.props.text(e)}>
+                                    <option value="black">Black</option>
                                     <option value="white">White</option>
                                     <option value="red">Red</option>
                                     <option value="green">Green</option>
@@ -89,8 +89,8 @@ export default class Controles extends Component {
                             </div>
                             <div className="text-control-inside">
                                 <label htmlFor="textFamily1">Font-family:</label>
-                                <select id="textFamily1" onChange={(e) => this.props.text(e)}>
-                                    <option value="Oxygen" defaultValue >Oxygen</option>
+                                <select id="textFamily1" value={this.props.textFamily1} onChange={(e) => this.props.text(e)}>
+                                    <option value="Oxygen">Oxygen</option>
                                     <option value="Montserrat">Montserrat</option>
                                     <option value="Poppins">Poppins</option>
                                     <option value="Roboto">Roboto</option>
@@ -105,8 +105,8 @@ export default class Controles extends Component {
                             </div>
                             <div className="text-control-inside">
                                 <label htmlFor="textStyle1">Style:</label>
-                                <select id="textStyle1" onChange={(e) => this.props.text(e)}>
-                                    <option value="normal" defaultValue >Normal</option>
+                                <select id="textStyle1" value={this.props.textStyle1} onChange={(e) => this.props.text(e)}>
+                                    <option value="normal">Normal</option>
                                     <option value="bold">Bold</option>
                                     <option value="italic">Italic</option>
                                 </select>
@@ -122,8 +122,8 @@ export default class Controles extends Component {
                         <div className="text-control bottom">
                             <div className="text-control-inside">
                                 <label htmlFor="textFill2">Color:</label>
-                                <select id="textFill2" onChange={(e) => this.props.text(e)}>
-                                    <option value="black" defaultValue >Black</option>
+                                <select id="textFill2" value={this.props.textFill2} onChange={(e) => this.props.text(e)}>
+                                    <option value="black">Black</option>
                                     <option value="white">White</option>
                                     <option value="red">Red</option>
                                     <option value="green">Green</option>
@@ -134,8 +134,8 @@ export default class Controles extends Component {
                             </div>
                             <div className="text-control-inside">
                                 <label htmlFor="textFamily2">Font-family:</label>
-                                <select id="textFamily2" onChange={(e) => this.props.text(e)}>
-                                    <option value="Oxygen" defaultValue >Oxygen</option>
+                                <select id="textFamily2" value={this.props.textFamily2} onChange={(e) => this.props.text(e)}>
+                                    <option value="Oxygen">Oxygen</option>
                                     <option value="Montserrat">Montserrat</option>
                                     <option value="Poppins">Poppins</option>
                                     <option value="Roboto">Roboto</option>
@@ -150,8 +150,8 @@ export default class Controles extends Component {
                             </div>
                             <div className="text-control-inside">
                                 <label htmlFor="textStyle2">Style:</label>
-                                <select id="textStyle2" onChange={(e) => this.props.text(e)}>
-                                    <option value="normal" defaultValue >Normal</option>
+                                <select id="textStyle2" value={this.props.textStyle2} onChange={(e) => this.props.text(e)}>
+                                    <option value="normal">Normal</option>
                                     <option value="bold">Bold</option>
                                     <option value="italic">Italic</option>
                                 </select>
@@ -168,8 +168,8 @@ export default class Controles extends Component {
                         <div className="text-control bottom">
                             <div className="text-control-inside">
                                 <label htmlFor="textFill3">Color:</label>
-                                <select id="textFill3" onChange={(e) => this.props.text(e)}>
-                                    <option value="black" defaultValue >Black</option>
+                                <select id="textFill3" value={this.props.textFill3} onChange={(e) => this.props.text(e)}>
+                                    <option value="black">Black</option>
                                     <option value="white">White</option>
                                     <option value="red">Red</option>
                                     <option value="green">Green</option>
@@ -180,8 +180,8 @@ export default class Controles extends Component {
                             </div>
                             <div className="text-control-inside">
                                 <label htmlFor="textFamily3">Font-family:</label>
-                                <select id="textFamily3" onChange={(e) => this.props.text(e)}>
-                                    <option value="Oxygen" defaultValue >Oxygen</option>
+                                <select id="textFamily3" value={this.props.textFamily3} onChange={(e) => this.props.text(e)}>
+                                    <option value="Oxygen">Oxygen</option>
                                     <option value="Montserrat">Montserrat</option>
                                     <option value="Poppins">Poppins</option>
                                     <option value="Roboto">Roboto</option>
@@ -196,8 +196,8 @@ export default class Controles extends Component {
                             </div>
                             <div className="text-control-inside">
                                 <label htmlFor="textStyle3">Style:</label>
-                                <select id="textStyle3" onChange={(e) => this.props.text(e)}>
-                                    <option value="normal" defaultValue >Normal</option>
+                                <select id="textStyle3" value={this.props.textStyle3} onChange={(e) => this.props.text(e)}>
+                                    <option value="normal">Normal</option>
                                     <option value="bold">Bold</option>
                                     <option value="italic">Italic</option>
                                 </select>

@@ -356,6 +356,15 @@ export default class Canvas extends Component {
                                 text1={this.state.text1}
                                 text2={this.state.text2}
                                 text3={this.state.text3}
+                                textFill1={this.state.textFill1}
+                                textFill2={this.state.textFill2}
+                                textFill3={this.state.textFill3}
+                                textFamily1={this.state.textFamily1}
+                                textFamily2={this.state.textFamily2}
+                                textFamily3={this.state.textFamily3}
+                                textStyle1={this.state.textStyle1}
+                                textStyle2={this.state.textStyle2}
+                                textStyle3={this.state.textStyle3}
                                 textSize1={this.state.textSize1}
                                 textSize2={this.state.textSize2}
                                 textSize3={this.state.textSize3}
