@@ -278,6 +278,32 @@ class Canvas extends Component {
                             <div className="half-container padding-canvas">
                                 <h2>T-shirt designer</h2>
                                 <Controles
+                                    red={this.state.red}
+                                    green={this.state.green}
+                                    blue={this.state.blue}
+                                    text1={this.state.text1}
+                                    text2={this.state.text2}
+                                    text3={this.state.text3}
+                                    textFill1={this.state.textFill1}
+                                    textFill2={this.state.textFill2}
+                                    textFill3={this.state.textFill3}
+                                    textFamily1={this.state.textFamily1}
+                                    textFamily2={this.state.textFamily2}
+                                    textFamily3={this.state.textFamily3}
+                                    textStyle1={this.state.textStyle1}
+                                    textStyle2={this.state.textStyle2}
+                                    textStyle3={this.state.textStyle3}
+                                    textSize1={this.state.textSize1}
+                                    textSize2={this.state.textSize2}
+                                    textSize3={this.state.textSize3}
+                                    opacity1={this.state.opacity1}
+                                    opacity2={this.state.opacity2}
+                                    hue1={this.state.hue1}
+                                    saturation1={this.state.saturation1}
+                                    value1={this.state.value1}
+                                    hue2={this.state.hue2}
+                                    saturation2={this.state.saturation2}
+                                    value2={this.state.value2}
                                     rgbValue={(e) => this.rgbValue(e)}
                                     showWidget={(e) => this.showWidget(e)}
                                     deleteImage={(e) => this.deleteImage(e)}
@@ -357,6 +383,32 @@ class Canvas extends Component {
                             <div className="half-container padding-canvas">
                                 <h2>T-shirt designer</h2>
                                 <Controles
+                                    red={this.state.red}
+                                    green={this.state.green}
+                                    blue={this.state.blue}
+                                    text1={this.state.text1}
+                                    text2={this.state.text2}
+                                    text3={this.state.text3}
+                                    textFill1={this.state.textFill1}
+                                    textFill2={this.state.textFill2}
+                                    textFill3={this.state.textFill3}
+                                    textFamily1={this.state.textFamily1}
+                                    textFamily2={this.state.textFamily2}
+                                    textFamily3={this.state.textFamily3}
+                                    textStyle1={this.state.textStyle1}
+                                    textStyle2={this.state.textStyle2}
+                                    textStyle3={this.state.textStyle3}
+                                    textSize1={this.state.textSize1}
+                                    textSize2={this.state.textSize2}
+                                    textSize3={this.state.textSize3}
+                                    opacity1={this.state.opacity1}
+                                    opacity2={this.state.opacity2}
+                                    hue1={this.state.hue1}
+                                    saturation1={this.state.saturation1}
+                                    value1={this.state.value1}
+                                    hue2={this.state.hue2}
+                                    saturation2={this.state.saturation2}
+                                    value2={this.state.value2}
                                     rgbValue={(e) => this.rgbValue(e)}
                                     showWidget={(e) => this.showWidget(e)}
                                     deleteImage={(e) => this.deleteImage(e)}

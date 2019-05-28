@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TshirtStructure from './TshirtStructure';
 import DesignService from "../../service/design-server";
 import Form from '../form/Form';
-import ControlesEdit from './ControlesEdit';
+import Controles from './Controles';
 
 export default class Canvas extends Component {
     constructor(props) {
@@ -349,7 +349,7 @@ export default class Canvas extends Component {
                     <div className="container white">
                         <div className="half-container padding-canvas">
                             <h2>{this.state.designName}</h2>
-                            <ControlesEdit
+                            <Controles
                                 red={this.state.red}
                                 green={this.state.green}
                                 blue={this.state.blue}
