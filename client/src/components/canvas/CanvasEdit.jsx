@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TshirtStructure from './TshirtStructure';
 import DesignService from "../../service/design-server";
 import Form from '../form/Form';
-import Controles from './Controles';
+import ControlesEdit from './ControlesEdit';
 
 export default class Canvas extends Component {
     constructor(props) {
@@ -165,6 +165,7 @@ export default class Canvas extends Component {
             url: this.state.imageUrlFix2,
             active: this.state.active2,
             opacity: this.state.opacity2,
+            value: this.state.value2,
             hue: this.state.hue2,
             saturation: this.state.saturation2,
             x: this.state.x2,
@@ -202,9 +203,7 @@ export default class Canvas extends Component {
         }
 
         this.service.updateDesign(designId, designName, red, green, blue, image1, image2, text1, text2, text3)
-            .then(response => {
-                console.log(response)
-            })
+            .then()
             .catch(error => console.log(error))
     }
 
@@ -243,179 +242,143 @@ export default class Canvas extends Component {
     }
 
     //Cloudinary
-    checkUploadResult(result) {
+    checkUploadResult(result, id) {
+        const imageUrl = `imageUrl${id}`;
+        const active = `active${id}`;
+        const imageUrlFix = `imageUrlFix${id}`;
+
         this.setState({
             ...this.state,
-            imageUrl1: result.info.secure_url,
-            active1: true
+            [imageUrl]: result.info.secure_url,
+            [active]: true
         })
         if (result.event === 'success') {
             this.setState({
                 ...this.state,
-                imageUrlFix1: result.info.secure_url
+                [imageUrlFix]: result.info.secure_url
             })
         }
     }
 
-    checkUploadResult2(result) {
-        this.setState({
-            ...this.state,
-            imageUrl2: result.info.secure_url,
-            active2: true
-        })
-        if (result.event === 'success') {
-            this.setState({
-                ...this.state,
-                imageUrlFix2: result.info.secure_url
-            })
-        }
-    }
-
-    showWidget() {
+    showWidget(e) {
+        const { id } = e.target;
         let widget = window.cloudinary.createUploadWidget({
             cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
             uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
             cropping: true
-        }, (error, result) => { this.checkUploadResult(result) })
-        widget.open();
-    }
-
-    showWidget2() {
-        let widget = window.cloudinary.createUploadWidget({
-            cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
-            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
-            cropping: true
-        }, (error, result) => { this.checkUploadResult2(result) })
+        }, (error, result) => { this.checkUploadResult(result, id) })
         widget.open();
     }
 
     //delete image
-    deleteImage() {
-        this.setState({
-            ...this.state,
-            imageUrlFix1: '',
-            active1: false,
-            x1: 190,
-            y1: 150,
-            scaleX1: 1,
-            scaleY1: 1,
-            opacity1: 1,
-            hue1: 0,
-            saturation1: 0,
-            value1: 0,
-            rotation1: 0
-        })
-    }
+    deleteImage(e) {
+        const { id } = e.target;
+        const imageUrlFix = `imageUrlFix${id}`;
+        const active = `active${id}`;
+        const x = `x${id}`;
+        const y = `y${id}`;
+        const scaleX = `scaleX${id}`;
+        const scaleY = `scaleY${id}`;
+        const opacity = `opacity${id}`;
+        const hue = `hue${id}`;
+        const saturation = `saturation${id}`;
+        const value = `value${id}`;
+        const rotation = `rotation${id}`;
 
-    deleteImage2() {
         this.setState({
             ...this.state,
-            imageUrlFix2: '',
-            active2: false,
-            x2: 190,
-            y2: 150,
-            scaleX2: 1,
-            scaleY2: 1,
-            opacity2: 1,
-            hue2: 0,
-            saturation2: 0,
-            value2: 0,
-            rotation2: 0,
-        })
+            [imageUrlFix]: '',
+            [active]: false,
+            [x]: 190,
+            [y]: 150,
+            [scaleX]: 1,
+            [scaleY]: 1,
+            [opacity]: 1,
+            [hue]: 0,
+            [saturation]: 0,
+            [value]: 0,
+            [rotation]: 0
+        });
     }
 
     //Drag position
-    handleDragEnd1 = e => {
-        this.setState({
-            ...this.state,
-            x1: e.target.x(),
-            y1: e.target.y()
-        })
-    }
+    handleDragEnd(e) {
+        const id = (e.target.attrs.name).slice(-1)[0];
+        const x = `x${id}`;
+        const y = `y${id}`;
 
-    handleDragEnd2 = e => {
         this.setState({
             ...this.state,
-            x2: e.target.x(),
-            y2: e.target.y()
-        })
-    }
-
-    handleDragEndText1 = e => {
-        this.setState({
-            ...this.state,
-            textX1: e.target.attrs.x,
-            textY1: e.target.attrs.y
-        })
-    }
-
-    handleDragEndText2 = e => {
-        this.setState({
-            ...this.state,
-            textX2: e.target.attrs.x,
-            textY2: e.target.attrs.y
-        })
-    }
-
-    handleDragEndText3 = e => {
-        this.setState({
-            ...this.state,
-            textX3: e.target.attrs.x,
-            textY3: e.target.attrs.y
+            [x]: e.target.x(),
+            [y]: e.target.y()
         })
     }
 
     //Transform
-    handleTransform1(e) {
+    handleTransform(e) {
+        const id = (e.currentTarget.attrs.name).slice(-1)[0];
+        const scaleX = `scaleX${id}`;
+        const scaleY = `scaleY${id}`;
+        const rotation = `rotation${id}`;
+
         this.setState({
             ...this.state,
-            scaleX1: e.currentTarget.attrs.scaleX,
-            scaleY1: e.currentTarget.attrs.scaleY,
-            rotation1: e.currentTarget.attrs.rotation
+            [scaleX]: e.currentTarget.attrs.scaleX,
+            [scaleY]: e.currentTarget.attrs.scaleY,
+            [rotation]: e.currentTarget.attrs.rotation
         })
     }
 
-    handleTransform2(e) {
+    //Drag text
+    handleDragEndText(e) {
+        const id = (e.target.attrs.id).slice(-1)[0];
+        const textX = `textX${id}`;
+        const textY = `textY${id}`;
+
         this.setState({
             ...this.state,
-            scaleX2: e.currentTarget.attrs.scaleX,
-            scaleY2: e.currentTarget.attrs.scaleY,
-            rotation2: e.currentTarget.attrs.rotation
+            [textX]: e.target.attrs.x,
+            [textY]: e.target.attrs.y
         })
     }
-
 
     render() {
-
-        // console.log(
-        //     "Image1: ",
-        //     "url: " + this.state.imageUrlFix1,
-        //     "url: " + this.state.imageUrl1,
-        //     "active: " + this.state.active1,
-        //     "opacity: " + this.state.opacity1,
-        //     "saturation: " + this.state.saturation1,
-        //     "hue: " + this.state.hue1,
-        //     "value: " + this.state.value1,
-        //     "x: " + this.state.x1,
-        //     "y: " + this.state.y1,
-        //     "scaleX: " + this.state.scaleX1,
-        //     "scaleY: " + this.state.scaleY1,
-        //     "rotation: " + this.state.rotation1
-        // )
-
-
         return (
             <React.Fragment>
                 <div className="pageStructure">
                     <div className="container white">
                         <div className="half-container padding-canvas">
                             <h2>{this.state.designName}</h2>
-                            <Controles
+                            <ControlesEdit
+                                red={this.state.red}
+                                green={this.state.green}
+                                blue={this.state.blue}
+                                text1={this.state.text1}
+                                text2={this.state.text2}
+                                text3={this.state.text3}
+                                textFill1={this.state.textFill1}
+                                textFill2={this.state.textFill2}
+                                textFill3={this.state.textFill3}
+                                textFamily1={this.state.textFamily1}
+                                textFamily2={this.state.textFamily2}
+                                textFamily3={this.state.textFamily3}
+                                textStyle1={this.state.textStyle1}
+                                textStyle2={this.state.textStyle2}
+                                textStyle3={this.state.textStyle3}
+                                textSize1={this.state.textSize1}
+                                textSize2={this.state.textSize2}
+                                textSize3={this.state.textSize3}
+                                opacity1={this.state.opacity1}
+                                opacity2={this.state.opacity2}
+                                hue1={this.state.hue1}
+                                saturation1={this.state.saturation1}
+                                value1={this.state.value1}
+                                hue2={this.state.hue2}
+                                saturation2={this.state.saturation2}
+                                value2={this.state.value2}
                                 rgbValue={(e) => this.rgbValue(e)}
-                                showWidget={() => this.showWidget()}
-                                showWidget2={() => this.showWidget2()}
-                                deleteImage={() => this.deleteImage()}
-                                deleteImage2={() => this.deleteImage2()}
+                                showWidget={(e) => this.showWidget(e)}
+                                deleteImage={(e) => this.deleteImage(e)}
                                 text={(e) => this.text(e)}
                                 effects={(e) => this.effects(e)}
                             />
@@ -474,13 +437,9 @@ export default class Canvas extends Component {
                                 hue2={this.state.hue2}
                                 saturation2={this.state.saturation2}
                                 value2={this.state.value2}
-                                dragPosition1={(e) => this.handleDragEnd1(e)}
-                                dragPosition2={(e) => this.handleDragEnd2(e)}
-                                transform1={(e) => this.handleTransform1(e)}
-                                transform2={(e) => this.handleTransform2(e)}
-                                dragText1={(e) => this.handleDragEndText1(e)}
-                                dragText2={(e) => this.handleDragEndText2(e)}
-                                dragText3={(e) => this.handleDragEndText3(e)}
+                                dragPosition={(e) => this.handleDragEnd(e)}
+                                transform={(e) => this.handleTransform(e)}
+                                dragText={(e) => this.handleDragEndText(e)}
                             />
                         </div>
                     </div>

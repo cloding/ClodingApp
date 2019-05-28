@@ -98,7 +98,6 @@ router.post('/all-tShirt', (req, res, next) => {
         .populate('tShirt')
         .then(user => {
             res.json(user)
-            console.log(user)
         })
         .catch(err => next(err))
 })
@@ -110,7 +109,6 @@ router.post('/all-old-orders', (req, res, next) => {
         .populate('buy')
         .then(user => {
             res.json(user)
-            console.log(user)
         })
         .catch(err => next(err))
 })

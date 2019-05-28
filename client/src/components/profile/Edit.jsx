@@ -34,7 +34,6 @@ export default class Edit extends Component {
 
     handleFormSubmit(e) {
         e.preventDefault();
-        console.log(this.state.user)
         const username = this.state.user.username;
         const mail = this.state.user.mail;
         const country = this.state.user.country;
