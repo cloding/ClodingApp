@@ -6,10 +6,13 @@
   height: 80%;
 }
 
-.profile-page-image img {
+.profile-page-image > div {
   height: 302px;
   width: 302px;
   border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
 }
 
 .profile-page-btn {

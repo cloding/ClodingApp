@@ -68,10 +68,7 @@ export default class Edit extends Component {
     showWidget() {
         let widget = window.cloudinary.createUploadWidget({
             cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
-            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
-            cropping: true,
-            croppingAspectRatio: 1,
-            gravity: "faces"
+            uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET
         }, (error, result) => { this.checkUploadResult(result) })
         widget.open();
     }
@@ -97,7 +94,7 @@ export default class Edit extends Component {
                         </div>
                         <div className="half-container photo-profile-container">
                             <div className="profile-page-image">
-                                <img src={this.state.user.photouser} alt="profile" />
+                                <div style={{ backgroundImage: `url(${this.state.user.photouser})` }} />
                                 <button type="button" name="firstImage" onClick={() => this.showWidget()} className="btn light-blue cursor">Change</button>
                             </div>
                         </div>

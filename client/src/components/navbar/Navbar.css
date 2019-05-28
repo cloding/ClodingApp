@@ -4,47 +4,50 @@ purple: #431C5D
 */
 
 nav {
-    font-family: 'Oxygen', sans-serif;  
-    font-size: 2rem;
-    position: fixed;
-    width:100vw;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(255,255,255,1)
+  font-family: "Oxygen", sans-serif;
+  font-size: 2rem;
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .navbar h2 {
-    font-weight: 700;
-    color: #E05915;
-    font-size: 2.5rem;
+  font-weight: 700;
+  color: #e05915;
+  font-size: 2.5rem;
 }
 
 .navbar ul {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar ul li {
-    margin-left:32px; 
-    color: #431C5D; 
+  margin-left: 32px;
+  color: #431c5d;
 }
 
 .navbar {
-    align-items: center; 
-    display: flex;
-    justify-content: space-between;
-    height: 10vh;
-    width: 960px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  width: 960px;
 }
 
 .link-photo-profile {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.link-photo-profile  img{
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    margin-left: 8px; 
+.link-photo-profile > div {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

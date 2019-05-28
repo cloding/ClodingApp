@@ -34,7 +34,7 @@ class Navbar extends Component {
                                 <li>
                                     <Link to={`/profile`} className="link-photo-profile">
                                         {this.props.user.username}
-                                        <img src={this.props.user.photouser} alt="profile" />
+                                        <div style={{ backgroundImage: `url(${this.props.user.photouser})` }} />
                                     </Link>
                                 </li>
                                 <li><Link to={"/cart"}><i className="fas fa-shopping-cart"></i></Link></li>

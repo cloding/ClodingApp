@@ -65,7 +65,7 @@ class Profile extends Component {
               </div>
               <div className="half-container photo-profile-container">
                 <div className="profile-page-image">
-                  <img src={this.props.user.photouser} alt="profile" />
+                  <div style={{ backgroundImage: `url(${this.props.user.photouser})` }} />
                 </div>
               </div>
             </div>
