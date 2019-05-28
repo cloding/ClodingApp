@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ColorsTable from './ColorsTable';
+
 
 export default class Controles extends Component {
 
@@ -7,17 +9,8 @@ export default class Controles extends Component {
             <React.Fragment>
                 <div className="control-structure">
                     <div className="controlRGB light-blue controles-box">
-                        <div className="range-control">
-                            <label htmlFor="red">Red:</label>
-                            <input id="red" type="range" min="0" max="255" step="1" value={this.props.red} onChange={(e) => this.props.rgbValue(e)} />
-                        </div>
-                        <div className="range-control">
-                            <label htmlFor="green">Green:</label>
-                            <input id="green" type="range" min="0" max="255" step="1" value={this.props.green} onChange={(e) => this.props.rgbValue(e)} />
-                        </div>
-                        <div className="range-control">
-                            <label htmlFor="blue">Blue:</label>
-                            <input id="blue" type="range" min="0" max="255" step="1" value={this.props.blue} onChange={(e) => this.props.rgbValue(e)} />
+                        <div className="colors-table">
+                            <ColorsTable red={this.props.red} green={this.props.green} blue={this.props.blue} rgbValue={(red, green, blue) => this.props.rgbValue(red, green, blue)} />
                         </div>
                     </div>
 

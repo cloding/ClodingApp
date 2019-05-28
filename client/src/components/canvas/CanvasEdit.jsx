@@ -215,11 +215,12 @@ export default class Canvas extends Component {
     }
 
     //Rgb T-shirt Color
-    rgbValue(e) {
-        const { id, value } = e.target;
+    rgbValue(red, green, blue) {
         this.setState({
             ...this.state,
-            [id]: value
+            red: red,
+            green: green,
+            blue: blue
         })
     }
 
@@ -376,7 +377,7 @@ export default class Canvas extends Component {
                                 hue2={this.state.hue2}
                                 saturation2={this.state.saturation2}
                                 value2={this.state.value2}
-                                rgbValue={(e) => this.rgbValue(e)}
+                                rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
                                 showWidget={(e) => this.showWidget(e)}
                                 deleteImage={(e) => this.deleteImage(e)}
                                 text={(e) => this.text(e)}

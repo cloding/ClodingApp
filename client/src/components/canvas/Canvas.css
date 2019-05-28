@@ -19,6 +19,21 @@
   padding: 10px 20px;
 }
 
+.colors-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
+  grid-gap: 1px;
+}
+
+.color-cube {
+  height: 15px;
+}  
+
+.selected-color {
+  box-sizing: border-box;
+  border: 2px solid #ffffff;
+}
+
 .controlRGB {
   display: flex;
   flex-direction: column;
