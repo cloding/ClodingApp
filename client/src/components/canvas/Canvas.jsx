@@ -259,6 +259,7 @@ class Canvas extends Component {
 
     //Drag text
     handleDragEndText(e) {
+        console.log(e.target.attrs)
         const id = (e.target.attrs.id).slice(-1)[0];
         const textX = `textX${id}`;
         const textY = `textY${id}`;
