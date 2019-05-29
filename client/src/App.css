@@ -5,6 +5,7 @@ orange: #E05915
 purple: #431C5D
 white: #E6E9F0
 light-blue: #BCCBDE
+light-blue#2 : #C2DDE6
 red: #E01515
 */
 
@@ -73,6 +74,10 @@ p {
 
 .light-blue {
   background-color: #bccbde;
+}
+
+.light-blue-2 {
+  background-color: #C2DDE6;
 }
 
 .red {

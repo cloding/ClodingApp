@@ -160,9 +160,9 @@ export default class TshirtStructure extends Component {
                                 dragPosition={(e) => this.props.dragPosition(e)}
                                 transform={(e) => this.props.transform(e)}
                             />
-                            <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable onDragEnd={(e) => this.props.dragText(e)} />
-                            <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable onDragEnd={(e) => this.props.dragText(e)} />
-                            <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable rotation={this.props.textRotation1} onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable rotation={this.props.textRotation2} onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable rotation={this.props.textRotation3} onDragEnd={(e) => this.props.dragText(e)} />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>

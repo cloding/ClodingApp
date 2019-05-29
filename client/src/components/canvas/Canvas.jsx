@@ -10,7 +10,7 @@ class Canvas extends Component {
         super(props);
 
         this.state = {
-            designName: '',
+            designName: 'Design name',
             red: '255',
             blue: '255',
             green: '255',
@@ -43,6 +43,7 @@ class Canvas extends Component {
             textFamily1: 'Oxygen',
             textSize1: '20',
             textStyle1: 'normal',
+            textRotation1: 0,
             textX1: '190',
             textY1: '150',
             text2: '',
@@ -50,6 +51,7 @@ class Canvas extends Component {
             textFamily2: 'Oxygen',
             textSize2: '20',
             textStyle2: 'normal',
+            textRotation2: 0,
             textX2: '190',
             textY2: '150',
             text3: '',
@@ -57,6 +59,7 @@ class Canvas extends Component {
             textFamily3: 'Oxygen',
             textSize3: '20',
             textStyle3: 'normal',
+            textRotation3: 0,
             textX3: '190',
             textY3: '150'
         }
@@ -189,7 +192,7 @@ class Canvas extends Component {
     }
 
     showWidget(e) {
-        const { id } = e.target;
+        const { id } = e.currentTarget;
         let widget = window.cloudinary.createUploadWidget({
             cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
             uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
@@ -200,7 +203,7 @@ class Canvas extends Component {
 
     //delete image
     deleteImage(e) {
-        const { id } = e.target;
+        const { id } = e.currentTarget;
         const imageUrlFix = `imageUrlFix${id}`;
         const active = `active${id}`;
         const x = `x${id}`;
@@ -278,7 +281,7 @@ class Canvas extends Component {
                     <div className="pageStructure">
                         <div className="container white">
                             <div className="half-container padding-canvas">
-                                <h2>T-shirt designer</h2>
+                                <h2>{this.state.designName}</h2>
                                 <Controles
                                     red={this.state.red}
                                     green={this.state.green}
@@ -298,6 +301,11 @@ class Canvas extends Component {
                                     textSize1={this.state.textSize1}
                                     textSize2={this.state.textSize2}
                                     textSize3={this.state.textSize3}
+                                    textRotation1={this.state.textRotation1}
+                                    textRotation2={this.state.textRotation2}
+                                    textRotation3={this.state.textRotation3}
+                                    imageUrlFix1={this.state.imageUrlFix1}
+                                    imageUrlFix2={this.state.imageUrlFix2}
                                     opacity1={this.state.opacity1}
                                     opacity2={this.state.opacity2}
                                     hue1={this.state.hue1}
@@ -345,6 +353,9 @@ class Canvas extends Component {
                                     textFamily3={this.state.textFamily3}
                                     textSize3={this.state.textSize3}
                                     textStyle3={this.state.textStyle3}
+                                    textRotation1={this.state.textRotation1}
+                                    textRotation2={this.state.textRotation2}
+                                    textRotation3={this.state.textRotation3}
                                     imageUrl1={this.state.imageUrl1}
                                     imageUrl2={this.state.imageUrl2}
                                     x1={this.state.x1}
@@ -403,6 +414,11 @@ class Canvas extends Component {
                                     textSize1={this.state.textSize1}
                                     textSize2={this.state.textSize2}
                                     textSize3={this.state.textSize3}
+                                    textRotation1={this.state.textRotation1}
+                                    textRotation2={this.state.textRotation2}
+                                    textRotation3={this.state.textRotation3}
+                                    imageUrlFix1={this.state.imageUrlFix1}
+                                    imageUrlFix2={this.state.imageUrlFix2}
                                     opacity1={this.state.opacity1}
                                     opacity2={this.state.opacity2}
                                     hue1={this.state.hue1}
@@ -447,6 +463,9 @@ class Canvas extends Component {
                                     textFamily3={this.state.textFamily3}
                                     textSize3={this.state.textSize3}
                                     textStyle3={this.state.textStyle3}
+                                    textRotation1={this.state.textRotation1}
+                                    textRotation2={this.state.textRotation2}
+                                    textRotation3={this.state.textRotation3}
                                     imageUrl1={this.state.imageUrl1}
                                     imageUrl2={this.state.imageUrl2}
                                     x1={this.state.x1}

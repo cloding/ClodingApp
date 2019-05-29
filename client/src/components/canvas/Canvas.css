@@ -1,67 +1,78 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto|Rubik");
 
 .padding-canvas {
-  padding: 40px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .control-structure {
-  height: 280px;
-  overflow-y: scroll;
+  height: 300px;
+  overflow-y: auto;
+  border-radius: 10px;
 }
 
 .controles-box {
-  border-radius: 10px;
   font-size: 1.4rem;
-  display: flex;
   padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .colors-table {
+  padding: 15px;
+  border-radius:10px; 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
+  grid-template-columns: repeat(23, 1fr);
   grid-gap: 1px;
 }
 
 .color-cube {
   height: 15px;
-}  
+}
 
 .selected-color {
   box-sizing: border-box;
   border: 2px solid #ffffff;
 }
 
-.controlRGB {
-  display: flex;
-  flex-direction: column;
+
+.controles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 10px;
+  font-size: 1.4rem;
+  padding: 15px 20px 5px 20px;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
-.range-control {
-  display: flex;
-  justify-content: space-between;
-}
-
-.range-control input {
-  display: flex;
-  width: 300px;
+.controles-inside {
+  border-radius: 10px;
+  padding: 15px 20px 10px 20px;
 }
 
 .btn-control-box {
-  display: flex;
-  margin-bottom: 10px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 10px;
 }
 
-.btn-control-box > *{
-  margin-right: 10px; 
+.btn-control-box input {
+  grid-column: span 8;
+  background: #e6e9f0;
+  border: 1px solid#431C5D;
+  color: #431c5d;
+  padding: 3px 5px;
+}
+.btn-control-box input::-webkit-input-placeholder { 
+  color: #431c5d;
 }
 
 .btn-control {
-  width: 70px;
+  width: 41px;
   height: 21px;
   display: flex;
   justify-content: center;
@@ -72,76 +83,114 @@
   border: 0;
 }
 
-.input-control {
-    background:  #E6E9F0;
-    border: 1px solid#431C5D;
-    color: #431C5D;
-    padding: 3px 5px;
-    flex-grow: 2;
+.range-control {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: auto 100px auto 100px;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 5px;
 }
 
-.bottom{
-    margin-bottom: 5px;
+.itm {
+  background-color: #C2DDE6;
+}
+
+
+
+
+
+
+
+/* .range-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.range-control input {
+  display: flex;
+  width: 300px;
+} */
+
+/* .btn-control-box {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+} */
+
+/* .btn-control-box > * {
+  margin-right: 10px;
+} */
+
+
+.input-control {
+  background: #e6e9f0;
+  border: 1px solid#431C5D;
+  color: #431c5d;
+  padding: 3px 5px;
+  flex-grow: 2;
+}
+
+.bottom {
+  margin-bottom: 5px;
 }
 
 .text-control-inside {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .text-control-inside label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .text-control-inside input {
-    text-align: right;
-    width: 100px;
+  text-align: right;
+  width: 100px;
 }
 
 .text-control {
-    display: flex;
-    justify-content: space-between;  
+  display: flex;
+  justify-content: space-between;
 }
 
 .text-control > * {
-    margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .text-control select {
-    background: #E6E9F0;
-    color: #431C5D;
-    width: 100px;
-
+  background: #e6e9f0;
+  color: #431c5d;
+  width: 100px;
 }
 
 .text-size-control {
-    background:  #E6E9F0;
-    border: 1px solid#431C5D;
-    color: #431C5D;
-    width: 100px;
-    padding: 3px 5px;
+  background: #e6e9f0;
+  border: 1px solid#431C5D;
+  color: #431c5d;
+  width: 100px;
+  padding: 3px 5px;
 }
 
 .demo-advisor {
-  background-color:rgba(244,89,21, 0.7);
-  height: 60px;  
+  background-color: rgba(244, 89, 21, 0.7);
+  height: 60px;
   display: flex;
   align-items: center;
   padding: 0 15px;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .label-design-name {
-  font-size:2rem;
+  font-size: 2rem;
 }
 
 .input-design-name-canvas {
-  margin-left: 20px; 
-  background: #E6E9F0;
-  border: 1px solid #431C5D;
+  margin-left: 20px;
+  background: #e6e9f0;
+  border: 1px solid #431c5d;
   font-size: 1.4rem;
   padding: 5px 10px;
-  flex-grow: 2; 
+  flex-grow: 2;
 }
 
 .form-save-design {
@@ -152,5 +201,5 @@
 .form-inside-design {
   display: flex;
   align-items: center;
-  margin-bottom: 10px 
+  margin-bottom: 10px;
 }
