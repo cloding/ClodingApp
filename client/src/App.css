@@ -104,6 +104,10 @@ p {
   overflow: hidden;
 }
 
+.right-align {
+  text-align: right;
+}
+
 .pageStructure {
   display: flex;
   justify-content: center;

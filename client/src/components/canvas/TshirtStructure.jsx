@@ -16,6 +16,12 @@ export default class TshirtStructure extends Component {
                 },
                 {
                     imgName: "image2",
+                },
+                {
+                    imgName: "image3",
+                },
+                {
+                    imgName: "image4",
                 }
             ],
             selectedShapeName: ""
@@ -160,9 +166,44 @@ export default class TshirtStructure extends Component {
                                 dragPosition={(e) => this.props.dragPosition(e)}
                                 transform={(e) => this.props.transform(e)}
                             />
+                            <Images
+                                active={this.props.active3}
+                                imgName={this.state.images[2].imgName}
+                                img={this.props.imageUrl3}
+                                x={this.props.x3}
+                                y={this.props.y3}
+                                scaleX={this.props.scaleX3}
+                                scaleY={this.props.scaleY3}
+                                rotation={this.props.rotation3}
+                                opacity={this.props.opacity3}
+                                filters={[Konva.Filters.HSV]}
+                                hue={this.props.hue3}
+                                saturation={this.props.saturation3}
+                                value={this.props.value3}
+                                dragPosition={(e) => this.props.dragPosition(e)}
+                                transform={(e) => this.props.transform(e)}
+                            />
+                            <Images
+                                active={this.props.active4}
+                                imgName={this.state.images[3].imgName}
+                                img={this.props.imageUrl4}
+                                x={this.props.x4}
+                                y={this.props.y4}
+                                scaleX={this.props.scaleX4}
+                                scaleY={this.props.scaleY4}
+                                rotation={this.props.rotation4}
+                                opacity={this.props.opacity4}
+                                filters={[Konva.Filters.HSV]}
+                                hue={this.props.hue4}
+                                saturation={this.props.saturation4}
+                                value={this.props.value4}
+                                dragPosition={(e) => this.props.dragPosition(e)}
+                                transform={(e) => this.props.transform(e)}
+                            />
                             <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable rotation={this.props.textRotation1} onDragEnd={(e) => this.props.dragText(e)} />
                             <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable rotation={this.props.textRotation2} onDragEnd={(e) => this.props.dragText(e)} />
                             <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable rotation={this.props.textRotation3} onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text4" x={+this.props.textX4} y={+this.props.textY4} fontSize={+this.props.textSize4} fontFamily={this.props.textFamily4} fill={this.props.textFill4} allign='center' fontStyle={this.props.textStyle4} text={this.props.text4} draggable rotation={this.props.textRotation4} onDragEnd={(e) => this.props.dragText(e)} />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>

@@ -36,6 +36,32 @@ router.post('/save-design', (req, res, next) => {
         scaleY: req.body.image2.scaleY,
         rotation: req.body.image2.rotation
     };
+    let image3 = {
+        url: req.body.image3.url,
+        active: req.body.image3.active,
+        opacity: req.body.image3.opacity,
+        hue: req.body.image3.hue,
+        value: req.body.image3.value,
+        saturation: req.body.image3.saturation,
+        x: req.body.image3.x,
+        y: req.body.image3.y,
+        scaleX: req.body.image3.scaleX,
+        scaleY: req.body.image3.scaleY,
+        rotation: req.body.image3.rotation
+    };
+    let image4 = {
+        url: req.body.image4.url,
+        active: req.body.image4.active,
+        opacity: req.body.image4.opacity,
+        hue: req.body.image4.hue,
+        value: req.body.image4.value,
+        saturation: req.body.image4.saturation,
+        x: req.body.image4.x,
+        y: req.body.image4.y,
+        scaleX: req.body.image4.scaleX,
+        scaleY: req.body.image4.scaleY,
+        rotation: req.body.image4.rotation
+    };
     let text1 = {
         text: req.body.text1.text,
         x: req.body.text1.x,
@@ -43,7 +69,8 @@ router.post('/save-design', (req, res, next) => {
         fill: req.body.text1.fill,
         family: req.body.text1.family,
         size: req.body.text1.size,
-        style: req.body.text1.style
+        style: req.body.text1.style,
+        rotation: req.body.text1.rotation
     }
     let text2 = {
         text: req.body.text2.text,
@@ -52,7 +79,8 @@ router.post('/save-design', (req, res, next) => {
         fill: req.body.text2.fill,
         family: req.body.text2.family,
         size: req.body.text2.size,
-        style: req.body.text2.style
+        style: req.body.text2.style,
+        rotation: req.body.text2.rotation
     }
     let text3 = {
         text: req.body.text3.text,
@@ -61,7 +89,18 @@ router.post('/save-design', (req, res, next) => {
         fill: req.body.text3.fill,
         family: req.body.text3.family,
         size: req.body.text3.size,
-        style: req.body.text3.style
+        style: req.body.text3.style,
+        rotation: req.body.text3.rotation
+    }
+    let text4 = {
+        text: req.body.text4.text,
+        x: req.body.text4.x,
+        y: req.body.text4.y,
+        fill: req.body.text4.fill,
+        family: req.body.text4.family,
+        size: req.body.text4.size,
+        style: req.body.text4.style,
+        rotation: req.body.text4.rotation
     }
 
     let design = new Design({
@@ -72,9 +111,12 @@ router.post('/save-design', (req, res, next) => {
         blue,
         image1,
         image2,
+        image3,
+        image4,
         text1,
         text2,
-        text3
+        text3,
+        text4
     });
     design
         .save()
@@ -181,6 +223,32 @@ router.post('/edit-design', (req, res, next) => {
         scaleY: req.body.image2.scaleY,
         rotation: req.body.image2.rotation
     };
+    let image3 = {
+        url: req.body.image3.url,
+        active: req.body.image3.active,
+        opacity: req.body.image3.opacity,
+        hue: req.body.image3.hue,
+        value: req.body.image3.value,
+        saturation: req.body.image3.saturation,
+        x: req.body.image3.x,
+        y: req.body.image3.y,
+        scaleX: req.body.image3.scaleX,
+        scaleY: req.body.image3.scaleY,
+        rotation: req.body.image3.rotation
+    };
+    let image4 = {
+        url: req.body.image4.url,
+        active: req.body.image4.active,
+        opacity: req.body.image4.opacity,
+        hue: req.body.image4.hue,
+        value: req.body.image4.value,
+        saturation: req.body.image4.saturation,
+        x: req.body.image4.x,
+        y: req.body.image4.y,
+        scaleX: req.body.image4.scaleX,
+        scaleY: req.body.image4.scaleY,
+        rotation: req.body.image4.rotation
+    };
     let text1 = {
         text: req.body.text1.text,
         x: req.body.text1.x,
@@ -188,7 +256,8 @@ router.post('/edit-design', (req, res, next) => {
         fill: req.body.text1.fill,
         family: req.body.text1.family,
         size: req.body.text1.size,
-        style: req.body.text1.style
+        style: req.body.text1.style,
+        rotation: req.body.text1.rotation
     }
     let text2 = {
         text: req.body.text2.text,
@@ -197,7 +266,8 @@ router.post('/edit-design', (req, res, next) => {
         fill: req.body.text2.fill,
         family: req.body.text2.family,
         size: req.body.text2.size,
-        style: req.body.text2.style
+        style: req.body.text2.style,
+        rotation: req.body.text2.rotation
     }
     let text3 = {
         text: req.body.text3.text,
@@ -206,7 +276,18 @@ router.post('/edit-design', (req, res, next) => {
         fill: req.body.text3.fill,
         family: req.body.text3.family,
         size: req.body.text3.size,
-        style: req.body.text3.style
+        style: req.body.text3.style,
+        rotation: req.body.text3.rotation
+    }
+    let text4 = {
+        text: req.body.text4.text,
+        x: req.body.text4.x,
+        y: req.body.text4.y,
+        fill: req.body.text4.fill,
+        family: req.body.text4.family,
+        size: req.body.text4.size,
+        style: req.body.text4.style,
+        rotation: req.body.text4.rotation
     }
 
     Design
@@ -217,9 +298,12 @@ router.post('/edit-design', (req, res, next) => {
             blue,
             image1,
             image2,
+            image3,
+            image4,
             text1,
             text2,
-            text3
+            text3,
+            text4
         })
         .then(design => {
             res.json(design)

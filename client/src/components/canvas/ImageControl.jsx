@@ -6,7 +6,7 @@ export default class ImageControl extends Component {
             <React.Fragment>
                 <div className="light-blue-2 controles-inside">
                     <div className="btn-control-box">
-                        <input id={this.props.id} placeholder="Upload an image" defaultValue={this.props.imageUrl} />
+                        <input id={this.props.id} className="control-input" placeholder="Upload an image" defaultValue={this.props.imageUrl} />
                         <button id={this.props.id} type="button" name={this.props.name} onClick={(e) => this.props.showWidget(e)} className="btn-control purple cursor"><i className="fas fa-plus" /></button>
                         <button id={this.props.id} type="button" onClick={(e) => this.props.deleteImage(e)} className="btn-control red cursor"><i className="fas fa-trash"></i></button>
                     </div>

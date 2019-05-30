@@ -54,45 +54,83 @@ export default class Controles extends Component {
                             valueValue={this.props.value2}
                         />
                         <ImageControl
-                            id="2"
-                            name="secondImage"
+                            id="3"
+                            name="thirdImage"
                             showWidget={(e) => this.props.showWidget(e)}
                             deleteImage={(e) => this.props.deleteImage(e)}
                             effects={(e) => this.props.effects(e)}
-                            imageUrl={this.props.imageUrlFix2}
-                            opacityId="opacity2"
-                            opacityValue={this.props.opacity2}
-                            hueId="hue2"
-                            hueValue={this.props.hue2}
-                            saturationId="saturation2"
-                            saturationValue={this.props.saturation2}
-                            valueId="value2"
-                            valueValue={this.props.value2}
+                            imageUrl={this.props.imageUrlFix3}
+                            opacityId="opacity3"
+                            opacityValue={this.props.opacity3}
+                            hueId="hue3"
+                            hueValue={this.props.hue3}
+                            saturationId="saturation3"
+                            saturationValue={this.props.saturation3}
+                            valueId="value3"
+                            valueValue={this.props.value3}
                         />
                         <ImageControl
-                            id="2"
-                            name="secondImage"
+                            id="4"
+                            name="fourthImage"
                             showWidget={(e) => this.props.showWidget(e)}
                             deleteImage={(e) => this.props.deleteImage(e)}
                             effects={(e) => this.props.effects(e)}
-                            imageUrl={this.props.imageUrlFix2}
-                            opacityId="opacity2"
-                            opacityValue={this.props.opacity2}
-                            hueId="hue2"
-                            hueValue={this.props.hue2}
-                            saturationId="saturation2"
-                            saturationValue={this.props.saturation2}
-                            valueId="value2"
-                            valueValue={this.props.value2}
+                            imageUrl={this.props.imageUrlFix4}
+                            opacityId="opacity4"
+                            opacityValue={this.props.opacity4}
+                            hueId="hue4"
+                            hueValue={this.props.hue4}
+                            saturationId="saturation4"
+                            saturationValue={this.props.saturation4}
+                            valueId="value4"
+                            valueValue={this.props.value4}
                         />
-
-                        <div id="item4" className="itm"></div>
                     </div>
                     <div className="light-blue controles-grid" >
-                        <div id="item1" className="itm"></div>
-                        <div id="item2" className="itm"></div>
-                        <div id="item3" className="itm"></div>
-                        <div id="item4" className="itm"></div>
+                        <TextControl
+                            id={1}
+                            text={this.props.text1}
+                            deleteText={(e) => this.props.deleteText(e)}
+                            textChange={(e) => this.props.text(e)}
+                            fillValue={this.props.textFill1}
+                            familyValue={this.props.textFamily1}
+                            sizeValue={this.props.textSize1}
+                            styleValue={this.props.textStyle1}
+                            rotationValue={this.props.textRotation1}
+                        />
+                        <TextControl
+                            id={2}
+                            text={this.props.text2}
+                            deleteText={(e) => this.props.deleteText(e)}
+                            textChange={(e) => this.props.text(e)}
+                            fillValue={this.props.textFill2}
+                            familyValue={this.props.textFamily2}
+                            sizeValue={this.props.textSize2}
+                            styleValue={this.props.textStyle2}
+                            rotationValue={this.props.textRotation2}
+                        />
+                        <TextControl
+                            id={3}
+                            text={this.props.text3}
+                            deleteText={(e) => this.props.deleteText(e)}
+                            textChange={(e) => this.props.text(e)}
+                            fillValue={this.props.textFill3}
+                            familyValue={this.props.textFamily3}
+                            sizeValue={this.props.textSize3}
+                            styleValue={this.props.textStyle3}
+                            rotationValue={this.props.textRotation3}
+                        />
+                        <TextControl
+                            id={4}
+                            text={this.props.text4}
+                            deleteText={(e) => this.props.deleteText(e)}
+                            textChange={(e) => this.props.text(e)}
+                            fillValue={this.props.textFill4}
+                            familyValue={this.props.textFamily4}
+                            sizeValue={this.props.textSize4}
+                            styleValue={this.props.textStyle4}
+                            rotationValue={this.props.textRotation4}
+                        />
                     </div>
                     {/* <div className="btn-control-box">
                             <h5 id="firstImage">First image</h5>
