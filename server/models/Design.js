@@ -35,6 +35,32 @@ const designSchema = new Schema({
     scaleY: { type: Number, default: 1 },
     rotation: { type: Number, default: 0 }
   },
+  image3: {
+    url: { type: String, default: "" },
+    active: { type: Boolean, default: false },
+    opacity: { type: Number, default: 1 },
+    saturation: { type: Number, default: 0 },
+    hue: { type: Number, default: 0 },
+    value: { type: Number, default: 0 },
+    x: { type: Number, default: 190 },
+    y: { type: Number, default: 150 },
+    scaleX: { type: Number, default: 1 },
+    scaleY: { type: Number, default: 1 },
+    rotation: { type: Number, default: 0 }
+  },
+  image4: {
+    url: { type: String, default: "" },
+    active: { type: Boolean, default: false },
+    opacity: { type: Number, default: 1 },
+    saturation: { type: Number, default: 0 },
+    hue: { type: Number, default: 0 },
+    value: { type: Number, default: 0 },
+    x: { type: Number, default: 190 },
+    y: { type: Number, default: 150 },
+    scaleX: { type: Number, default: 1 },
+    scaleY: { type: Number, default: 1 },
+    rotation: { type: Number, default: 0 }
+  },
   text1: {
     text: { type: String, default: "" },
     x: { type: Number, default: 190 },
@@ -42,7 +68,8 @@ const designSchema = new Schema({
     fill: { type: String, default: "black" },
     family: { type: String, default: "Oxygen" },
     size: { type: Number, default: 20 },
-    style: { type: String, default: "normal" }
+    style: { type: String, default: "normal" },
+    rotation: { type: Number, default: 0 }
   },
   text2: {
     text: { type: String, default: "" },
@@ -51,7 +78,8 @@ const designSchema = new Schema({
     fill: { type: String, default: "black" },
     family: { type: String, default: "Oxygen" },
     size: { type: Number, default: 20 },
-    style: { type: String, default: "normal" }
+    style: { type: String, default: "normal" },
+    rotation: { type: Number, default: 0 }
   },
   text3: {
     text: { type: String, default: "" },
@@ -60,7 +88,18 @@ const designSchema = new Schema({
     fill: { type: String, default: "black" },
     family: { type: String, default: "Oxygen" },
     size: { type: Number, default: 20 },
-    style: { type: String, default: "normal" }
+    style: { type: String, default: "normal" },
+    rotation: { type: Number, default: 0 }
+  },
+  text4: {
+    text: { type: String, default: "" },
+    x: { type: Number, default: 190 },
+    y: { type: Number, default: 150 },
+    fill: { type: String, default: "black" },
+    family: { type: String, default: "Oxygen" },
+    size: { type: Number, default: 20 },
+    style: { type: String, default: "normal" },
+    rotation: { type: Number, default: 0 }
   }
 }, {
     timestamps: {

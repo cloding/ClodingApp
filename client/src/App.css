@@ -5,6 +5,7 @@ orange: #E05915
 purple: #431C5D
 white: #E6E9F0
 light-blue: #BCCBDE
+light-blue#2 : #C2DDE6
 red: #E01515
 */
 
@@ -75,6 +76,10 @@ p {
   background-color: #bccbde;
 }
 
+.light-blue-2 {
+  background-color: #C2DDE6;
+}
+
 .red {
   background-color: #e01515;
 }
@@ -97,6 +102,10 @@ p {
 
 .overflow {
   overflow: hidden;
+}
+
+.right-align {
+  text-align: right;
 }
 
 .pageStructure {

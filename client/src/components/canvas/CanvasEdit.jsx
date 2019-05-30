@@ -38,6 +38,30 @@ export default class Canvas extends Component {
             hue2: 0,
             saturation2: 0,
             value2: 0,
+            imageUrl3: '',
+            imageUrl4: '',
+            imageUrlFix3: '',
+            imageUrlFix4: '',
+            active3: false,
+            active4: false,
+            x3: 190,
+            y3: 150,
+            x4: 190,
+            y4: 150,
+            opacity3: 1,
+            opacity4: 1,
+            scaleX3: 1,
+            scaleY3: 1,
+            scaleX4: 1,
+            scaleY4: 1,
+            rotation3: 0,
+            rotation4: 0,
+            hue3: 0,
+            saturation3: 0,
+            value3: 0,
+            hue4: 0,
+            saturation4: 0,
+            value4: 0,
             text1: '',
             textFill1: 'black',
             textFamily1: 'Oxygen',
@@ -45,6 +69,7 @@ export default class Canvas extends Component {
             textStyle1: 'normal',
             textX1: '190',
             textY1: '150',
+            textRotation1: 0,
             text2: '',
             textFill2: 'black',
             textFamily2: 'Oxygen',
@@ -52,13 +77,23 @@ export default class Canvas extends Component {
             textStyle2: 'normal',
             textX2: '190',
             textY2: '150',
+            textRotation2: 0,
             text3: '',
             textFill3: 'black',
             textFamily3: 'Oxygen',
             textSize3: '20',
             textStyle3: 'normal',
             textX3: '190',
-            textY3: '150'
+            textY3: '150',
+            textRotation3: 0,
+            text4: '',
+            textFill4: 'black',
+            textFamily4: 'Oxygen',
+            textSize4: '20',
+            textStyle4: 'normal',
+            textX4: '190',
+            textY4: '150',
+            textRotation4: 0
         }
 
         this.service = new DesignService();
@@ -105,6 +140,30 @@ export default class Canvas extends Component {
                         hue2: this.state.design.image2.hue,
                         saturation2: this.state.design.image2.saturation,
                         value2: this.state.design.image2.value,
+                        imageUrl3: this.state.design.image3.url,
+                        imageUrl4: this.state.design.image4.url,
+                        imageUrlFix3: this.state.design.image3.url,
+                        imageUrlFix4: this.state.design.image4.url,
+                        active3: this.state.design.image3.active,
+                        active4: this.state.design.image4.active,
+                        x3: this.state.design.image3.x,
+                        y3: this.state.design.image3.y,
+                        x4: this.state.design.image4.x,
+                        y4: this.state.design.image4.y,
+                        opacity3: this.state.design.image3.opacity,
+                        opacity4: this.state.design.image4.opacity,
+                        scaleX3: this.state.design.image3.scaleX,
+                        scaleY3: this.state.design.image3.scaleY,
+                        scaleX4: this.state.design.image4.scaleX,
+                        scaleY4: this.state.design.image4.scaleY,
+                        rotation3: this.state.design.image3.rotation,
+                        rotation4: this.state.design.image4.rotation,
+                        hue3: this.state.design.image3.hue,
+                        saturation3: this.state.design.image3.saturation,
+                        value3: this.state.design.image3.value,
+                        hue4: this.state.design.image4.hue,
+                        saturation4: this.state.design.image4.saturation,
+                        value4: this.state.design.image4.value,
                         text1: this.state.design.text1.text,
                         textFill1: this.state.design.text1.fill,
                         textFamily1: this.state.design.text1.family,
@@ -112,6 +171,7 @@ export default class Canvas extends Component {
                         textStyle1: this.state.design.text1.style,
                         textX1: this.state.design.text1.x,
                         textY1: this.state.design.text1.y,
+                        textRotation1: this.state.design.text1.rotation,
                         text2: this.state.design.text2.text,
                         textFill2: this.state.design.text2.fill,
                         textFamily2: this.state.design.text2.family,
@@ -119,6 +179,7 @@ export default class Canvas extends Component {
                         textStyle2: this.state.design.text2.style,
                         textX2: this.state.design.text2.x,
                         textY2: this.state.design.text2.y,
+                        textRotation2: this.state.design.text2.rotation,
                         text3: this.state.design.text3.text,
                         textFill3: this.state.design.text3.fill,
                         textFamily3: this.state.design.text3.family,
@@ -126,12 +187,23 @@ export default class Canvas extends Component {
                         textStyle3: this.state.design.text3.style,
                         textX3: this.state.design.text3.x,
                         textY3: this.state.design.text3.y,
+                        textRotation3: this.state.design.text3.rotation,
+                        text4: this.state.design.text4.text,
+                        textFill4: this.state.design.text4.fill,
+                        textFamily4: this.state.design.text4.family,
+                        textSize4: this.state.design.text4.size,
+                        textStyle4: this.state.design.text4.style,
+                        textX4: this.state.design.text4.x,
+                        textY4: this.state.design.text4.y,
+                        textRotation4: this.state.design.text4.rotation
                     }, () => {
                         this.forceUpdate()
                         this.setState({
                             ...this.state,
                             imageUrl1: "",
-                            imageUrl2: ""
+                            imageUrl2: "",
+                            imageUrl3: "",
+                            imageUrl4: ""
                         })
                     })
                 })
@@ -174,6 +246,32 @@ export default class Canvas extends Component {
             scaleY: this.state.scaleY2,
             rotation: this.state.rotation2
         };
+        const image3 = {
+            url: this.state.imageUrlFix3,
+            active: this.state.active3,
+            opacity: this.state.opacity3,
+            hue: this.state.hue3,
+            value: this.state.value3,
+            saturation: this.state.saturation3,
+            x: this.state.x3,
+            y: this.state.y3,
+            scaleX: this.state.scaleX3,
+            scaleY: this.state.scaleY3,
+            rotation: this.state.rotation3
+        };
+        const image4 = {
+            url: this.state.imageUrlFix4,
+            active: this.state.active4,
+            opacity: this.state.opacity4,
+            value: this.state.value4,
+            hue: this.state.hue4,
+            saturation: this.state.saturation4,
+            x: this.state.x4,
+            y: this.state.y4,
+            scaleX: this.state.scaleX4,
+            scaleY: this.state.scaleY4,
+            rotation: this.state.rotation4
+        };
         const text1 = {
             text: this.state.text1,
             x: this.state.textX1,
@@ -181,7 +279,8 @@ export default class Canvas extends Component {
             fill: this.state.textFill1,
             family: this.state.textFamily1,
             size: this.state.textSize1,
-            style: this.state.textStyle1
+            style: this.state.textStyle1,
+            rotation: this.state.textRotation1
         }
         const text2 = {
             text: this.state.text2,
@@ -190,7 +289,8 @@ export default class Canvas extends Component {
             fill: this.state.textFill2,
             family: this.state.textFamily2,
             size: this.state.textSize2,
-            style: this.state.textStyle2
+            style: this.state.textStyle2,
+            rotation: this.state.textRotation2
         }
         const text3 = {
             text: this.state.text3,
@@ -199,10 +299,21 @@ export default class Canvas extends Component {
             fill: this.state.textFill3,
             family: this.state.textFamily3,
             size: this.state.textSize3,
-            style: this.state.textStyle3
+            style: this.state.textStyle3,
+            rotation: this.state.textRotation3
+        }
+        const text4 = {
+            text: this.state.text4,
+            x: this.state.textX4,
+            y: this.state.textY4,
+            fill: this.state.textFill4,
+            family: this.state.textFamily4,
+            size: this.state.textSize4,
+            style: this.state.textStyle4,
+            rotation: this.state.textRotation4
         }
 
-        this.service.updateDesign(designId, designName, red, green, blue, image1, image2, text1, text2, text3)
+        this.service.updateDesign(designId, designName, red, green, blue, image1, image2, image3, image4, text1, text2, text3, text4)
             .then()
             .catch(error => console.log(error))
     }
@@ -233,6 +344,30 @@ export default class Canvas extends Component {
         })
     }
 
+    //delete text
+    deleteText(e) {
+        const { id } = e.currentTarget;
+        const text = `text${id}`;
+        const textFill = `textFill${id}`;
+        const textFamily = `textFamily${id}`;
+        const textSize = `textSize${id}`;
+        const textStyle = `textStyle${id}`;
+        const textRotation = `textRotation${id}`;
+        const textX = `textX${id}`;
+        const textY = `textY${id}`;
+
+        this.setState({
+            ...this.state,
+            [text]: '',
+            [textFill]: 'black',
+            [textFamily]: 'Oxygen',
+            [textSize]: '20',
+            [textStyle]: 'normal',
+            [textRotation]: 0,
+            [textX]: '190',
+            [textY]: '150',
+        });
+    }
     //Text
     effects(e) {
         const { id, value } = e.target;
@@ -262,7 +397,7 @@ export default class Canvas extends Component {
     }
 
     showWidget(e) {
-        const { id } = e.target;
+        const { id } = e.currentTarget;
         let widget = window.cloudinary.createUploadWidget({
             cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
             uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET,
@@ -273,7 +408,7 @@ export default class Canvas extends Component {
 
     //delete image
     deleteImage(e) {
-        const { id } = e.target;
+        const { id } = e.currentTarget;
         const imageUrlFix = `imageUrlFix${id}`;
         const active = `active${id}`;
         const x = `x${id}`;
@@ -357,18 +492,29 @@ export default class Canvas extends Component {
                                 text1={this.state.text1}
                                 text2={this.state.text2}
                                 text3={this.state.text3}
+                                text4={this.state.text4}
                                 textFill1={this.state.textFill1}
                                 textFill2={this.state.textFill2}
                                 textFill3={this.state.textFill3}
+                                textFill4={this.state.textFill4}
                                 textFamily1={this.state.textFamily1}
                                 textFamily2={this.state.textFamily2}
                                 textFamily3={this.state.textFamily3}
+                                textFamily4={this.state.textFamily4}
                                 textStyle1={this.state.textStyle1}
                                 textStyle2={this.state.textStyle2}
                                 textStyle3={this.state.textStyle3}
+                                textStyle4={this.state.textStyle4}
                                 textSize1={this.state.textSize1}
                                 textSize2={this.state.textSize2}
                                 textSize3={this.state.textSize3}
+                                textSize4={this.state.textSize4}
+                                textRotation1={this.state.textRotation1}
+                                textRotation2={this.state.textRotation2}
+                                textRotation3={this.state.textRotation3}
+                                textRotation4={this.state.textRotation4}
+                                imageUrlFix1={this.state.imageUrlFix1}
+                                imageUrlFix2={this.state.imageUrlFix2}
                                 opacity1={this.state.opacity1}
                                 opacity2={this.state.opacity2}
                                 hue1={this.state.hue1}
@@ -377,9 +523,20 @@ export default class Canvas extends Component {
                                 hue2={this.state.hue2}
                                 saturation2={this.state.saturation2}
                                 value2={this.state.value2}
+                                imageUrlFix3={this.state.imageUrlFix3}
+                                imageUrlFix4={this.state.imageUrlFix4}
+                                opacity3={this.state.opacity3}
+                                opacity4={this.state.opacity4}
+                                hue3={this.state.hue3}
+                                saturation3={this.state.saturation3}
+                                value3={this.state.value3}
+                                hue4={this.state.hue4}
+                                saturation4={this.state.saturation4}
+                                value4={this.state.value4}
                                 rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
                                 showWidget={(e) => this.showWidget(e)}
                                 deleteImage={(e) => this.deleteImage(e)}
+                                deleteText={(e) => this.deleteText(e)}
                                 text={(e) => this.text(e)}
                                 effects={(e) => this.effects(e)}
                             />
@@ -402,6 +559,7 @@ export default class Canvas extends Component {
                                 textFamily1={this.state.textFamily1}
                                 textSize1={this.state.textSize1}
                                 textStyle1={this.state.textStyle1}
+                                textRotation1={this.state.textRotation1}
                                 text2={this.state.text2}
                                 textX2={this.state.textX2}
                                 textY2={this.state.textY2}
@@ -409,6 +567,7 @@ export default class Canvas extends Component {
                                 textFamily2={this.state.textFamily2}
                                 textSize2={this.state.textSize2}
                                 textStyle2={this.state.textStyle2}
+                                textRotation2={this.state.textRotation2}
                                 text3={this.state.text3}
                                 textX3={this.state.textX3}
                                 textY3={this.state.textY3}
@@ -416,6 +575,15 @@ export default class Canvas extends Component {
                                 textFamily3={this.state.textFamily3}
                                 textSize3={this.state.textSize3}
                                 textStyle3={this.state.textStyle3}
+                                textRotation3={this.state.textRotation3}
+                                text4={this.state.text4}
+                                textX4={this.state.textX4}
+                                textY4={this.state.textY4}
+                                textFill4={this.state.textFill4}
+                                textFamily4={this.state.textFamily4}
+                                textSize4={this.state.textSize4}
+                                textStyle4={this.state.textStyle4}
+                                textRotation4={this.state.textRotation4}
                                 imageUrl1={this.state.imageUrl1}
                                 imageUrl2={this.state.imageUrl2}
                                 x1={this.state.x1}
@@ -438,6 +606,28 @@ export default class Canvas extends Component {
                                 hue2={this.state.hue2}
                                 saturation2={this.state.saturation2}
                                 value2={this.state.value2}
+                                imageUrl3={this.state.imageUrl3}
+                                imageUrl4={this.state.imageUrl4}
+                                x3={this.state.x3}
+                                y3={this.state.y3}
+                                x4={this.state.x4}
+                                y4={this.state.y4}
+                                scaleX3={this.state.scaleX3}
+                                scaleY3={this.state.scaleY3}
+                                scaleX4={this.state.scaleX4}
+                                scaleY4={this.state.scaleY4}
+                                rotation3={this.state.rotation3}
+                                rotation4={this.state.rotation4}
+                                active3={this.state.active3}
+                                active4={this.state.active4}
+                                opacity3={this.state.opacity3}
+                                opacity4={this.state.opacity4}
+                                hue3={this.state.hue3}
+                                saturation3={this.state.saturation3}
+                                value3={this.state.value3}
+                                hue4={this.state.hue4}
+                                saturation4={this.state.saturation4}
+                                value4={this.state.value4}
                                 dragPosition={(e) => this.handleDragEnd(e)}
                                 transform={(e) => this.handleTransform(e)}
                                 dragText={(e) => this.handleDragEndText(e)}
