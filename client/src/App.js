@@ -13,6 +13,7 @@ import CanvasEdit from './components/canvas/CanvasEdit';
 import Edit from './components/profile/Edit';
 import Cart from './components/cart/Cart';
 import Buy from './components/cart/Buy';
+import ConcatShirt from './components/canvas/ConcatShirt';
 
 
 
@@ -63,7 +64,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/designer' component={Selector} />
-            <Route exact path='/canvas' render={(props) => <Canvas {...props} user={this.state.loggedInUser} />} />
+            {/* <Route exact path='/canvas' render={(props) => <Canvas {...props} user={this.state.loggedInUser} />} /> */}
+            <Route exact path='/t-shirt/designer' render={(props) => <ConcatShirt {...props} user={this.state.loggedInUser} />} />
             <Route exact path='/profile/' render={(props) => <Profile {...props} logout={() => this.logoutUser()} user={this.state.loggedInUser} />} />
             <Route exact path='/profile/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser} editDates={(user) => this.editUser(user)} />} />
             <Route exact path='/cart' render={(props) => <Cart {...props} user={this.state.loggedInUser}  />} />
@@ -83,7 +85,8 @@ class App extends Component {
             <Route exact path='/signup' render={(props) => <Signup {...props} setUser={this.setTheUser} userInSession={this.state.loggedInUser} />} />
             <Route exact path='/login' render={(props) => <Login {...props} setUser={this.setTheUser} userInSession={this.state.loggedInUser} />} />
             <Route exact path='/designer' component={Selector} />
-            <Route exact path='/canvas' render={(props) => <Canvas {...props} user={this.state.loggedInUser} />} />
+            <Route exact path='/t-shirt/designer' render={(props) => <ConcatShirt {...props} user={this.state.loggedInUser} />} />
+            {/* <Route exact path='/canvas' render={(props) => <Canvas {...props} user={this.state.loggedInUser} />} /> */}
           </Switch>
         </React.Fragment>
       )

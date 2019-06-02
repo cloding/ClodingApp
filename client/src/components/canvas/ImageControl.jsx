@@ -25,25 +25,3 @@ export default class ImageControl extends Component {
         )
     }
 }
-
-{/* <div className="btn-control-box">
-<h5 id="firstImage">First image</h5>
-<button id="1" type="button" name="firstImage" onClick={(e) => this.props.showWidget(e)} className="btn-control purple cursor">Upload</button>
-<button id="1" type="button" onClick={(e) => this.props.deleteImage(e)} className="btn-control red cursor">Delete</button>
-</div>
-<div className="range-control">
-<label htmlFor="opacity1">Opacity:</label>
-<input id="opacity1" type="range" min="0" max="1" step="0.1" value={this.props.opacity1} onChange={(e) => this.props.effects(e)} />
-</div>
-<div className="range-control">
-<label htmlFor="Hue1">Hue:</label>
-<input id="hue1" type="range" min="0" max="259" step="1" value={this.props.hue1} onChange={(e) => this.props.effects(e)} />
-</div>
-<div className="range-control">
-<label htmlFor="saturation1">Saturation:</label>
-<input id="saturation1" type="range" min="-2" max="10" step="0.5" value={this.props.saturation1} onChange={(e) => this.props.effects(e)} />
-</div>
-<div className="range-control">
-<label htmlFor="value1">Value:</label>
-<input id="value1" type="range" min="-2" max="2" step="0.1" value={this.props.value1} onChange={(e) => this.props.effects(e)} />
-</div> */}

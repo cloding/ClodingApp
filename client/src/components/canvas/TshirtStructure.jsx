@@ -133,19 +133,19 @@ export default class TshirtStructure extends Component {
                     <Layer>
                         <Group ref={node => this.myGroup = node} >
                             <Images
-                                active={this.props.active1}
+                                active={this.props.values.image1.active}
                                 imgName={this.state.images[0].imgName}
-                                img={this.props.imageUrl1}
-                                x={this.props.x1}
-                                y={this.props.y1}
-                                scaleX={this.props.scaleX1}
-                                scaleY={this.props.scaleY1}
-                                rotation={this.props.rotation1}
-                                opacity={this.props.opacity1}
+                                img={this.props.values.image1.imageUrl}
+                                x={this.props.values.image1.x}
+                                y={this.props.values.image1.y}
+                                scaleX={this.props.values.image1.scaleX}
+                                scaleY={this.props.values.image1.scaleY}
+                                rotation={this.props.values.image1.rotation}
+                                opacity={this.props.values.image1.opacity}
                                 filters={[Konva.Filters.HSV]}
-                                hue={this.props.hue1}
-                                saturation={this.props.saturation1}
-                                value={this.props.value1}
+                                hue={this.props.values.image1.hue}
+                                saturation={this.props.values.image1.saturation}
+                                value={this.props.values.image1.value}
                                 dragPosition={(e) => this.props.dragPosition(e)}
                                 transform={(e) => this.props.transform(e)}
                             />
