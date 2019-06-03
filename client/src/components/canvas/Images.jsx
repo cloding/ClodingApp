@@ -37,6 +37,7 @@ export default class Images extends Component {
                     this.props.active ?
 
                         <Image
+                            id={this.props.id}
                             name={this.props.imgName}
                             image={this.state.image}
                             x={this.props.x}
@@ -46,7 +47,7 @@ export default class Images extends Component {
                             scaleX={this.props.scaleX}
                             scaleY={this.props.scaleY}
                             rotation={this.props.rotation}
-                            onDragEnd={(e) => this.props.dragPosition(e)}
+                            onDragEnd={(e) => this.props.dragPosition(e, this.props.side)}
                             opacity={parseFloat(this.props.opacity)}
                             hue={+(this.props.hue)}
                             saturation={parseFloat(this.props.saturation)}
@@ -55,7 +56,7 @@ export default class Images extends Component {
                             ref={node => {
                                 this.myImage = node;
                             }}
-                            onTransform={(e) => this.props.transform(e)}
+                            onTransform={(e) => this.props.transform(e, this.props.side)}
                             draggable
                         />
                         : null

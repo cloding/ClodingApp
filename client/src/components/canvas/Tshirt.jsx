@@ -14,7 +14,7 @@ export default class Tshirt extends Component {
     componentDidMount() {
         const image = new window.Image();
         image.crossOrigin = "Anonymous";
-        image.src = "https://res.cloudinary.com/dgp1wgz95/image/upload/v1557582263/Cloding/wear/t-shirt_gdawk3.png";
+        image.src = this.props.shirt;
         image.onload = () => {
             this.setState({
                 image: image

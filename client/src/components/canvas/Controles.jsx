@@ -17,67 +17,55 @@ export default class Controles extends Component {
 
                     <div className="light-blue controles-grid" >
                         <ImageControl
-                            id="1"
+                            id={1}
+                            side={this.props.side}
                             name="firstImage"
-                            showWidget={(e) => this.props.showWidget(e)}
-                            deleteImage={(e) => this.props.deleteImage(e)}
-                            effects={(e) => this.props.effects(e)}
+                            showWidget={(e, side) => this.props.showWidget(e, side)}
+                            deleteImage={(e, side) => this.props.deleteImage(e, side)}
+                            effects={(e, side) => this.props.effects(e, side)}
                             imageUrl={this.props.values.image1.imageUrlFix}
-                            opacityId="opacity1"
                             opacityValue={this.props.values.image1.opacity}
-                            hueId="hue1"
                             hueValue={this.props.values.image1.hue}
-                            saturationId="saturation1"
                             saturationValue={this.props.values.image1.saturation}
-                            valueId="value1"
                             valueValue={this.props.values.image1.value}
                         />
                         <ImageControl
-                            id="2"
+                            id={2}
+                            side={this.props.side}
                             name="secondImage"
-                            showWidget={(e) => this.props.showWidget(e)}
-                            deleteImage={(e) => this.props.deleteImage(e)}
-                            effects={(e) => this.props.effects(e)}
+                            showWidget={(e, side) => this.props.showWidget(e, side)}
+                            deleteImage={(e, side) => this.props.deleteImage(e, side)}
+                            effects={(e, side) => this.props.effects(e, side)}
                             imageUrl={this.props.values.image2.imageUrlFix}
-                            opacityId="opacity2"
                             opacityValue={this.props.values.image2.opacity}
-                            hueId="hue2"
                             hueValue={this.props.values.image2.hue}
-                            saturationId="saturation2"
                             saturationValue={this.props.values.image2.saturation}
-                            valueId="value2"
                             valueValue={this.props.values.image2.value}
                         />
                         <ImageControl
-                            id="3"
+                            id={3}
+                            side={this.props.side}
                             name="thirdImage"
-                            showWidget={(e) => this.props.showWidget(e)}
-                            deleteImage={(e) => this.props.deleteImage(e)}
-                            effects={(e) => this.props.effects(e)}
+                            showWidget={(e, side) => this.props.showWidget(e, side)}
+                            deleteImage={(e, side) => this.props.deleteImage(e, side)}
+                            effects={(e, side) => this.props.effects(e, side)}
                             imageUrl={this.props.values.image3.imageUrlFix}
-                            opacityId="opacity3"
                             opacityValue={this.props.values.image3.opacity}
-                            hueId="hue3"
                             hueValue={this.props.values.image3.hue}
-                            saturationId="saturation3"
                             saturationValue={this.props.values.image3.saturation}
-                            valueId="value3"
                             valueValue={this.props.values.image3.value}
                         />
                         <ImageControl
-                            id="4"
+                            id={4}
+                            side={this.props.side}
                             name="fourthImage"
-                            showWidget={(e) => this.props.showWidget(e)}
-                            deleteImage={(e) => this.props.deleteImage(e)}
-                            effects={(e) => this.props.effects(e)}
+                            showWidget={(e, side) => this.props.showWidget(e, side)}
+                            deleteImage={(e, side) => this.props.deleteImage(e, side)}
+                            effects={(e, side) => this.props.effects(e, side)}
                             imageUrl={this.props.values.image4.imageUrlFix}
-                            opacityId="opacity4"
                             opacityValue={this.props.values.image4.opacity}
-                            hueId="hue4"
                             hueValue={this.props.values.image4.hue}
-                            saturationId="saturation4"
                             saturationValue={this.props.values.image4.saturation}
-                            valueId="value4"
                             valueValue={this.props.values.image4.value}
                         />
                     </div>
