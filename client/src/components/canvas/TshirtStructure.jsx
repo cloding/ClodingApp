@@ -29,49 +29,45 @@ export default class TshirtStructure extends Component {
 
     }
 
-    // mouseOver(e) {
-    //     console.log("x:" + e.evt.layerX)
-    //     console.log("y:" + e.evt.layerY)
-    // }
-
+    mouseOver(e) {
+        console.log("x:" + e.evt.layerX)
+        console.log("y:" + e.evt.layerY)
+    }
 
     componentDidMount() {
-        if (this.state.layer) {
-            console.log('back');
-        } else {
-            this.myGroup.clipFunc(function (ctx) {
-                ctx.lineTo(114, 80);
-                ctx.lineTo(179, 55);
-                ctx.moveTo(179, 55);
-                ctx.bezierCurveTo(179, 100, 309, 100, 309, 54);
-                ctx.lineTo(371, 75);
-                ctx.lineTo(383, 84);
-                ctx.lineTo(409, 120);
-                ctx.lineTo(444, 181);
-                ctx.lineTo(441, 188);
-                ctx.lineTo(427, 201);
-                ctx.lineTo(391, 222);
-                ctx.lineTo(372, 230);
-                ctx.lineTo(355, 206);
-                ctx.lineTo(358, 440);
-                ctx.lineTo(356, 442);
-                ctx.lineTo(301, 445);
-                ctx.lineTo(180, 445);
-                ctx.lineTo(127, 440);
-                ctx.lineTo(129, 403);
-                ctx.lineTo(130, 329);
-                ctx.lineTo(128, 209);
-                ctx.lineTo(114, 233);
-                ctx.lineTo(90, 223);
-                ctx.lineTo(53, 199);
-                ctx.lineTo(44, 191);
-                ctx.lineTo(42, 184);
-                ctx.lineTo(95, 95);
-                ctx.lineTo(104, 86);
-                ctx.lineTo(114, 80);
-                // ctx.stroke();
-            });
-        }
+        const group = this.props.group;
+        this.myGroup.clipFunc(function (ctx) {
+            ctx.lineTo(group[0], group[1]);
+            ctx.lineTo(group[2], group[3]);
+            ctx.moveTo(group[4], group[5]);
+            ctx.bezierCurveTo(group[6], group[7], group[8], group[9], group[10], group[11]);
+            ctx.lineTo(group[12], group[13]);
+            ctx.lineTo(group[14], group[15]);
+            ctx.lineTo(group[16], group[17]);
+            ctx.lineTo(group[18], group[19]);
+            ctx.lineTo(group[20], group[21]);
+            ctx.lineTo(group[22], group[23]);
+            ctx.lineTo(group[24], group[25]);
+            ctx.lineTo(group[26], group[27]);
+            ctx.lineTo(group[28], group[29]);
+            ctx.lineTo(group[30], group[31]);
+            ctx.lineTo(group[32], group[33]);
+            ctx.lineTo(group[34], group[35]);
+            ctx.lineTo(group[36], group[37]);
+            ctx.lineTo(group[38], group[39]);
+            ctx.lineTo(group[40], group[41]);
+            ctx.lineTo(group[42], group[43]);
+            ctx.lineTo(group[44], group[45]);
+            ctx.lineTo(group[46], group[47]);
+            ctx.lineTo(group[48], group[49]);
+            ctx.lineTo(group[50], group[51]);
+            ctx.lineTo(group[52], group[53]);
+            ctx.lineTo(group[54], group[55]);
+            ctx.lineTo(group[56], group[57]);
+            ctx.lineTo(group[58], group[59]);
+            ctx.lineTo(group[60], group[61]);
+            // ctx.stroke();
+        });
     }
 
 
@@ -128,7 +124,7 @@ export default class TshirtStructure extends Component {
     render() {
         return (
             <React.Fragment>
-                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} >
+                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} onClick={(e) => this.mouseOver(e)} >
                     <Layer>
                         <Tshirt
                             shirt={this.props.shirt}

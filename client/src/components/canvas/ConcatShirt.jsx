@@ -13,9 +13,16 @@ class ConcatShirt extends Component {
             designName: 'Design name',
             layer: false,
             shirtFront: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1557582263/Cloding/wear/t-shirt_gdawk3.png',
+            shirtBack: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559566903/Cloding/wear/tShirtBack_tdeevi.png',
             red: '255',
             blue: '255',
             green: '255',
+            tFrontGroup: [114, 80, 179, 55, 179, 55, 179, 100, 309, 100, 309, 54, 371, 75, 384, 84, 409, 120, 444, 181,
+                441, 188, 427, 201, 391, 222, 372, 230, 355, 206, 358, 440, 356, 442, 301, 445, 180, 445, 127, 440, 129, 403,
+                130, 392, 128, 209, 114, 233, 90, 223, 53, 199, 44, 191, 42, 184, 95, 95, 104, 86, 114, 80],
+            tBackGroup: [114, 80, 187, 54, 187, 54, 187, 35, 297, 35, 297, 54, 371, 75, 384, 84, 409, 120, 445, 187,
+                441, 193, 429, 206, 393, 228, 372, 236, 356, 212, 358, 440, 356, 442, 301, 445, 148, 445, 127, 440, 129, 403,
+                130, 392, 128, 209, 114, 233, 90, 223, 53, 199, 44, 191, 42, 184, 95, 95, 104, 86, 114, 80],
             front: {
                 image1: {
                     imageUrl: '',
@@ -369,7 +376,7 @@ class ConcatShirt extends Component {
                     <div className="pageStructure">
                         <div className="container white">
                             <div className="half-container padding-canvas">
-                                <div style={{ display: 'flex' }}><h2>{this.state.designName}</h2>-<button type="button" onClick={() => this.changeLayer()}>Change Side</button></div>
+                                <div className="canvas-title"><h2>{this.state.designName}</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer? 'Front' : 'Back' )}</button></div>
                                 <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
                                     <Controles
                                         red={this.state.red}
@@ -410,7 +417,7 @@ class ConcatShirt extends Component {
                             <div className="half-container" >
                                 <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
                                     <TshirtStructure
-                                        layer={this.state.layer}
+                                        group={this.state.tFrontGroup}
                                         shirt={this.state.shirtFront}
                                         blue={this.state.blue}
                                         red={this.state.red}
@@ -424,8 +431,8 @@ class ConcatShirt extends Component {
                                 </div>
                                 <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
                                     <TshirtStructure
-                                        layer={this.state.layer}
-                                        // shirt={this.state.shirtFront}
+                                        group={this.state.tBackGroup}
+                                        shirt={this.state.shirtBack}
                                         blue={this.state.blue}
                                         red={this.state.red}
                                         green={this.state.green}
@@ -447,7 +454,7 @@ class ConcatShirt extends Component {
                     <div className="pageStructure" >
                         <div className="container white">
                             <div className="half-container padding-canvas">
-                                <div style={{ display: 'flex' }}><h2>T-shirt designer</h2>-<button type="button" onClick={() => this.changeLayer()}>Change Side</button></div>
+                                <div className="canvas-title"><h2>T-shirt designer</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer? 'Front' : 'Back' )}</button></div>
                                 <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
                                     <Controles
                                         red={this.state.red}
@@ -485,7 +492,7 @@ class ConcatShirt extends Component {
                             <div className="half-container" >
                                 <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
                                     <TshirtStructure
-                                        layer={this.state.layer}
+                                        group={this.state.tFrontGroup}
                                         shirt={this.state.shirtFront}
                                         blue={this.state.blue}
                                         red={this.state.red}
@@ -499,8 +506,8 @@ class ConcatShirt extends Component {
                                 </div>
                                 <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
                                     <TshirtStructure
-                                        layer={this.state.layer}
-                                        // shirt={this.state.shirtFront}
+                                        group={this.state.tBackGroup}
+                                        shirt={this.state.shirtBack}
                                         blue={this.state.blue}
                                         red={this.state.red}
                                         green={this.state.green}
