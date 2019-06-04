@@ -11,7 +11,8 @@ const designSchema = new Schema({
   blue: { type: Number, default: 255 },
   front: {
     image1: {
-      url: { type: String, default: "" },
+      imageUrl: { type: String, default: "" },
+      imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
       y: { type: Number, default: 150 },
@@ -24,7 +25,8 @@ const designSchema = new Schema({
       value: { type: Number, default: 0 }
     },
     image2: {
-      url: { type: String, default: "" },
+      imageUrl: { type: String, default: "" },
+      imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
       y: { type: Number, default: 150 },
@@ -37,7 +39,8 @@ const designSchema = new Schema({
       value: { type: Number, default: 0 }
     },
     image3: {
-      url: { type: String, default: "" },
+      imageUrl: { type: String, default: "" },
+      imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
       y: { type: Number, default: 150 },
@@ -50,7 +53,8 @@ const designSchema = new Schema({
       value: { type: Number, default: 0 }
     },
     image4: {
-      url: { type: String, default: "" },
+      imageUrl: { type: String, default: "" },
+      imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
       y: { type: Number, default: 150 },
@@ -105,6 +109,7 @@ const designSchema = new Schema({
   },
   back: {
     image1: {
+      imageUrl: { type: String, default: "" },
       imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
@@ -118,6 +123,7 @@ const designSchema = new Schema({
       value: { type: Number, default: 0 }
     },
     image2: {
+      imageUrl: { type: String, default: "" },
       imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
@@ -131,6 +137,7 @@ const designSchema = new Schema({
       value: { type: Number, default: 0 }
     },
     image3: {
+      imageUrl: { type: String, default: "" },
       imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },
@@ -144,6 +151,7 @@ const designSchema = new Schema({
       value: { type: Number, default: 0 }
     },
     image4: {
+      imageUrl: { type: String, default: "" },
       imageUrlFix: { type: String, default: "" },
       active: { type: Boolean, default: false },
       x: { type: Number, default: 190 },

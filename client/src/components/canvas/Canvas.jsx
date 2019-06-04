@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import TshirtStructure from './TshirtStructure';
-import Controles from './Controles';
-import DesignService from "../../service/design-server";
 import { withRouter } from 'react-router-dom';
-import Form from '../form/Form';
 
 class Canvas extends Component {
     // constructor(props) {

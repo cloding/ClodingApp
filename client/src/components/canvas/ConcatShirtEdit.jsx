@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
+import TshirtStructure from './TshirtStructure';
 import DesignService from "../../service/design-server";
-import { withRouter } from 'react-router-dom';
 import Form from '../form/Form';
 import Controles from './Controles';
-import TshirtStructure from './TshirtStructure';
 
-class ConcatShirt extends Component {
+export default class Canvas extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            designName: 'Design name',
+            design: {},
+            designName: '',
             layer: false,
             shirtFront: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1557582263/Cloding/wear/t-shirt_gdawk3.png',
             shirtBack: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559644869/Cloding/wear/tShirtBack_nh2lpl.png',
@@ -224,11 +224,46 @@ class ConcatShirt extends Component {
         this.service = new DesignService();
     }
 
-    //Save design
-    saveDesign = (event) => {
+    componentDidMount() {
+
+        this.service.uploadDesign(this.props.match.params.id)
+            .then(theDesign => {
+                const Design = theDesign
+
+                this.setState({
+                    ...this.state,
+                    design: Design
+                }, () => {
+                    this.setState({
+                        ...this.state,
+                        designName: this.state.design.designName,
+                        red: this.state.design.red,
+                        blue: this.state.design.blue,
+                        green: this.state.design.green,
+                        front: this.state.design.front,
+                        back: this.state.design.back
+                    }, () => {
+                        this.forceUpdate();
+                        let front = Object.assign({}, this.state.front);
+                        front.image1.imageUrl = '';
+                        front.image2.imageUrl = '';
+                        front.image3.imageUrl = '';
+                        front.image4.imageUrl = '';
+                        let back = Object.assign({}, this.state.back);
+                        back.image1.imageUrl = '';
+                        back.image2.imageUrl = '';
+                        back.image3.imageUrl = '';
+                        back.image4.imageUrl = '';
+                        this.setState({ front, back });
+                    })
+                })
+            })
+    }
+
+    //Update design
+    updateDesign = (event) => {
         event.preventDefault();
-        const userId = this.props.user._id;
-        const type = "t-shirt";
+        const designId = this.props.match.params.id;
         const designName = this.state.designName;
         const red = this.state.red;
         const green = this.state.green;
@@ -236,10 +271,8 @@ class ConcatShirt extends Component {
         const front = this.state.front;
         const back = this.state.back;
 
-        this.service.saveDesign(userId, type, designName, red, green, blue, front, back)
-            .then(() => {
-                this.props.history.push("/cart")
-            })
+        this.service.updateDesign(designId, designName, red, green, blue, front, back)
+            .then()
             .catch(error => console.log(error))
     }
 
@@ -367,164 +400,84 @@ class ConcatShirt extends Component {
         this.setState({ newValue });
     }
 
-
     render() {
-        if (this.props.user) {
-            return (
-                <React.Fragment>
-                    <div className="pageStructure">
-                        <div className="container white">
-                            <div className="half-container padding-canvas">
-                                <div className="canvas-title"><h2>{this.state.designName}</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer? 'Front' : 'Back' )}</button></div>
-                                <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
-                                    <Controles
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        blue={this.state.blue}
-                                        side="front"
-                                        values={this.state.front}
-                                        rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
-                                        showWidget={(e, side) => this.showWidget(e, side)}
-                                        deleteImage={(e, side) => this.deleteImage(e, side)}
-                                        deleteText={(e, side) => this.deleteText(e, side)}
-                                        text={(e, side) => this.text(e, side)}
-                                        effects={(e, side) => this.effects(e, side)}
-                                    />
-                                </div>
-                                <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
-                                    <Controles
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        blue={this.state.blue}
-                                        side="back"
-                                        values={this.state.back}
-                                        rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
-                                        showWidget={(e, side) => this.showWidget(e, side)}
-                                        deleteImage={(e, side) => this.deleteImage(e, side)}
-                                        deleteText={(e, side) => this.deleteText(e, side)}
-                                        text={(e, side) => this.text(e, side)}
-                                        effects={(e, side) => this.effects(e, side)}
-                                    />
-                                </div>
-                                <form className="form-save-design" onSubmit={this.saveDesign}>
-                                    <div className="form-inside-design">
-                                        <Form labelCss="label-design-name" inputCss="input-design-name-canvas" label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
-                                    </div>
-                                    <input type="submit" className="btn orange cursor" value="Save" />
-                                </form>
+        console.log(this.state)
+        return (
+            <React.Fragment>
+                <div className="pageStructure">
+                    <div className="container white">
+                        <div className="half-container padding-canvas">
+                            <div className="canvas-title"><h2>{this.state.designName}</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer ? 'Front' : 'Back')}</button></div>
+                            <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
+                                <Controles
+                                    red={this.state.red}
+                                    green={this.state.green}
+                                    blue={this.state.blue}
+                                    side="front"
+                                    values={this.state.front}
+                                    rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
+                                    showWidget={(e, side) => this.showWidget(e, side)}
+                                    deleteImage={(e, side) => this.deleteImage(e, side)}
+                                    deleteText={(e, side) => this.deleteText(e, side)}
+                                    text={(e, side) => this.text(e, side)}
+                                    effects={(e, side) => this.effects(e, side)}
+                                />
                             </div>
-                            <div className="half-container" >
-                                <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
-                                    <TshirtStructure
-                                        group={this.state.tFrontGroup}
-                                        shirt={this.state.shirtFront}
-                                        blue={this.state.blue}
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        values={this.state.front}
-                                        side="front"
-                                        dragPosition={(e, side) => this.handleDragEnd(e, side)}
-                                        transform={(e, side) => this.handleTransform(e, side)}
-                                        dragText={(e, side) => this.handleDragEndText(e, side)}
-                                    />
+                            <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
+                                <Controles
+                                    red={this.state.red}
+                                    green={this.state.green}
+                                    blue={this.state.blue}
+                                    side="back"
+                                    values={this.state.back}
+                                    rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
+                                    showWidget={(e, side) => this.showWidget(e, side)}
+                                    deleteImage={(e, side) => this.deleteImage(e, side)}
+                                    deleteText={(e, side) => this.deleteText(e, side)}
+                                    text={(e, side) => this.text(e, side)}
+                                    effects={(e, side) => this.effects(e, side)}
+                                />
+                            </div>
+                            <form className="form-save-design" onSubmit={this.updateDesign}>
+                                <div className="form-inside-design">
+                                    <Form labelCss="label-design-name" inputCss="input-design-name-canvas" label="Design name" type="text" name="designName" value={this.state.designName} onchange={(e) => this.handleChangeDesignName(e)} ></Form>
                                 </div>
-                                <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
-                                    <TshirtStructure
-                                        group={this.state.tBackGroup}
-                                        shirt={this.state.shirtBack}
-                                        blue={this.state.blue}
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        values={this.state.back}
-                                        side="back"
-                                        dragPosition={(e, side) => this.handleDragEnd(e, side)}
-                                        transform={(e, side) => this.handleTransform(e, side)}
-                                        dragText={(e, side) => this.handleDragEndText(e, side)}
-                                    />
-                                </div>
+                                <input type="submit" className="btn orange cursor" value="Save" />
+                            </form>
+                        </div>
+                        <div className="half-container" >
+                            <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
+                                <TshirtStructure
+                                    group={this.state.tFrontGroup}
+                                    shirt={this.state.shirtFront}
+                                    blue={this.state.blue}
+                                    red={this.state.red}
+                                    green={this.state.green}
+                                    values={this.state.front}
+                                    side="front"
+                                    dragPosition={(e, side) => this.handleDragEnd(e, side)}
+                                    transform={(e, side) => this.handleTransform(e, side)}
+                                    dragText={(e, side) => this.handleDragEndText(e, side)}
+                                />
+                            </div>
+                            <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
+                                <TshirtStructure
+                                    group={this.state.tBackGroup}
+                                    shirt={this.state.shirtBack}
+                                    blue={this.state.blue}
+                                    red={this.state.red}
+                                    green={this.state.green}
+                                    values={this.state.back}
+                                    side="back"
+                                    dragPosition={(e, side) => this.handleDragEnd(e, side)}
+                                    transform={(e, side) => this.handleTransform(e, side)}
+                                    dragText={(e, side) => this.handleDragEndText(e, side)}
+                                />
                             </div>
                         </div>
                     </div>
-                </React.Fragment>
-            )
-        } else {
-            return (
-                <React.Fragment>
-                    <div className="pageStructure" >
-                        <div className="container white">
-                            <div className="half-container padding-canvas">
-                                <div className="canvas-title"><h2>T-shirt designer</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer? 'Front' : 'Back' )}</button></div>
-                                <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
-                                    <Controles
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        blue={this.state.blue}
-                                        side="front"
-                                        values={this.state.front}
-                                        rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
-                                        showWidget={(e, side) => this.showWidget(e, side)}
-                                        deleteImage={(e, side) => this.deleteImage(e, side)}
-                                        deleteText={(e, side) => this.deleteText(e, side)}
-                                        text={(e, side) => this.text(e, side)}
-                                        effects={(e, side) => this.effects(e, side)}
-                                    />
-                                </div>
-                                <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
-                                    <Controles
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        blue={this.state.blue}
-                                        side="back"
-                                        values={this.state.back}
-                                        rgbValue={(red, green, blue) => this.rgbValue(red, green, blue)}
-                                        showWidget={(e, side) => this.showWidget(e, side)}
-                                        deleteImage={(e, side) => this.deleteImage(e, side)}
-                                        deleteText={(e, side) => this.deleteText(e, side)}
-                                        text={(e, side) => this.text(e, side)}
-                                        effects={(e, side) => this.effects(e, side)}
-                                    />
-                                </div>
-                                <div className="demo-advisor">
-                                    <h5>This is a demo version, for buy your creation you must be logged in.</h5>
-                                </div>
-                            </div>
-                            <div className="half-container" >
-                                <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
-                                    <TshirtStructure
-                                        group={this.state.tFrontGroup}
-                                        shirt={this.state.shirtFront}
-                                        blue={this.state.blue}
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        values={this.state.front}
-                                        side="front"
-                                        dragPosition={(e, side) => this.handleDragEnd(e, side)}
-                                        transform={(e, side) => this.handleTransform(e, side)}
-                                        dragText={(e, side) => this.handleDragEndText(e, side)}
-                                    />
-                                </div>
-                                <div className={`${(this.state.layer ? 'layerShow' : 'layerHidden')}`}>
-                                    <TshirtStructure
-                                        group={this.state.tBackGroup}
-                                        shirt={this.state.shirtBack}
-                                        blue={this.state.blue}
-                                        red={this.state.red}
-                                        green={this.state.green}
-                                        values={this.state.back}
-                                        side="back"
-                                        dragPosition={(e, side) => this.handleDragEnd(e, side)}
-                                        transform={(e, side) => this.handleTransform(e, side)}
-                                        dragText={(e, side) => this.handleDragEndText(e, side)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </React.Fragment>
-            )
-        }
+                </div>
+            </React.Fragment>
+        )
     }
 }
-
-
-export default withRouter(ConcatShirt)
