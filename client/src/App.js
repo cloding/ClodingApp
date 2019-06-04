@@ -11,8 +11,10 @@ import Selector from './components/selector/Selector';
 import Edit from './components/profile/Edit';
 import Cart from './components/cart/Cart';
 import Buy from './components/cart/Buy';
-import ConcatShirt from './components/canvas/ConcatShirt';
-import ConcatShirtEdit from './components/canvas/ConcatShirtEdit';
+import ConcatShirt from './components/canvas/tShirt/ConcatShirt';
+import ConcatShirtEdit from './components/canvas/tShirt/ConcatShirtEdit';
+import ConcatSweatShirt from './components/canvas/sweatShirt/ConcatSweatShirt';
+import ConcatSweatShirtEdit from './components/canvas/sweatShirt/ConcatSweatShirtEdit';
 
 
 
@@ -65,6 +67,8 @@ class App extends Component {
             <Route exact path='/designer' component={Selector} />
             <Route exact path='/t-shirt/designer' render={(props) => <ConcatShirt {...props} user={this.state.loggedInUser} />} />
             <Route exact path='/t-shirt/designer/:id' render={(props) => <ConcatShirtEdit {...props} user={this.state.loggedInUser} />} />
+            <Route exact path='/sweatshirt/designer' render={(props) => <ConcatSweatShirt {...props} user={this.state.loggedInUser} />} />
+            <Route exact path='/sweatshirt/designer/:id' render={(props) => <ConcatSweatShirtEdit {...props} user={this.state.loggedInUser} />} />
             <Route exact path='/profile/' render={(props) => <Profile {...props} logout={() => this.logoutUser()} user={this.state.loggedInUser} />} />
             <Route exact path='/profile/edit' render={(props) => <Edit {...props} user={this.state.loggedInUser} editDates={(user) => this.editUser(user)} />} />
             <Route exact path='/cart' render={(props) => <Cart {...props} user={this.state.loggedInUser}  />} />
@@ -83,6 +87,7 @@ class App extends Component {
             <Route exact path='/login' render={(props) => <Login {...props} setUser={this.setTheUser} userInSession={this.state.loggedInUser} />} />
             <Route exact path='/designer' component={Selector} />
             <Route exact path='/t-shirt/designer' render={(props) => <ConcatShirt {...props} user={this.state.loggedInUser} />} />
+            <Route exact path='/sweatshirt/designer' render={(props) => <ConcatSweatShirt {...props} user={this.state.loggedInUser} />} />
           </Switch>
         </React.Fragment>
       )

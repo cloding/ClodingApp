@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import DesignService from "../../service/design-server";
+import DesignService from "../../../service/design-server";
 import { withRouter } from 'react-router-dom';
-import Form from '../form/Form';
-import Controles from './Controles';
+import Form from '../../form/Form';
+import Controles from '../Controles';
 import TshirtStructure from './TshirtStructure';
 
 class ConcatShirt extends Component {

@@ -30,10 +30,10 @@ export default class Tshirt extends Component {
             <React.Fragment>
                 <Image
                     image={this.state.image}
-                    x={30}
-                    y={35}
-                    width={426}
-                    height={430}
+                    x={this.props.x}
+                    y={this.props.y}
+                    width={this.props.width}
+                    height={this.props.height}
                     filters={[Konva.Filters.RGB]}
                     red={this.props.red}
                     blue={this.props.blue}

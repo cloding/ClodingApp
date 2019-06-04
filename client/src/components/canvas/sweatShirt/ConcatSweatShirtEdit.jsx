@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import TshirtStructure from './TshirtStructure';
-import DesignService from "../../service/design-server";
-import Form from '../form/Form';
-import Controles from './Controles';
+import TshirtStructure from './sweatShirtStructure';
+import DesignService from "../../../service/design-server";
+import Form from '../../form/Form';
+import Controles from '../Controles';
 
 export default class Canvas extends Component {
     constructor(props) {
