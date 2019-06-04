@@ -114,33 +114,6 @@
   background-color: #C2DDE6;
 }
 
-
-
-
-
-
-
-/* .range-control {
-  display: flex;
-  justify-content: space-between;
-}
-
-.range-control input {
-  display: flex;
-  width: 300px;
-} */
-
-/* .btn-control-box {
-  display: flex;
-  margin-bottom: 10px;
-  align-items: center;
-} */
-
-/* .btn-control-box > * {
-  margin-right: 10px;
-} */
-
-
 .input-control {
   background: #e6e9f0;
   border: 1px solid#431C5D;
@@ -221,4 +194,20 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.layerShow {
+  opacity: 1;
+  display: block;
+}
+
+.layerHidden {
+  opacity: 0;
+  display: none;
+}
+
+.canvas-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

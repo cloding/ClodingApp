@@ -29,47 +29,45 @@ export default class TshirtStructure extends Component {
 
     }
 
-    // mouseOver(e) {
-    //     console.log("x:" + e.evt.layerX)
-    //     console.log("y:" + e.evt.layerY)
-    // }
-
+    mouseOver(e) {
+        console.log("x:" + e.evt.layerX)
+        console.log("y:" + e.evt.layerY)
+    }
 
     componentDidMount() {
-
+        const group = this.props.group;
         this.myGroup.clipFunc(function (ctx) {
-            ctx.lineTo(114, 80);
-            ctx.lineTo(179, 55);
-            ctx.moveTo(179, 55);
-            ctx.bezierCurveTo(179, 100, 309, 100, 309, 54);
-            ctx.lineTo(371, 75);
-            ctx.lineTo(383, 84);
-            ctx.lineTo(409, 120);
-            ctx.lineTo(444, 181);
-            ctx.lineTo(441, 188);
-            ctx.lineTo(427, 201);
-            ctx.lineTo(391, 222);
-            ctx.lineTo(372, 230);
-            ctx.lineTo(355, 206);
-            ctx.lineTo(358, 440);
-            ctx.lineTo(356, 442);
-            ctx.lineTo(301, 445);
-            ctx.lineTo(180, 445);
-            ctx.lineTo(127, 440);
-            ctx.lineTo(129, 403);
-            ctx.lineTo(130, 329);
-            ctx.lineTo(128, 209);
-            ctx.lineTo(114, 233);
-            ctx.lineTo(90, 223);
-            ctx.lineTo(53, 199);
-            ctx.lineTo(44, 191);
-            ctx.lineTo(42, 184);
-            ctx.lineTo(95, 95);
-            ctx.lineTo(104, 86);
-            ctx.lineTo(114, 80);
+            ctx.lineTo(group[0], group[1]);
+            ctx.lineTo(group[2], group[3]);
+            ctx.moveTo(group[4], group[5]);
+            ctx.bezierCurveTo(group[6], group[7], group[8], group[9], group[10], group[11]);
+            ctx.lineTo(group[12], group[13]);
+            ctx.lineTo(group[14], group[15]);
+            ctx.lineTo(group[16], group[17]);
+            ctx.lineTo(group[18], group[19]);
+            ctx.lineTo(group[20], group[21]);
+            ctx.lineTo(group[22], group[23]);
+            ctx.lineTo(group[24], group[25]);
+            ctx.lineTo(group[26], group[27]);
+            ctx.lineTo(group[28], group[29]);
+            ctx.lineTo(group[30], group[31]);
+            ctx.lineTo(group[32], group[33]);
+            ctx.lineTo(group[34], group[35]);
+            ctx.lineTo(group[36], group[37]);
+            ctx.lineTo(group[38], group[39]);
+            ctx.lineTo(group[40], group[41]);
+            ctx.lineTo(group[42], group[43]);
+            ctx.lineTo(group[44], group[45]);
+            ctx.lineTo(group[46], group[47]);
+            ctx.lineTo(group[48], group[49]);
+            ctx.lineTo(group[50], group[51]);
+            ctx.lineTo(group[52], group[53]);
+            ctx.lineTo(group[54], group[55]);
+            ctx.lineTo(group[56], group[57]);
+            ctx.lineTo(group[58], group[59]);
+            ctx.lineTo(group[60], group[61]);
             // ctx.stroke();
         });
-
     }
 
 
@@ -126,84 +124,94 @@ export default class TshirtStructure extends Component {
     render() {
         return (
             <React.Fragment>
-                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} >
+                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} onClick={(e) => this.mouseOver(e)} >
                     <Layer>
-                        <Tshirt filters={[Konva.Filters.RGB]} blue={this.props.blue} red={this.props.red} green={this.props.green} />
+                        <Tshirt
+                            shirt={this.props.shirt}
+                            filters={[Konva.Filters.RGB]}
+                            blue={this.props.blue}
+                            red={this.props.red}
+                            green={this.props.green}
+                        />
                     </Layer>
                     <Layer>
                         <Group ref={node => this.myGroup = node} >
                             <Images
-                                active={this.props.active1}
+                                side={this.props.side}
+                                active={this.props.values.image1.active}
                                 imgName={this.state.images[0].imgName}
-                                img={this.props.imageUrl1}
-                                x={this.props.x1}
-                                y={this.props.y1}
-                                scaleX={this.props.scaleX1}
-                                scaleY={this.props.scaleY1}
-                                rotation={this.props.rotation1}
-                                opacity={this.props.opacity1}
+                                img={this.props.values.image1.imageUrl}
+                                x={this.props.values.image1.x}
+                                y={this.props.values.image1.y}
+                                scaleX={this.props.values.image1.scaleX}
+                                scaleY={this.props.values.image1.scaleY}
+                                rotation={this.props.values.image1.rotation}
+                                opacity={this.props.values.image1.opacity}
                                 filters={[Konva.Filters.HSV]}
-                                hue={this.props.hue1}
-                                saturation={this.props.saturation1}
-                                value={this.props.value1}
-                                dragPosition={(e) => this.props.dragPosition(e)}
-                                transform={(e) => this.props.transform(e)}
+                                hue={this.props.values.image1.hue}
+                                saturation={this.props.values.image1.saturation}
+                                value={this.props.values.image1.value}
+                                dragPosition={(e, side) => this.props.dragPosition(e, side)}
+                                transform={(e, side) => this.props.transform(e, side)}
                             />
                             <Images
-                                active={this.props.active2}
+                                side={this.props.side}
+                                active={this.props.values.image2.active}
                                 imgName={this.state.images[1].imgName}
-                                img={this.props.imageUrl2}
-                                x={this.props.x2}
-                                y={this.props.y2}
-                                scaleX={this.props.scaleX2}
-                                scaleY={this.props.scaleY2}
-                                rotation={this.props.rotation2}
-                                opacity={this.props.opacity2}
+                                img={this.props.values.image2.imageUrl}
+                                x={this.props.values.image2.x}
+                                y={this.props.values.image2.y}
+                                scaleX={this.props.values.image2.scaleX}
+                                scaleY={this.props.values.image2.scaleY}
+                                rotation={this.props.values.image2.rotation}
+                                opacity={this.props.values.image2.opacity}
                                 filters={[Konva.Filters.HSV]}
-                                hue={this.props.hue2}
-                                saturation={this.props.saturation2}
-                                value={this.props.value2}
-                                dragPosition={(e) => this.props.dragPosition(e)}
-                                transform={(e) => this.props.transform(e)}
+                                hue={this.props.values.image2.hue}
+                                saturation={this.props.values.image2.saturation}
+                                value={this.props.values.image2.value}
+                                dragPosition={(e, side) => this.props.dragPosition(e, side)}
+                                transform={(e, side) => this.props.transform(e, side)}
                             />
                             <Images
-                                active={this.props.active3}
+                                side={this.props.side}
+                                active={this.props.values.image3.active}
                                 imgName={this.state.images[2].imgName}
-                                img={this.props.imageUrl3}
-                                x={this.props.x3}
-                                y={this.props.y3}
-                                scaleX={this.props.scaleX3}
-                                scaleY={this.props.scaleY3}
-                                rotation={this.props.rotation3}
-                                opacity={this.props.opacity3}
+                                img={this.props.values.image3.imageUrl}
+                                x={this.props.values.image3.x}
+                                y={this.props.values.image3.y}
+                                scaleX={this.props.values.image3.scaleX}
+                                scaleY={this.props.values.image3.scaleY}
+                                rotation={this.props.values.image3.rotation}
+                                opacity={this.props.values.image3.opacity}
                                 filters={[Konva.Filters.HSV]}
-                                hue={this.props.hue3}
-                                saturation={this.props.saturation3}
-                                value={this.props.value3}
-                                dragPosition={(e) => this.props.dragPosition(e)}
-                                transform={(e) => this.props.transform(e)}
+                                hue={this.props.values.image3.hue}
+                                saturation={this.props.values.image3.saturation}
+                                value={this.props.values.image3.value}
+                                dragPosition={(e, side) => this.props.dragPosition(e, side)}
+                                transform={(e, side) => this.props.transform(e, side)}
                             />
                             <Images
-                                active={this.props.active4}
+                                side={this.props.side}
+                                active={this.props.values.image4.active}
                                 imgName={this.state.images[3].imgName}
-                                img={this.props.imageUrl4}
-                                x={this.props.x4}
-                                y={this.props.y4}
-                                scaleX={this.props.scaleX4}
-                                scaleY={this.props.scaleY4}
-                                rotation={this.props.rotation4}
-                                opacity={this.props.opacity4}
+                                img={this.props.values.image4.imageUrl}
+                                x={this.props.values.image4.x}
+                                y={this.props.values.image4.y}
+                                scaleX={this.props.values.image4.scaleX}
+                                scaleY={this.props.values.image4.scaleY}
+                                rotation={this.props.values.image4.rotation}
+                                opacity={this.props.values.image4.opacity}
                                 filters={[Konva.Filters.HSV]}
-                                hue={this.props.hue4}
-                                saturation={this.props.saturation4}
-                                value={this.props.value4}
-                                dragPosition={(e) => this.props.dragPosition(e)}
-                                transform={(e) => this.props.transform(e)}
+                                hue={this.props.values.image4.hue}
+                                saturation={this.props.values.image4.saturation}
+                                value={this.props.values.image4.value}
+                                dragPosition={(e, side) => this.props.dragPosition(e, side)}
+                                transform={(e, side) => this.props.transform(e, side)}
                             />
-                            <Text id="text1" x={+this.props.textX1} y={+this.props.textY1} fontSize={+this.props.textSize1} fontFamily={this.props.textFamily1} fill={this.props.textFill1} allign='center' fontStyle={this.props.textStyle1} text={this.props.text1} draggable rotation={this.props.textRotation1} onDragEnd={(e) => this.props.dragText(e)} />
-                            <Text id="text2" x={+this.props.textX2} y={+this.props.textY2} fontSize={+this.props.textSize2} fontFamily={this.props.textFamily2} fill={this.props.textFill2} allign='center' fontStyle={this.props.textStyle2} text={this.props.text2} draggable rotation={this.props.textRotation2} onDragEnd={(e) => this.props.dragText(e)} />
-                            <Text id="text3" x={+this.props.textX3} y={+this.props.textY3} fontSize={+this.props.textSize3} fontFamily={this.props.textFamily3} fill={this.props.textFill3} allign='center' fontStyle={this.props.textStyle3} text={this.props.text3} draggable rotation={this.props.textRotation3} onDragEnd={(e) => this.props.dragText(e)} />
-                            <Text id="text4" x={+this.props.textX4} y={+this.props.textY4} fontSize={+this.props.textSize4} fontFamily={this.props.textFamily4} fill={this.props.textFill4} allign='center' fontStyle={this.props.textStyle4} text={this.props.text4} draggable rotation={this.props.textRotation4} onDragEnd={(e) => this.props.dragText(e)} />
+                            <Text id="text1" x={+this.props.values.text1.textX} y={+this.props.values.text1.textY} fontSize={+this.props.values.text1.textSize} fontFamily={this.props.values.text1.textFamily} fill={this.props.values.text1.textFill} allign='center' fontStyle={this.props.values.text1.textStyle} text={this.props.values.text1.text} draggable rotation={+this.props.values.text1.textRotation} onDragEnd={(e) => this.props.dragText(e, this.props.side)} />
+                            <Text id="text2" x={+this.props.values.text2.textX} y={+this.props.values.text2.textY} fontSize={+this.props.values.text2.textSize} fontFamily={this.props.values.text2.textFamily} fill={this.props.values.text2.textFill} allign='center' fontStyle={this.props.values.text2.textStyle} text={this.props.values.text2.text} draggable rotation={+this.props.values.text2.textRotation} onDragEnd={(e) => this.props.dragText(e, this.props.side)} />
+                            <Text id="text3" x={+this.props.values.text3.textX} y={+this.props.values.text3.textY} fontSize={+this.props.values.text3.textSize} fontFamily={this.props.values.text3.textFamily} fill={this.props.values.text3.textFill} allign='center' fontStyle={this.props.values.text3.textStyle} text={this.props.values.text3.text} draggable rotation={+this.props.values.text3.textRotation} onDragEnd={(e) => this.props.dragText(e, this.props.side)} />
+                            <Text id="text4" x={+this.props.values.text4.textX} y={+this.props.values.text4.textY} fontSize={+this.props.values.text4.textSize} fontFamily={this.props.values.text4.textFamily} fill={this.props.values.text4.textFill} allign='center' fontStyle={this.props.values.text4.textStyle} text={this.props.values.text4.text} draggable rotation={+this.props.values.text4.textRotation} onDragEnd={(e) => this.props.dragText(e, this.props.side)} />
                             <Transformer ref={node => this.transformer = node} />
                         </Group>
                     </Layer>

@@ -10,8 +10,8 @@ export default class designService {
         })
     }
 
-    saveDesign = (userId, type, designName, red, green, blue, image1, image2, image3, image4, text1, text2, text3, text4) => {
-        return this.service.post('/save-design', { userId, type, designName, red, green, blue, image1, image2, image3, image4, text1, text2, text3, text4 })
+    saveDesign = (userId, type, designName, red, green, blue, front, back) => {
+        return this.service.post('/save-design', { userId, type, designName, red, green, blue, front, back })
             .then(response => response.data)
             .catch(err => console.log(err.res.data))
     }
@@ -46,8 +46,8 @@ export default class designService {
             .catch(err => console.log(err))
     }
 
-    updateDesign = (designId, designName, red, green, blue, image1, image2, image3, image4, text1, text2, text3, text4) => {
-        return this.service.post('/edit-design', { designId, designName, red, green, blue, image1, image2, image3, image4, text1, text2, text3, text4 })
+    updateDesign = (designId, designName, red, green, blue, front, back) => {
+        return this.service.post('/edit-design', { designId, designName, red, green, blue, front, back })
             .then(response => response.data)
             .catch(err => console.log(err))
     }
