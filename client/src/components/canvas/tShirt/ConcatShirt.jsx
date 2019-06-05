@@ -229,6 +229,7 @@ class ConcatShirt extends Component {
         event.preventDefault();
         const userId = this.props.user._id;
         const type = "t-shirt";
+        const price = 30;
         const designName = this.state.designName;
         const red = this.state.red;
         const green = this.state.green;
@@ -236,7 +237,7 @@ class ConcatShirt extends Component {
         const front = this.state.front;
         const back = this.state.back;
 
-        this.service.saveDesign(userId, type, designName, red, green, blue, front, back)
+        this.service.saveDesign(userId, type, price, designName, red, green, blue, front, back)
             .then(() => {
                 this.props.history.push("/cart")
             })

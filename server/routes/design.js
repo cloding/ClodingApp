@@ -6,6 +6,7 @@ const Design = require("../models/Design");
 router.post('/save-design', (req, res, next) => {
     let user = req.body.userId;
     let type = req.body.type;
+    let price = req.body.price;
     let designName = req.body.designName;
     let red = req.body.red;
     let green = req.body.green;
@@ -209,6 +210,7 @@ router.post('/save-design', (req, res, next) => {
 
     let design = new Design({
         type,
+        price,
         designName,
         red,
         green,

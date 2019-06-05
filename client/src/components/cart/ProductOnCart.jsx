@@ -31,7 +31,7 @@ export default class ProductOnCart extends Component {
             .then()
             .catch(err => console.log(err));
 
-        const toPayOne = (quantity * 30);
+        const toPayOne = (quantity * (this.props.tShirt.type === 't-shirt'? 30 : 40));
         this.service.addMoneyToPay(designId, toPayOne)
             .then(() => {
                 this.service.allTShirt(this.props.user._id)
@@ -89,7 +89,7 @@ export default class ProductOnCart extends Component {
                             <div className="nameDesignList">
                                 <h4>Name: <span className="f700">{this.props.tShirt.designName}</span></h4>
                             </div>
-                            <h5>type: <span className="f700">{this.props.tShirt.type}</span></h5>
+                            <h5 className="cart-type">type: <span className="f700">{this.props.tShirt.type}</span></h5>
                             <form className="form-cart" onSubmit={(e) => this.quantity(e)} >
                                 <Form labelCss="label-design-name" inputCss="input-design-name" label="Quantity" type="number" name="quantity" value={this.state.quantity} onchange={(e) => this.changeQuantiy(e)} ></Form>
                                 <input type="submit" className="btn-quatity orange cursor" value="Add" />
