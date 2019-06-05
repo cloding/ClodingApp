@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import DesignService from "../../service/design-server";
+import DesignService from "../../../service/design-server";
 import { withRouter } from 'react-router-dom';
-import Form from '../form/Form';
-import Controles from './Controles';
-import TshirtStructure from './TshirtStructure';
+import Form from '../../form/Form';
+import Controles from '../Controles';
+import TshirtStructure from './sweatShirtStructure';
 
 class ConcatShirt extends Component {
     constructor(props) {
@@ -12,24 +12,31 @@ class ConcatShirt extends Component {
         this.state = {
             designName: 'Design name',
             layer: false,
-            shirtFront: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1557582263/Cloding/wear/t-shirt_gdawk3.png',
-            shirtBack: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559644869/Cloding/wear/tShirtBack_nh2lpl.png',
+            shirtFront: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559726308/Cloding/wear/sweatShirtFront_nnziau.png',
+            shirtBack: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559726308/Cloding/wear/sweatShirtBack_lenqsp.png',
             red: '255',
             blue: '255',
             green: '255',
-            tFrontGroup: [114, 80, 179, 55, 179, 55, 179, 100, 309, 100, 309, 54, 371, 75, 384, 84, 409, 120, 444, 181,
-                441, 188, 427, 201, 391, 222, 372, 230, 355, 206, 358, 440, 356, 442, 301, 445, 180, 445, 127, 440, 129, 403,
-                130, 392, 128, 209, 114, 233, 90, 223, 53, 199, 44, 191, 42, 184, 95, 95, 104, 86, 114, 80],
-            tBackGroup: [114, 80, 187, 54, 187, 54, 187, 35, 297, 35, 297, 54, 371, 75, 384, 84, 409, 120, 445, 187,
-                441, 193, 429, 206, 393, 228, 372, 236, 356, 212, 358, 440, 356, 442, 301, 445, 148, 445, 127, 440, 129, 403,
-                130, 392, 128, 209, 114, 233, 90, 223, 53, 199, 44, 191, 42, 184, 95, 95, 104, 86, 114, 80],
+            tFrontGroup: [146, 182, 180, 161, 189, 168, 216, 174, 240, 182, 289, 171, 300, 161, 333, 181, 340, 186, 343, 192,
+                349, 220, 355, 264, 364, 356, 369, 402, 370, 412, 366, 421, 361, 426, 363, 447, 354, 450, 336, 452, 332, 429,
+                328, 417, 328, 408, 328, 403, 325, 378, 322, 362, 318, 324, 314, 301, 310, 284, 311, 317, 312, 326, 317, 339,
+                319, 356, 320, 368, 321, 399, 322, 433, 304, 437, 238, 441, 174, 437, 155, 432, 160, 386, 162, 371, 163, 349,
+                167, 332, 167, 297, 153, 398, 152, 408, 152, 421, 151, 425, 149, 428, 147, 450, 140, 451, 118, 449, 119, 426,
+                113, 419, 110, 410, 120, 317, 123, 291, 124, 271, 132, 216, 137, 194, 141, 185, 146, 182],
+            tBackGroup: [146, 182, 177, 164, 174, 153, 173, 140, 177, 125, 191, 78, 201, 55, 213, 43, 238, 39, 256, 41, 271,
+                48, 280, 64, 292, 92, 299, 125, 302, 145, 302, 163, 333, 181, 340, 186, 343, 192, 349, 220, 355, 264, 364, 356,
+                369, 402, 370, 412, 366, 421, 361, 426, 363, 447, 354, 450, 336, 452, 332, 429, 328, 417, 328, 408, 328, 403, 325,
+                378, 322, 362, 318, 324, 314, 301, 310, 284, 311, 317, 312, 326, 317, 339, 319, 356, 320, 368, 321, 399, 322, 433,
+                304, 437, 238, 441, 174, 437, 155, 432, 160, 386, 162, 371, 163, 349, 167, 332, 167, 297, 153, 398, 152, 408, 152,
+                421, 151, 425, 149, 428, 147, 450, 140, 451, 118, 449, 119, 426, 113, 419, 110, 410, 120, 317, 123, 291, 124, 271,
+                132, 216, 137, 194, 141, 185, 146, 182],
             front: {
                 image1: {
                     imageUrl: '',
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -43,7 +50,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -57,7 +64,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -71,7 +78,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -88,7 +95,7 @@ class ConcatShirt extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 },
                 text2: {
                     text: '',
@@ -98,7 +105,7 @@ class ConcatShirt extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 },
                 text3: {
                     text: '',
@@ -108,7 +115,7 @@ class ConcatShirt extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 },
                 text4: {
                     text: '',
@@ -118,7 +125,7 @@ class ConcatShirt extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 }
             },
             back: {
@@ -127,7 +134,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -141,7 +148,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -155,7 +162,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -169,7 +176,7 @@ class ConcatShirt extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -185,8 +192,8 @@ class ConcatShirt extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 },
                 text2: {
                     text: '',
@@ -195,8 +202,8 @@ class ConcatShirt extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 },
                 text3: {
                     text: '',
@@ -205,8 +212,8 @@ class ConcatShirt extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 },
                 text4: {
                     text: '',
@@ -215,8 +222,8 @@ class ConcatShirt extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 }
             }
         }
@@ -228,7 +235,8 @@ class ConcatShirt extends Component {
     saveDesign = (event) => {
         event.preventDefault();
         const userId = this.props.user._id;
-        const type = "t-shirt";
+        const type = "sweatshirt";
+        const price = 40;
         const designName = this.state.designName;
         const red = this.state.red;
         const green = this.state.green;
@@ -236,7 +244,7 @@ class ConcatShirt extends Component {
         const front = this.state.front;
         const back = this.state.back;
 
-        this.service.saveDesign(userId, type, designName, red, green, blue, front, back)
+        this.service.saveDesign(userId, type, price, designName, red, green, blue, front, back)
             .then(() => {
                 this.props.history.push("/cart")
             })
@@ -288,7 +296,7 @@ class ConcatShirt extends Component {
         newValue[id].textStyle = 'normal';
         newValue[id].textRotation = 0;
         newValue[id].textX = 190;
-        newValue[id].textY = 150;
+        newValue[id].textY = 220;
         this.setState({ newValue });
     }
 
@@ -328,7 +336,7 @@ class ConcatShirt extends Component {
         newValue[id].imageUrlFix = '';
         newValue[id].active = false;
         newValue[id].x = 190;
-        newValue[id].y = 150;
+        newValue[id].y = 200;
         newValue[id].scaleX = 1;
         newValue[id].scaleY = 1;
         newValue[id].opacity = 1;
@@ -375,7 +383,7 @@ class ConcatShirt extends Component {
                     <div className="pageStructure">
                         <div className="container white">
                             <div className="half-container padding-canvas">
-                                <div className="canvas-title"><h2>{this.state.designName}</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer? 'Front' : 'Back' )}</button></div>
+                                <div className="canvas-title"><h2>{this.state.designName}</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer ? 'Front' : 'Back')}</button></div>
                                 <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
                                     <Controles
                                         red={this.state.red}
@@ -453,7 +461,7 @@ class ConcatShirt extends Component {
                     <div className="pageStructure" >
                         <div className="container white">
                             <div className="half-container padding-canvas">
-                                <div className="canvas-title"><h2>T-shirt designer</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer? 'Front' : 'Back' )}</button></div>
+                                <div className="canvas-title"><h2>T-shirt designer</h2><button type="button" className="btn light-blue cursor" onClick={() => this.changeLayer()}>{(this.state.layer ? 'Front' : 'Back')}</button></div>
                                 <div className={`${(this.state.layer ? 'layerHidden' : 'layerShow')}`}>
                                     <Controles
                                         red={this.state.red}

@@ -12,7 +12,9 @@
 }
 
 .cart-product {
-    display: flex;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(8, 1fr); 
     background-color: #BCCBDE;
     border-radius: 10px;
     justify-content: space-between;
@@ -20,6 +22,7 @@
     padding: 10px 20px;
     margin-bottom: 10px;
 }
+
 
 .form-cart {
     display: flex;
@@ -67,5 +70,9 @@
 }
 
 .nameDesignList {
-    width: 35%;
+    grid-column: span 3;
+}
+
+.cart-type {
+    grid-column: span 2;
 }

@@ -10,8 +10,8 @@ export default class designService {
         })
     }
 
-    saveDesign = (userId, type, designName, red, green, blue, front, back) => {
-        return this.service.post('/save-design', { userId, type, designName, red, green, blue, front, back })
+    saveDesign = (userId, type, price, designName, red, green, blue, front, back) => {
+        return this.service.post('/save-design', { userId, type, price, designName, red, green, blue, front, back })
             .then(response => response.data)
             .catch(err => console.log(err.res.data))
     }

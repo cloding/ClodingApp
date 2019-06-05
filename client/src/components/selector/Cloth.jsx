@@ -14,7 +14,7 @@ export default class Cloth extends Component {
                                 <p>{this.props.clothText}</p>
                                 <h4 className="price-selector">Price: <span className="f700">{this.props.price}</span>€ </h4>
                             </div>
-                            <Link className="btn orange" to={"/t-shirt/designer"}>Start</Link>
+                            <Link className="btn orange" to={this.props.link}>Start</Link>
                         </div>
                         <div className="half-container selector-right">
                             <div className="selector-right-container">

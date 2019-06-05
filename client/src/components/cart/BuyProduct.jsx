@@ -26,7 +26,7 @@ export default class BuyProduct extends Component {
                     <div className="nameDesignList">
                         <h4>Name: <span className="f700">{this.props.oldOrder.designName}</span></h4>
                     </div>
-                    <h5>type: <span className="f700">{this.props.oldOrder.type}</span></h5>
+                    <h5 className="cart-type">type: <span className="f700">{this.props.oldOrder.type}</span></h5>
                     <p className="label-design-name">Quantity: <span className="f700">{this.props.oldOrder.quantity}</span></p>
                     <p className="label-design-name">Price: <span className="f700">{this.props.oldOrder.price}</span>€</p>
                     <button className="btn-cart orange cursor" onClick={(e) => this.moveToCart(e)}>Cart</button>

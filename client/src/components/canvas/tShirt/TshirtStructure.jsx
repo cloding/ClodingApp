@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Konva from 'konva';
 import { Stage, Layer, Group, Transformer, Text } from 'react-konva';
-import Tshirt from './Tshirt';
-import Images from './Images';
-import './Canvas.css';
+import Tshirt from '../Tshirt';
+import Images from '../Images';
+import '../Canvas.css';
 
 export default class TshirtStructure extends Component {
     constructor(props) {
@@ -29,10 +29,10 @@ export default class TshirtStructure extends Component {
 
     }
 
-    mouseOver(e) {
-        console.log("x:" + e.evt.layerX)
-        console.log("y:" + e.evt.layerY)
-    }
+    // mouseOver(e) {
+    //     console.log("x:" + e.evt.layerX)
+    //     console.log("y:" + e.evt.layerY)
+    // }
 
     componentDidMount() {
         const group = this.props.group;
@@ -124,9 +124,13 @@ export default class TshirtStructure extends Component {
     render() {
         return (
             <React.Fragment>
-                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} onClick={(e) => this.mouseOver(e)} >
+                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} >
                     <Layer>
                         <Tshirt
+                            x={30}
+                            y={35}
+                            width={426}
+                            height={430}
                             shirt={this.props.shirt}
                             filters={[Konva.Filters.RGB]}
                             blue={this.props.blue}
