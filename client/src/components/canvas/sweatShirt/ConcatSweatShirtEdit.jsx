@@ -12,14 +12,17 @@ export default class Canvas extends Component {
             design: {},
             designName: '',
             layer: false,
-            shirtFront: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1557582263/Cloding/wear/t-shirt_gdawk3.png',
-            shirtBack: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559644869/Cloding/wear/tShirtBack_nh2lpl.png',
+            shirtFront: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559726308/Cloding/wear/sweatShirtFront_nnziau.png',
+            shirtBack: 'https://res.cloudinary.com/dgp1wgz95/image/upload/v1559726308/Cloding/wear/sweatShirtBack_lenqsp.png',
             red: '255',
             blue: '255',
             green: '255',
-            tFrontGroup: [114, 80, 179, 55, 179, 55, 179, 100, 309, 100, 309, 54, 371, 75, 384, 84, 409, 120, 444, 181,
-                441, 188, 427, 201, 391, 222, 372, 230, 355, 206, 358, 440, 356, 442, 301, 445, 180, 445, 127, 440, 129, 403,
-                130, 392, 128, 209, 114, 233, 90, 223, 53, 199, 44, 191, 42, 184, 95, 95, 104, 86, 114, 80],
+            tFrontGroup: [146, 182, 180, 161, 189, 168, 216, 174, 240, 182, 289, 171, 300, 161, 333, 181, 340, 186, 343, 192,
+                349, 220, 355, 264, 364, 356, 369, 402, 370, 412, 366, 421, 361, 426, 363, 447, 354, 450, 336, 452, 332, 429,
+                328, 417, 328, 408, 328, 403, 325, 378, 322, 362, 318, 324, 314, 301, 310, 284, 311, 317, 312, 326, 317, 339,
+                319, 356, 320, 368, 321, 399, 322, 433, 304, 437, 238, 441, 174, 437, 155, 432, 160, 386, 162, 371, 163, 349,
+                167, 332, 167, 297, 153, 398, 152, 408, 152, 421, 151, 425, 149, 428, 147, 450, 140, 451, 118, 449, 119, 426,
+                113, 419, 110, 410, 120, 317, 123, 291, 124, 271, 132, 216, 137, 194, 141, 185, 146, 182],
             tBackGroup: [114, 80, 187, 54, 187, 54, 187, 35, 297, 35, 297, 54, 371, 75, 384, 84, 409, 120, 445, 187,
                 441, 193, 429, 206, 393, 228, 372, 236, 356, 212, 358, 440, 356, 442, 301, 445, 148, 445, 127, 440, 129, 403,
                 130, 392, 128, 209, 114, 233, 90, 223, 53, 199, 44, 191, 42, 184, 95, 95, 104, 86, 114, 80],
@@ -29,7 +32,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -43,7 +46,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -57,7 +60,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -71,7 +74,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -88,7 +91,7 @@ export default class Canvas extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 },
                 text2: {
                     text: '',
@@ -98,7 +101,7 @@ export default class Canvas extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 },
                 text3: {
                     text: '',
@@ -108,7 +111,7 @@ export default class Canvas extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 },
                 text4: {
                     text: '',
@@ -118,7 +121,7 @@ export default class Canvas extends Component {
                     textStyle: 'normal',
                     textRotation: 0,
                     textX: 190,
-                    textY: 150
+                    textY: 220
                 }
             },
             back: {
@@ -127,7 +130,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -141,7 +144,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -155,7 +158,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -169,7 +172,7 @@ export default class Canvas extends Component {
                     imageUrlFix: '',
                     active: false,
                     x: 190,
-                    y: 150,
+                    y: 200,
                     opacity: 1,
                     scaleX: 1,
                     scaleY: 1,
@@ -185,8 +188,8 @@ export default class Canvas extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 },
                 text2: {
                     text: '',
@@ -195,8 +198,8 @@ export default class Canvas extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 },
                 text3: {
                     text: '',
@@ -205,8 +208,8 @@ export default class Canvas extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 },
                 text4: {
                     text: '',
@@ -215,8 +218,8 @@ export default class Canvas extends Component {
                     textSize: '20',
                     textStyle: 'normal',
                     textRotation: 0,
-                    textX: '190',
-                    textY: '150',
+                    textX: 190,
+                    textY: 220
                 }
             }
         }
@@ -321,7 +324,7 @@ export default class Canvas extends Component {
         newValue[id].textStyle = 'normal';
         newValue[id].textRotation = 0;
         newValue[id].textX = 190;
-        newValue[id].textY = 150;
+        newValue[id].textY = 220;
         this.setState({ newValue });
     }
 
@@ -361,7 +364,7 @@ export default class Canvas extends Component {
         newValue[id].imageUrlFix = '';
         newValue[id].active = false;
         newValue[id].x = 190;
-        newValue[id].y = 150;
+        newValue[id].y = 200;
         newValue[id].scaleX = 1;
         newValue[id].scaleY = 1;
         newValue[id].opacity = 1;

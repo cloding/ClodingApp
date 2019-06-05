@@ -94,7 +94,7 @@ export default class ProductOnCart extends Component {
                                 <Form labelCss="label-design-name" inputCss="input-design-name" label="Quantity" type="number" name="quantity" value={this.state.quantity} onchange={(e) => this.changeQuantiy(e)} ></Form>
                                 <input type="submit" className="btn-quatity orange cursor" value="Add" />
                             </form>
-                            <Link className="btn-cart purple" to={`/t-shirt/designer/${this.props.tShirt._id}`} >Edit</Link>
+                            <Link className="btn-cart purple" to={(this.props.tShirt.type === 't-shirt'? `/t-shirt/designer/${this.props.tShirt._id}` : `/sweatshirt/designer/${this.props.tShirt._id}`)} >Edit</Link>
                             <button className="btn-cart red cursor" onClick={(e) => this.delete(e)}>Delete</button>
                         </div>
 

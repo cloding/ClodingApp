@@ -29,10 +29,10 @@ export default class TshirtStructure extends Component {
 
     }
 
-    mouseOver(e) {
-        console.log("x:" + e.evt.layerX)
-        console.log("y:" + e.evt.layerY)
-    }
+    // mouseOver(e) {
+    //     console.log("x:" + e.evt.layerX)
+    //     console.log("y:" + e.evt.layerY)
+    // }
 
     componentDidMount() {
         const group = this.props.group;
@@ -100,7 +100,20 @@ export default class TshirtStructure extends Component {
             ctx.lineTo(group[120], group[121]);
             ctx.lineTo(group[122], group[123]);
             ctx.lineTo(group[124], group[125]);
-            ctx.stroke();
+            ctx.lineTo(group[126], group[127]);
+            ctx.lineTo(group[128], group[129]);
+            ctx.lineTo(group[130], group[131]);
+            ctx.lineTo(group[132], group[133]);
+            ctx.lineTo(group[134], group[135]);
+            ctx.lineTo(group[136], group[137]);
+            ctx.lineTo(group[138], group[139]);
+            ctx.lineTo(group[140], group[141]);
+            ctx.lineTo(group[142], group[143]);
+            ctx.lineTo(group[144], group[145]);
+            ctx.lineTo(group[146], group[147]);
+            ctx.lineTo(group[148], group[149]);
+            ctx.lineTo(group[150], group[151]);
+            // ctx.stroke();
         });
     }
 
@@ -158,7 +171,7 @@ export default class TshirtStructure extends Component {
     render() {
         return (
             <React.Fragment>
-                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} onClick={(e) => this.mouseOver(e)} >
+                <Stage width={480} height={480} onMouseDown={(e) => this.handleStageMouseDown(e)} >
                     <Layer>
                         <Tshirt
                             x={103}
