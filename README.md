@@ -1,9 +1,11 @@
 # ClodingApp
 
-CloadingApp es una pagina web que te permite de crear el diseño de tus camicetas y sudaderas.
-Para hacerla utilicé las siguentes tecnologias: Html5, Css3, JS ES6, React, Node, ExpressJS, MongoDB, Mongoose. 
+CloadingApp es un sitio web donde podrás diseño tus propias camisetas y sudaderas de manera interactiva.
+Para desarrollarla, he utilizado las siguentes tecnologias: Html5, Css3, JS ES6, React, Node, ExpressJS, MongoDB, Mongoose.
 
-**Por el momento no es disponible la version mobile**
+Tiempo de desarrollo: 12 dias.
+
+**Por el momento no está disponible la version mobile**
 
 
 
