@@ -113,6 +113,7 @@ export default class TshirtStructure extends Component {
             ctx.lineTo(group[146], group[147]);
             ctx.lineTo(group[148], group[149]);
             ctx.lineTo(group[150], group[151]);
+            
             // ctx.stroke();
         });
     }
